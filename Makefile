@@ -48,7 +48,7 @@ AS_DEFS =
 
 # include directories (absolute or relative paths to additional folders with
 # headers, current folder is always included)
-INC_DIRS =
+INC_DIRS = 
 
 # library directories (absolute or relative paths to additional folders with
 # libraries)
@@ -60,7 +60,7 @@ LIBS = -lc -lc -lnosys
 
 # additional directories with source files (absolute or relative paths to
 # folders with source files, current folder is always included)
-SRCS_DIRS =
+SRCS_DIRS = 
 
 # extension of C++ files
 CXX_EXT = cpp
