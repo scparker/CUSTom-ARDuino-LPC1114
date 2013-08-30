@@ -1,7 +1,4 @@
 stickers for lpc1114
-hardware Serial port
-	 restore itoa * stuff in WString
-
 wiring_analog port
 i2c driver port
 spi driver port

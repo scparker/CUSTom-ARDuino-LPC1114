@@ -88,8 +88,8 @@ AS_SRCS = $(wildcard $(patsubst %, %/*.$(AS_EXT), . $(SRCS_DIRS)))
 OPTIMIZATION = -Os
 
 # warning options 
-CXX_WARNINGS = -Wall -Wextra
-C_WARNINGS = -Wall -Wstrict-prototypes -Wextra
+CXX_WARNINGS = # -Wall -Wextra
+C_WARNINGS = # -Wall -Wstrict-prototypes -Wextra
 
 # C++ language standard ("c++98", "gnu++98" - default, "c++0x", "gnu++0x")
 CXX_STD = gnu++98
@@ -273,7 +273,9 @@ debug: $(ELF)
 debugtui: $(ELF)
 	arm-none-eabi-gdbtui -x ../gdb_commands $(ELF)
 
-#	./lpc21isp -control $(HEX) COM4 19200 12000
+serial:  
+	python -m serial.tools.miniterm --port=/dev/tty.Foo-DevB
+
 
 #-----------------------------------------------------------------------------#
 # create the desired output directory

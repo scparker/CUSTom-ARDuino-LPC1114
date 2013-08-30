@@ -1,4 +1,4 @@
-out/wiring.o: wiring.c wiring_private.h Arduino.h \
+out/sketch.o: sketch.cpp Arduino.h \
  /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/include/stdint.h \
  /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/include/stdint.h \
  /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/include/_ansi.h \
@@ -29,8 +29,6 @@ out/wiring.o: wiring.c wiring_private.h Arduino.h \
  /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/include/sys/string.h \
  /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/include/ctype.h \
  Printable.h new.h printf.h
-
-wiring_private.h:
 
 Arduino.h:
 

@@ -176,6 +176,7 @@ size_t HardwareSerial::write(uint8_t ch)
   return (uint8_t)ch;
 }
 
+#if 0 
 int HardwareSerial::write(char *string)
 {
   register char ch;
@@ -185,12 +186,11 @@ int HardwareSerial::write(char *string)
   
   return 0;
 }
+#endif
 
 HardwareSerial::operator bool() {
 	return true;
 }
 
 // Preinstantiate Objects //////////////////////////////////////////////////////
-
-HardwareSerial Serial(void);
 
