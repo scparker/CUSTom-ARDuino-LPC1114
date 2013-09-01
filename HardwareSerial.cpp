@@ -19,6 +19,8 @@
   Modified 23 November 2006 by David A. Mellis
   Modified 28 September 2010 by Mark Sproul
   Modified 14 August 2012 by Alarus
+
+  Ported to ARM/LPC1114 26 August 2013 by Steven C. Parker
 */
 
 #include <stdlib.h>
@@ -194,3 +196,4 @@ HardwareSerial::operator bool() {
 
 // Preinstantiate Objects //////////////////////////////////////////////////////
 
+HardwareSerial Serial = HardwareSerial();

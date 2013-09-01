@@ -1,5 +1,5 @@
 /*
-  HardwareSerial.h - Hardware serial library for Wiring
+  TwoWire.h - TWI/I2C library for Arduino & Wiring
   Copyright (c) 2006 Nicholas Zambetti.  All right reserved.
 
   This library is free software; you can redistribute it and/or
@@ -16,33 +16,36 @@
   License along with this library; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-  Modified 28 September 2010 by Mark Sproul
-  Modified 14 August 2012 by Alarus
+  Modified 2012 by Todd Krein (todd@krein.org) to implement repeated starts
 */
 
-#ifndef HardwareSerial_h
-#define HardwareSerial_h
+#ifndef TwoWire_h
+#define TwoWire_h
 
 #include <inttypes.h>
 #include "Stream.h"
 
-class HardwareSerial : public Stream
+#define BUFFER_LENGTH 32
+
+class TwoWire
 {
- private:
- public:
-  HardwareSerial();
-  void begin(unsigned long baud);
-  void end();
-  int available(void);
-  int peek(void);
-  int read(void);
-  void flush();
-  virtual size_t write(uint8_t);
-  //  int write(char *string);
-  using Print::write;
-  operator bool();
+  private:
+  public:
+    TwoWire();
+    void begin();
+    void beginTransmission(uint8_t address);
+    void beginTransmission(int address);
+    uint8_t endTransmission(uint8_t);
+    uint8_t endTransmission(void);
+    uint8_t requestFrom(uint8_t, uint8_t, uint8_t);
+    uint8_t requestFrom(int, int, int);
+    uint8_t requestFrom(uint8_t, uint8_t);
+    uint8_t requestFrom(int, int);
+    size_t write(uint8_t);
+    uint8_t read();
 };
+
+extern TwoWire Wire;
 
 #endif
 
-extern HardwareSerial Serial;

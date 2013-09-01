@@ -8,6 +8,7 @@ int main( void );
 extern "C" { void __startup( void ); }
 void TIMER0_OVF_vect( void );
 void UART_IRQHandler ( void );
+void I2C_IRQHandler ( void );
 extern int __stack_end;			
 
 // nr 7 (offset 0x1C) is the vectors checksum
@@ -44,7 +45,7 @@ extern void (* const __vectors[ 40 ])(void)
       0,          /* IRQ12 */
       0,          /* IRQ13 */
       0,          /* IRQ14 - SPI1    */
-      0,          /* IRQ15 - I2C     */
+      I2C_IRQHandler,          /* IRQ15 - I2C     */
       TIMER0_OVF_vect,          /* IRQ16 - CT16B0  */
       0,          /* IRQ17 - CT16B1  */
       0,          /* IRQ18 - CT32B0  */

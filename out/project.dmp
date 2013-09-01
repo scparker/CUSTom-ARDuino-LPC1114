@@ -7,50 +7,50 @@ start address 0x00000101
 
 Program Header:
     LOAD off    0x00008000 vaddr 0x00000000 paddr 0x00000000 align 2**15
-         filesz 0x000011d8 memsz 0x000011d8 flags r-x
-    LOAD off    0x00010000 vaddr 0x10000000 paddr 0x000011d8 align 2**15
+         filesz 0x00001510 memsz 0x00001510 flags r-x
+    LOAD off    0x00010000 vaddr 0x10000000 paddr 0x00001510 align 2**15
          filesz 0x0000083c memsz 0x0000083c flags rw-
     LOAD off    0x0001083c vaddr 0x1000083c paddr 0x1000083c align 2**15
-         filesz 0x00000000 memsz 0x000005c4 flags rw-
+         filesz 0x00000000 memsz 0x000006dc flags rw-
 private flags = 5000002: [Version5 EABI] [has entry point]
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000011d8  00000000  00000000  00008000  2**3
+  0 .text         00001510  00000000  00000000  00008000  2**3
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         0000083c  10000000  000011d8  00010000  2**3
+  1 .data         0000083c  10000000  00001510  00010000  2**3
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          000001c0  1000083c  1000083c  0001083c  2**2
+  2 .bss          000002dc  1000083c  1000083c  0001083c  2**2
                   ALLOC
-  3 .stack        00000404  100009fc  100009fc  0001083c  2**0
+  3 .stack        00000400  10000b18  10000b18  0001083c  2**0
                   ALLOC
-  4 .debug_aranges 000005b8  00000000  00000000  0001083c  2**0
+  4 .debug_aranges 00000648  00000000  00000000  0001083c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   000098bc  00000000  00000000  00010df4  2**0
+  5 .debug_info   0000a39e  00000000  00000000  00010e84  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00001940  00000000  00000000  0001a6b0  2**0
+  6 .debug_abbrev 00001be9  00000000  00000000  0001b222  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00003323  00000000  00000000  0001bff0  2**0
+  7 .debug_line   0000389e  00000000  00000000  0001ce0b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00002130  00000000  00000000  0001f314  2**2
+  8 .debug_frame  00002290  00000000  00000000  000206ac  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    000091f1  00000000  00000000  00021444  2**0
+  9 .debug_str    00009851  00000000  00000000  0002293c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00004f0d  00000000  00000000  0002a635  2**0
+ 10 .debug_loc    000053b3  00000000  00000000  0002c18d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .ARM.attributes 00000028  00000000  00000000  0002f542  2**0
+ 11 .ARM.attributes 00000028  00000000  00000000  00031540  2**0
                   CONTENTS, READONLY
- 12 .debug_ranges 00000a18  00000000  00000000  0002f56a  2**0
+ 12 .debug_ranges 00000ae8  00000000  00000000  00031568  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_macro  0000302a  00000000  00000000  0002ff82  2**0
+ 13 .debug_macro  00003361  00000000  00000000  00032050  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .comment      00000070  00000000  00000000  00032fac  2**0
+ 14 .comment      00000070  00000000  00000000  000353b1  2**0
                   CONTENTS, READONLY
 SYMBOL TABLE:
 00000000 l    d  .text	00000000 .text
 10000000 l    d  .data	00000000 .data
 1000083c l    d  .bss	00000000 .bss
-100009fc l    d  .stack	00000000 .stack
+10000b18 l    d  .stack	00000000 .stack
 00000000 l    d  .debug_aranges	00000000 .debug_aranges
 00000000 l    d  .debug_info	00000000 .debug_info
 00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
@@ -64,26 +64,27 @@ SYMBOL TABLE:
 00000000 l    d  .comment	00000000 .comment
 00000000 l    df *ABS*	00000000 lpc1114.c
 00000000 l    df *ABS*	00000000 crtstuff.c
-000011b0 l     O .text	00000000 __EH_FRAME_BEGIN__
+000014e8 l     O .text	00000000 __EH_FRAME_BEGIN__
 000000a0 l     F .text	00000000 __do_global_dtors_aux
 1000083c l       .bss	00000000 completed.7586
-000011d4 l     O .text	00000000 __do_global_dtors_aux_fini_array_entry
+0000150c l     O .text	00000000 __do_global_dtors_aux_fini_array_entry
 000000c8 l     F .text	00000000 frame_dummy
 10000840 l       .bss	00000000 object.7591
-000011c0 l     O .text	00000000 __frame_dummy_init_array_entry
+000014f8 l     O .text	00000000 __frame_dummy_init_array_entry
 00000000 l    df *ABS*	00000000 wiring_digital.c
-000010e4 l     O .text	00000014 _ZL18port_to_output_PGM
-000010f8 l     O .text	00000028 _ZL27digital_pin_to_bit_mask_PGM
-00001120 l     O .text	00000014 _ZL23digital_pin_to_port_PGM
-00001134 l     O .text	00000014 _ZL16port_to_mode_PGM
+00001404 l     O .text	00000014 _ZL18port_to_output_PGM
+00001418 l     O .text	00000028 _ZL27digital_pin_to_bit_mask_PGM
+00001440 l     O .text	00000014 _ZL23digital_pin_to_port_PGM
+00001454 l     O .text	00000014 _ZL16port_to_mode_PGM
 00000000 l    df *ABS*	00000000 wiring.c
 1000085c l     O .bss	00000001 _ZL12timer0_fract
 00000000 l    df *ABS*	00000000 sketch.cpp
-00000354 l     F .text	00000010 _GLOBAL__sub_I_serial
 00000000 l    df *ABS*	00000000 HardwareSerial.cpp
-100008b8 l     O .bss	00000001 _ZZ15UART_IRQHandlervE4temp
-100008bd l     O .bss	00000001 _ZZ15UART_IRQHandlervE3iid
+0000066c l     F .text	00000010 _GLOBAL__sub_I_uart_rx_buffer
+100008a5 l     O .bss	00000001 _ZZ15UART_IRQHandlervE4temp
+100008bb l     O .bss	00000001 _ZZ15UART_IRQHandlervE3iid
 00000000 l    df *ABS*	00000000 main.cpp
+00000000 l    df *ABS*	00000000 Wire.cpp
 00000000 l    df *ABS*	00000000 Print.cpp
 00000000 l    df *ABS*	00000000 __atexit.c
 00000000 l    df *ABS*	00000000 fini.c
@@ -93,12 +94,12 @@ SYMBOL TABLE:
 00000000 l    df *ABS*	00000000 sbrkr.c
 00000000 l    df *ABS*	00000000 strlen.c
 00000000 l    df *ABS*	00000000 __call_atexit.c
-00000da4 l     F .text	00000018 register_fini
+000010c4 l     F .text	00000018 register_fini
 00000000 l    df *ABS*	00000000 atexit.c
 00000000 l    df *ABS*	00000000 mallocr.c
 00000000 l    df *ABS*	00000000 sbrk.c
-100009f4 l     O .bss	00000004 heap_end.4231
-00001048 l       .text	00000000 .udivsi3_skip_div0_test
+10000b10 l     O .bss	00000004 heap_end.4231
+00001368 l       .text	00000000 .udivsi3_skip_div0_test
 00000000 l    df *ABS*	00000000 impure.c
 10000000 l     O .data	00000428 impure_data
 00000000 l    df *ABS*	00000000 printf.c
@@ -154,116 +155,134 @@ SYMBOL TABLE:
 00000000 l    df *ABS*	00000000 truncdfsf2.c
 10000000 g       *ABS*	00000000 __ram_start
 10000858 g     O .bss	00000004 timer0_overflow_count
+10000a40 g     O .bss	00000004 I2CReadLength
+00000910 g     F .text	00000020 _ZN7TwoWire17beginTransmissionEh
 10001000 g       *ABS*	00000000 __ram_end
-00000688 g     F .text	00000018 _ZN5Print7printlnEv
+000009a8 g     F .text	00000018 _ZN5Print7printlnEv
+10000a48 g     O .bss	00000004 RdIndex
 00000000         *UND*	00000000 _ZN6String6concatEd
-100008bf g     O .bss	00000100 uart_tx_buffer
-00000d6c g     F .text	00000002 __malloc_unlock
+10000a5c g     O .bss	00000080 I2CSlaveBuffer
+100008bd g     O .bss	00000100 uart_tx_buffer
+0000108c g     F .text	00000002 __malloc_unlock
 10000860 g     O .bss	00000004 timer0_millis
-000003dc g     F .text	00000024 _ZN14HardwareSerial4peekEv
-000011d8 g       *ABS*	00000000 __exidx_end
-000006b4 g     F .text	00000046 _ZN5Print11printNumberEmh
-00000638 g     F .text	00000022 _ZN5Print5writeEPKhj
-00000494 g     F .text	000000cc _Z15UART_IRQHandlerv
-100009f8 g     O .bss	00000004 errno
-00000334 g     F .text	00000020 _Z5setupv
+00000420 g     F .text	00000024 _ZN14HardwareSerial4peekEv
+00001510 g       *ABS*	00000000 __exidx_end
+000009d4 g     F .text	00000046 _ZN5Print11printNumberEmh
+00000958 g     F .text	00000022 _ZN5Print5writeEPKhj
+000004d8 g     F .text	000000cc _Z15UART_IRQHandlerv
+10000b14 g     O .bss	00000004 errno
+00000340 g     F .text	00000028 _Z5setupv
 00000000 g       .text	00000000 __text_start
-000003c4 g     F .text	00000018 _ZN14HardwareSerial9availableEv
-00000430 g     F .text	00000064 _ZN14HardwareSerial5writeEh
-10000e00 g       .stack	00000000 __process_stack_end
-000011d8 g       .text	00000000 __fini_array_end
-00000364 g     F .text	00000060 _Z4loopv
-00000840 g     F .text	00000014 malloc
-00001044 g     F .text	00000088 __udivsi3
-10000e00 g       .stack	00000000 __process_stack_start
-100009c8 g     O .bss	00000004 __malloc_top_pad
+00000408 g     F .text	00000018 _ZN14HardwareSerial9availableEv
+00000474 g     F .text	00000064 _ZN14HardwareSerial5writeEh
+10000f18 g       .stack	00000000 __process_stack_end
+00001510 g       .text	00000000 __fini_array_end
+00000368 g     F .text	000000a0 _Z4loopv
+00000b60 g     F .text	00000014 malloc
+00001364 g     F .text	00000088 __udivsi3
+10000f18 g       .stack	00000000 __process_stack_start
+0000093c g     F .text	0000001c _ZN7TwoWire4readEv
+10000ae4 g     O .bss	00000004 __malloc_top_pad
 00000000         *UND*	00000000 __bss_start__
-100008be g     O .bss	00000001 uart_tx_extract_idx
-000011d8 g       *ABS*	00000000 __data_init_start
-00000d70 g     F .text	00000024 _sbrk_r
-100008bb g     O .bss	00000001 uart_tx_running
-0000065a  w    F .text	0000001c _ZN5Print5writeEPKc
-00000578 g     F .text	000000b0 _ZN14HardwareSerial5beginEm
-00001030 g     F .text	00000012 __gnu_thumb1_case_uqi
-100009c4 g     O .bss	00000004 __malloc_max_sbrked_mem
+100008bc g     O .bss	00000001 uart_tx_extract_idx
+00001510 g       *ABS*	00000000 __data_init_start
+00001090 g     F .text	00000024 _sbrk_r
+100008b9 g     O .bss	00000001 uart_tx_running
+0000097a  w    F .text	0000001c _ZN5Print5writeEPKc
+000005bc g     F .text	000000b0 _ZN14HardwareSerial5beginEm
+00001350 g     F .text	00000012 __gnu_thumb1_case_uqi
+10000ae0 g     O .bss	00000004 __malloc_max_sbrked_mem
 000001c0 g     F .text	00000038 _Z12digitalWritehh
-000011d8 g       *ABS*	00000000 __exidx_start
+10000a50 g     O .bss	00000004 I2CMasterState
+00001510 g       *ABS*	00000000 __exidx_start
 00008000 g       *ABS*	00000000 __rom_end
-000011ac g     O .text	00000004 _global_impure_ptr
-10000e00 g       .stack	00000000 __main_stack_end
-100009fc g       .bss	00000000 __bss_end
-00000ffc g     F .text	00000034 _sbrk
-000011b0 g     F .text	00000000 _init
-000007e0 g     F .text	00000060 __libc_fini_array
-10000a00 g       .stack	00000000 __stack_start
-00000712 g     F .text	00000008 _ZN5Print5printEhi
-100008bc g     O .bss	00000001 uart_rx_insert_idx
-0000042c g     F .text	00000002 _ZN14HardwareSerial5flushEv
+000014e4 g     O .text	00000004 _global_impure_ptr
+10000f18 g       .stack	00000000 __main_stack_end
+10000b18 g       .bss	00000000 __bss_end
+000008d8 g     F .text	00000028 _ZN7TwoWire11requestFromEhhh
+0000131c g     F .text	00000034 _sbrk
+000014e8 g     F .text	00000000 _init
+00000b00 g     F .text	00000060 __libc_fini_array
+10000b18 g       .stack	00000000 __stack_start
+00000a32 g     F .text	00000008 _ZN5Print5printEhi
+100008ba g     O .bss	00000001 uart_rx_insert_idx
+00000470 g     F .text	00000002 _ZN14HardwareSerial5flushEv
+00000930 g     F .text	0000000a _ZN7TwoWire15endTransmissionEv
 00000000  w      *UND*	00000000 __deregister_frame_info
-100009fc g       .bss	00000000 end
-000006a0 g     F .text	00000014 _ZN5Print7printlnEPKc
-00001188 g     O .text	00000020 _ZTV14HardwareSerial
+10000b18 g       .bss	00000000 end
+000009c0 g     F .text	00000014 _ZN5Print7printlnEPKc
+100008a8 g     O .bss	00000010 Serial
+000014c0 g     O .text	00000020 _ZTV14HardwareSerial
+00000874 g     F .text	00000058 _Z9I2CEnginev
 00000000         *UND*	00000000 __bss_end__
-0000067e g     F .text	0000000a _ZN5Print5printEc
-00000e6c g     F .text	00000190 _free_r
-10000868 g     O .bss	00000010 serial
-100008b9 g     O .bss	00000001 uart_tx_insert_idx
+0000099e g     F .text	0000000a _ZN5Print5printEc
+0000118c g     F .text	00000190 _free_r
+100008a6 g     O .bss	00000001 uart_tx_insert_idx
 10000838 g     O .data	00000004 __malloc_sbrk_base
+100009bd g     O .bss	00000080 I2CMasterBuffer
 00000000 g       *ABS*	00000000 __process_stack_size
 00000000 g     O .text	000000a0 __vectors
-0000071c g     F .text	000000c4 __register_exitproc
+00000a3c g     F .text	000000c4 __register_exitproc
 00008000 g       *ABS*	00000000 __rom_size
 1000083c g       .data	00000000 __data_end
 00000100 g     F .text	00000064 __startup
-100009cc g     O .bss	00000028 __malloc_current_mallinfo
+10000ae8 g     O .bss	00000028 __malloc_current_mallinfo
 00000000  w      *UND*	00000000 software_init_hook
-000002f8 g     F .text	0000003c _Z8mainmenuv
-000010e0  w    F .text	00000002 __aeabi_ldiv0
-10000e00 g       .stack	00000000 __stack_end
+00000900 g     F .text	0000000e _ZN7TwoWire11requestFromEii
+000002f8 g     F .text	00000048 _Z8mainmenuv
+0000068c g     F .text	0000014c _Z14I2C_IRQHandlerv
+00001400  w    F .text	00000002 __aeabi_ldiv0
+10000f18 g       .stack	00000000 __stack_end
 1000042c g     O .data	00000408 __malloc_av_
-000011d8 g       .text	00000000 __text_end
-00000d68 g     F .text	00000002 __malloc_lock
-000011d4 g       .text	00000000 __fini_array_start
-00000560 g     F .text	00000018 _ZN14HardwareSerialC1Ev
+00001510 g       .text	00000000 __text_end
+00001088 g     F .text	00000002 __malloc_lock
+0000150c g       .text	00000000 __fini_array_start
+000005a4 g     F .text	00000018 _ZN14HardwareSerialC1Ev
 1000083c g       .bss	00000000 __bss_start
-00000628 g     F .text	00000010 main
-100009c0 g     O .bss	00000004 __malloc_max_total_mem
-00001044 g     F .text	00000000 __aeabi_uidiv
-10000a00 g       .stack	00000000 __main_stack_start
-000011c8 g       .text	00000000 __init_array_end
-00000854 g     F .text	00000514 _malloc_r
+0000067c g     F .text	00000010 main
+10000adc g     O .bss	00000004 __malloc_max_total_mem
+00001364 g     F .text	00000000 __aeabi_uidiv
+10000b18 g       .stack	00000000 __main_stack_start
+10000a58 g     O .bss	00000004 timeout
+00001500 g       .text	00000000 __init_array_end
+00000b74 g     F .text	00000514 _malloc_r
 000001f8 g     F .text	0000003c _Z15TIMER0_OVF_vectv
-00000676 g     F .text	00000008 _ZN5Print5printEPKc
+00000996 g     F .text	00000008 _ZN5Print5printEPKc
 00000000  w      *UND*	00000000 hardware_init_hook
 00000000  w      *UND*	00000000 __libc_fini
-00000dcc g     F .text	000000a0 _malloc_trim_r
+000010ec g     F .text	000000a0 _malloc_trim_r
+10000a44 g     O .bss	00000004 I2CWriteLength
 10001000 g       *ABS*	00000000 __heap_end
-100008ba g     O .bss	00000001 uart_rx_extract_idx
+100008b8 g     O .bss	00000001 uart_rx_extract_idx
 00001000 g       *ABS*	00000000 __ram_size
-000011c8 g     F .text	00000000 _fini
+00001500 g     F .text	00000000 _fini
 00000000         *UND*	00000000 _ZN6String6concatEf
-00000dbc g     F .text	00000010 atexit
+000010dc g     F .text	00000010 atexit
 00000164 g     F .text	0000005c _Z7pinModehh
 10000428 g     O .data	00000004 _impure_ptr
-000011bc g       .text	00000000 __preinit_array_end
-000006fa g     F .text	00000018 _ZN5Print5printEmi
-10000e00 g       *ABS*	00000000 __heap_start
+10000a4c g     O .bss	00000001 Wire
+000014f4 g       .text	00000000 __preinit_array_end
+00000a1a g     F .text	00000018 _ZN5Print5printEmi
+10000f18 g       *ABS*	00000000 __heap_start
 00000000  w      *UND*	00000000 __stack
-000010cc g     F .text	00000012 __aeabi_uidivmod
+000013ec g     F .text	00000012 __aeabi_uidivmod
 00000000 g       *ABS*	00000000 __rom_start
+000008cc g     F .text	0000000a _ZN7TwoWire5beginEv
 10000834 g     O .data	00000004 __malloc_trim_threshold
-00000400 g     F .text	0000002c _ZN14HardwareSerial4readEv
+10000a54 g     O .bss	00000004 WrIndex
+00000444 g     F .text	0000002c _ZN14HardwareSerial4readEv
 00000234 g     F .text	000000c4 _Z4initv
+000007d8 g     F .text	0000009c _Z7I2CInitm
 00000400 g       *ABS*	00000000 __main_stack_size
-000010e0  w    F .text	00000002 __aeabi_idiv0
-000011bc g       .text	00000000 __init_array_start
+00001400  w    F .text	00000002 __aeabi_idiv0
+000014f4 g       .text	00000000 __init_array_start
 10000864 g     O .bss	00000001 ch
-00000d94 g     F .text	0000000e strlen
-10000878 g     O .bss	00000040 uart_rx_buffer
+000010b4 g     F .text	0000000e strlen
+10000865 g     O .bss	00000040 uart_rx_buffer
 10000000 g       .data	00000000 __data_start
 00000000  w      *UND*	00000000 _Jv_RegisterClasses
-000011bc g       .text	00000000 __preinit_array_start
-00000560 g     F .text	00000018 _ZN14HardwareSerialC2Ev
+000014f4 g       .text	00000000 __preinit_array_start
+000005a4 g     F .text	00000018 _ZN14HardwareSerialC2Ev
 00000000  w      *UND*	00000000 __register_frame_info
 
 

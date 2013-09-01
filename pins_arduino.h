@@ -66,8 +66,8 @@ const uint8_t digital_pin_to_port_PGM[] = {
 	PA,
 	PA,
 	PA,
-	PB,
-	PA, /* 14 */
+	PA,
+	PB, /* 14 */
 	PB,
 	PB,
 	PB,
@@ -89,8 +89,8 @@ const uint16_t digital_pin_to_bit_mask_PGM[] = {
 	_BV(9),
 	_BV(10),
 	_BV(5),
-	_BV(5),
-	_BV(11), /* 14, port C */
+	_BV(6),
+	_BV(5), /* 14, port C */
 	_BV(0),
 	_BV(1),
 	_BV(2),
