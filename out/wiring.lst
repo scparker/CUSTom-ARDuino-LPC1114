@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
   55              	@ -ftree-tail-merge -ftree-ter -ftree-vect-loop-version -ftree-vrp
   56              	@ -funit-at-a-time -funroll-loops -fvar-tracking -fvar-tracking-assignments
   57              	@ -fverbose-asm -fweb -fzero-initialized-in-bss -mlittle-endian
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 2
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 2
 
 
   58              	@ -msched-prolog -mthumb -mvectorize-with-neon-quad
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
   41:wiring.c      **** volatile unsigned long timer0_overflow_count = 0;
   42:wiring.c      **** volatile unsigned long timer0_millis = 0;
   43:wiring.c      **** static unsigned char timer0_fract = 0;
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 3
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 3
 
 
   44:wiring.c      **** 
@@ -178,35 +178,36 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
   59:wiring.c      ****   timer0_fract = f;
  105              		.loc 1 59 0
  106 001a 0B70     		strb	r3, [r1]	@ f, timer0_fract
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 4
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 4
 
 
  107              		.loc 1 61 0
  108 001c 0268     		ldr	r2, [r0]	@ timer0_overflow_count.6, timer0_overflow_count
  109              	.LVL5:
   62:wiring.c      **** 
-  63:wiring.c      ****   TMR16B0IR     = 1;
- 110              		.loc 1 63 0
+  63:wiring.c      ****   //  Clear the interrupt flag
+  64:wiring.c      ****   TMR16B0IR     = 1;
+ 110              		.loc 1 64 0
  111 001e 064B     		ldr	r3, .L5+12	@ tmp147,
  112              	.LVL6:
   61:wiring.c      ****   timer0_overflow_count++;
  113              		.loc 1 61 0
  114 0020 0132     		add	r2, r2, #1	@ timer0_overflow_count.7,
- 115              		.loc 1 63 0
+ 115              		.loc 1 64 0
  116 0022 0121     		mov	r1, #1	@ tmp148,
   61:wiring.c      ****   timer0_overflow_count++;
  117              		.loc 1 61 0
  118 0024 0260     		str	r2, [r0]	@ timer0_overflow_count.7, timer0_overflow_count
  119              	.LBE2:
-  64:wiring.c      **** }
- 120              		.loc 1 64 0
+  65:wiring.c      **** }
+ 120              		.loc 1 65 0
  121              		@ sp needed for prologue	@
  122              	.LBB3:
-  63:wiring.c      ****   TMR16B0IR     = 1;
- 123              		.loc 1 63 0
+  64:wiring.c      ****   TMR16B0IR     = 1;
+ 123              		.loc 1 64 0
  124 0026 1960     		str	r1, [r3]	@ tmp148, MEM[(volatile uint32_t *)1073790976B]
  125              	.LBE3:
- 126              		.loc 1 64 0
+ 126              		.loc 1 65 0
  127 0028 7047     		bx	lr
  128              	.L6:
  129 002a C046     		.align	2
@@ -226,41 +227,41 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  143              		.type	_Z6millisv, %function
  144              	_Z6millisv:
  145              	.LFB52:
-  65:wiring.c      **** 
-  66:wiring.c      **** unsigned long millis()
-  67:wiring.c      **** {
- 146              		.loc 1 67 0
+  66:wiring.c      **** 
+  67:wiring.c      **** unsigned long millis()
+  68:wiring.c      **** {
+ 146              		.loc 1 68 0
  147              		.cfi_startproc
  148              	.LBB4:
-  68:wiring.c      ****   unsigned long m;
-  69:wiring.c      **** 
-  70:wiring.c      ****   // disable interrupts while we read timer0_millis or we might get an
-  71:wiring.c      ****   // inconsistent value (e.g. in the middle of a write to timer0_millis)
-  72:wiring.c      ****   noInterrupts();
- 149              		.loc 1 72 0
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 5
+  69:wiring.c      ****   unsigned long m;
+  70:wiring.c      **** 
+  71:wiring.c      ****   // disable interrupts while we read timer0_millis or we might get an
+  72:wiring.c      ****   // inconsistent value (e.g. in the middle of a write to timer0_millis)
+  73:wiring.c      ****   noInterrupts();
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 5
 
 
- 150              	@ 72 "wiring.c" 1
+ 149              		.loc 1 73 0
+ 150              	@ 73 "wiring.c" 1
  151 0000 72B6     		CPSID i
  152              	@ 0 "" 2
-  73:wiring.c      ****   m = timer0_millis;
- 153              		.loc 1 73 0
+  74:wiring.c      ****   m = timer0_millis;
+ 153              		.loc 1 74 0
  154              		.code	16
  155 0002 024B     		ldr	r3, .L8	@ tmp136,
  156 0004 1868     		ldr	r0, [r3]	@ m, timer0_millis
  157              	.LVL7:
-  74:wiring.c      ****   interrupts();
- 158              		.loc 1 74 0
- 159              	@ 74 "wiring.c" 1
+  75:wiring.c      ****   interrupts();
+ 158              		.loc 1 75 0
+ 159              	@ 75 "wiring.c" 1
  160 0006 62B6     		CPSIE i
  161              	@ 0 "" 2
  162              		.code	16
  163              	.LBE4:
-  75:wiring.c      **** 
-  76:wiring.c      ****   return m;
-  77:wiring.c      **** }
- 164              		.loc 1 77 0
+  76:wiring.c      **** 
+  77:wiring.c      ****   return m;
+  78:wiring.c      **** }
+ 164              		.loc 1 78 0
  165              		@ sp needed for prologue	@
  166 0008 7047     		bx	lr
  167              	.L9:
@@ -278,62 +279,63 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  179              		.type	_Z6microsv, %function
  180              	_Z6microsv:
  181              	.LFB53:
-  78:wiring.c      **** 
-  79:wiring.c      **** unsigned long micros() {
- 182              		.loc 1 79 0
+  79:wiring.c      **** 
+  80:wiring.c      **** unsigned long micros() {
+ 182              		.loc 1 80 0
  183              		.cfi_startproc
  184              	.LBB5:
-  80:wiring.c      ****   unsigned long m;
-  81:wiring.c      ****   uint16_t t;
-  82:wiring.c      **** 
-  83:wiring.c      ****   noInterrupts();
- 185              		.loc 1 83 0
- 186              	@ 83 "wiring.c" 1
+  81:wiring.c      ****   unsigned long m;
+  82:wiring.c      ****   uint16_t t;
+  83:wiring.c      **** 
+  84:wiring.c      ****   noInterrupts();
+ 185              		.loc 1 84 0
+ 186              	@ 84 "wiring.c" 1
  187 0000 72B6     		CPSID i
  188              	@ 0 "" 2
-  84:wiring.c      ****   m = timer0_overflow_count;
- 189              		.loc 1 84 0
+  85:wiring.c      ****   m = timer0_overflow_count;
+ 189              		.loc 1 85 0
  190              		.code	16
  191 0002 094B     		ldr	r3, .L14	@ tmp146,
-  85:wiring.c      ****   t = TMR16B0TC;
- 192              		.loc 1 85 0
+  86:wiring.c      ****   t = TMR16B0TC;
+ 192              		.loc 1 86 0
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 6
+
+
  193 0004 0948     		ldr	r0, .L14+4	@ tmp147,
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 6
-
-
-  84:wiring.c      ****   m = timer0_overflow_count;
- 194              		.loc 1 84 0
+  85:wiring.c      ****   m = timer0_overflow_count;
+ 194              		.loc 1 85 0
  195 0006 1968     		ldr	r1, [r3]	@ m, timer0_overflow_count
  196              	.LVL8:
- 197              		.loc 1 85 0
+ 197              		.loc 1 86 0
  198 0008 0268     		ldr	r2, [r0]	@ D.7007, MEM[(volatile uint32_t *)1073790984B]
-  86:wiring.c      **** 
-  87:wiring.c      ****   // if there is a pending overflow - increment by 1
-  88:wiring.c      ****   if (TMR16B0IR & _BV(MR0INT))
- 199              		.loc 1 88 0
+  87:wiring.c      **** 
+  88:wiring.c      ****   // if there is a pending overflow - increment by 1
+  89:wiring.c      ****   if (TMR16B0IR & _BV(MR0INT))
+ 199              		.loc 1 89 0
  200 000a 094B     		ldr	r3, .L14+8	@ tmp148,
-  85:wiring.c      ****   t = TMR16B0TC;
- 201              		.loc 1 85 0
+  86:wiring.c      ****   t = TMR16B0TC;
+ 201              		.loc 1 86 0
  202 000c 90B2     		uxth	r0, r2	@ t, D.7007
  203              	.LVL9:
- 204              		.loc 1 88 0
+ 204              		.loc 1 89 0
  205 000e 1A68     		ldr	r2, [r3]	@ D.7010, MEM[(volatile uint32_t *)1073790976B]
  206              	.LVL10:
-  89:wiring.c      ****       m++;
- 207              		.loc 1 89 0
+  90:wiring.c      ****       m++;
+ 207              		.loc 1 90 0
  208 0010 0123     		mov	r3, #1	@ tmp150,
  209 0012 1A40     		and	r2, r3	@ tmp158, tmp150
  210 0014 8918     		add	r1, r1, r2	@ m, m, tmp158
  211              	.LVL11:
-  90:wiring.c      **** 
-  91:wiring.c      ****   interrupts();
- 212              		.loc 1 91 0
- 213              	@ 91 "wiring.c" 1
+  91:wiring.c      **** 
+  92:wiring.c      ****   interrupts();
+ 212              		.loc 1 92 0
+ 213              	@ 92 "wiring.c" 1
  214 0016 62B6     		CPSIE i
  215              	@ 0 "" 2
-  92:wiring.c      **** 
-  93:wiring.c      ****   return (m*1000) + (0xffff && t);
- 216              		.loc 1 93 0
+  93:wiring.c      **** 
+  94:wiring.c      ****   //  there's a typecasting issue here with t.  
+  95:wiring.c      ****   return (m*1000) + (0xffff && t);
+ 216              		.loc 1 95 0
  217              		.code	16
  218 0018 FA22     		mov	r2, #250	@ tmp161,
  219 001a 9300     		lsl	r3, r2, #2	@ tmp153, tmp161,
@@ -343,8 +345,8 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  223              	.LVL12:
  224 0022 1818     		add	r0, r3, r0	@ tmp151, tmp152, tmp155
  225              	.LBE5:
-  94:wiring.c      **** }
- 226              		.loc 1 94 0
+  96:wiring.c      **** }
+ 226              		.loc 1 96 0
  227              		@ sp needed for prologue	@
  228 0024 7047     		bx	lr
  229              	.L15:
@@ -356,21 +358,21 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  235              		.cfi_endproc
  236              	.LFE53:
  237              		.size	_Z6microsv, .-_Z6microsv
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 7
+
+
  238              		.section	.text._Z5delaym,"ax",%progbits
  239              		.align	1
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 7
-
-
  240              		.global	_Z5delaym
  241              		.code	16
  242              		.thumb_func
  243              		.type	_Z5delaym, %function
  244              	_Z5delaym:
  245              	.LFB54:
-  95:wiring.c      **** 
-  96:wiring.c      **** void delay(unsigned long ms)
-  97:wiring.c      **** {
- 246              		.loc 1 97 0
+  97:wiring.c      **** 
+  98:wiring.c      **** void delay(unsigned long ms)
+  99:wiring.c      **** {
+ 246              		.loc 1 99 0
  247              		.cfi_startproc
  248              	.LVL13:
  249 0000 38B5     		push	{r3, r4, r5, lr}	@
@@ -380,52 +382,52 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  253              		.cfi_offset 4, -12
  254              		.cfi_offset 5, -8
  255              		.cfi_offset 14, -4
- 256              		.loc 1 97 0
+ 256              		.loc 1 99 0
  257 0002 041C     		mov	r4, r0	@ ms, ms
  258              	.LBB6:
-  98:wiring.c      ****   uint32_t start = micros();
- 259              		.loc 1 98 0
+ 100:wiring.c      ****   uint32_t start = micros();
+ 259              		.loc 1 100 0
  260 0004 FFF7FEFF 		bl	_Z6microsv	@
  261              	.LVL14:
  262 0008 051C     		mov	r5, r0	@ start,
  263              	.LVL15:
  264              	.L22:
-  99:wiring.c      **** 
- 100:wiring.c      ****   while (ms > 0) {
- 265              		.loc 1 100 0 discriminator 1
+ 101:wiring.c      **** 
+ 102:wiring.c      ****   while (ms > 0) {
+ 265              		.loc 1 102 0 discriminator 1
  266 000a 002C     		cmp	r4, #0	@ ms,
  267 000c 0AD0     		beq	.L23	@,
  268              	.L19:
- 101:wiring.c      ****     if ((micros() - start) >= 1000) {
- 269              		.loc 1 101 0
+ 103:wiring.c      ****     if ((micros() - start) >= 1000) {
+ 269              		.loc 1 103 0
  270 000e FFF7FEFF 		bl	_Z6microsv	@
  271              	.LVL16:
  272 0012 054B     		ldr	r3, .L24	@ tmp139,
  273 0014 401B     		sub	r0, r0, r5	@ tmp138, D.7001, start
  274 0016 9842     		cmp	r0, r3	@ tmp138, tmp139
  275 0018 F7D9     		bls	.L22	@,
- 102:wiring.c      ****       ms--;
- 103:wiring.c      ****       start += 1000;
- 276              		.loc 1 103 0
+ 104:wiring.c      ****       ms--;
+ 105:wiring.c      ****       start += 1000;
+ 276              		.loc 1 105 0
  277 001a FA21     		mov	r1, #250	@,
  278 001c 8A00     		lsl	r2, r1, #2	@,,
- 102:wiring.c      ****       ms--;
- 279              		.loc 1 102 0
+ 104:wiring.c      ****       ms--;
+ 279              		.loc 1 104 0
  280 001e 013C     		sub	r4, r4, #1	@ ms,
  281              	.LVL17:
- 282              		.loc 1 103 0
+ 282              		.loc 1 105 0
  283 0020 AD18     		add	r5, r5, r2	@ start, start,
  284              	.LVL18:
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 8
+
+
  285 0022 F2E7     		b	.L22	@
  286              	.L23:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 8
-
-
  287              	.LBE6:
- 104:wiring.c      ****     }
- 105:wiring.c      ****   }
- 106:wiring.c      **** }
- 288              		.loc 1 106 0
+ 106:wiring.c      ****     }
+ 107:wiring.c      ****   }
+ 108:wiring.c      **** }
+ 288              		.loc 1 108 0
  289              		@ sp needed for prologue	@
  290              	.LVL19:
  291              	.LVL20:
@@ -445,11 +447,11 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  305              		.type	_Z17delayMicrosecondsj, %function
  306              	_Z17delayMicrosecondsj:
  307              	.LFB55:
- 107:wiring.c      **** 
- 108:wiring.c      **** /* Delay for the given number of microseconds.  */
- 109:wiring.c      **** void delayMicroseconds(unsigned int us)
- 110:wiring.c      **** {
- 308              		.loc 1 110 0
+ 109:wiring.c      **** 
+ 110:wiring.c      **** /* Delay for the given number of microseconds.  */
+ 111:wiring.c      **** void delayMicroseconds(unsigned int us)
+ 112:wiring.c      **** {
+ 308              		.loc 1 112 0
  309              		.cfi_startproc
  310              	.LVL21:
  311 0000 10B5     		push	{r4, lr}	@
@@ -457,41 +459,41 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  313              		.cfi_def_cfa_offset 8
  314              		.cfi_offset 4, -8
  315              		.cfi_offset 14, -4
- 316              		.loc 1 110 0
+ 316              		.loc 1 112 0
  317 0002 041C     		mov	r4, r0	@ us, us
  318              	.LBB7:
- 111:wiring.c      ****   uint32_t start = micros(), end;
- 319              		.loc 1 111 0
+ 113:wiring.c      ****   uint32_t start = micros(), end;
+ 319              		.loc 1 113 0
  320 0004 FFF7FEFF 		bl	_Z6microsv	@
  321              	.LVL22:
- 112:wiring.c      **** 
- 113:wiring.c      ****   end = start + us;
- 322              		.loc 1 113 0
+ 114:wiring.c      **** 
+ 115:wiring.c      ****   end = start + us;
+ 322              		.loc 1 115 0
  323 0008 0419     		add	r4, r0, r4	@ end, start, us
  324              	.LVL23:
  325              	.L27:
- 114:wiring.c      **** 
- 115:wiring.c      ****   while (end>micros())
- 326              		.loc 1 115 0 discriminator 1
+ 116:wiring.c      **** 
+ 117:wiring.c      ****   while (end>micros())
+ 326              		.loc 1 117 0 discriminator 1
  327 000a FFF7FEFF 		bl	_Z6microsv	@
  328              	.LVL24:
  329 000e 8442     		cmp	r4, r0	@ end, D.6995
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 9
+
+
  330 0010 01D9     		bls	.L29	@,
  331              	.L28:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 9
-
-
- 116:wiring.c      ****     asm("nop");
- 332              		.loc 1 116 0
- 333              	@ 116 "wiring.c" 1
+ 118:wiring.c      ****     asm("nop");
+ 332              		.loc 1 118 0
+ 333              	@ 118 "wiring.c" 1
  334 0012 C046     		nop
  335              	@ 0 "" 2
  336              		.code	16
  337 0014 F9E7     		b	.L27	@
  338              	.L29:
  339              	.LBE7:
- 117:wiring.c      **** }
- 340              		.loc 1 117 0
+ 119:wiring.c      **** }
+ 340              		.loc 1 119 0
  341              		@ sp needed for prologue	@
  342              	.LVL25:
  343 0016 10BD     		pop	{r4, pc}
@@ -506,28 +508,29 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  352              		.type	_Z4initv, %function
  353              	_Z4initv:
  354              	.LFB56:
- 118:wiring.c      **** 
- 119:wiring.c      **** 
- 120:wiring.c      **** void init()
- 121:wiring.c      **** {
- 355              		.loc 1 121 0
+ 120:wiring.c      **** 
+ 121:wiring.c      **** 
+ 122:wiring.c      **** void init()
+ 123:wiring.c      **** {
+ 355              		.loc 1 123 0
  356              		.cfi_startproc
  357              	.LBB8:
- 122:wiring.c      ****   uint32_t i;
- 123:wiring.c      ****   
- 124:wiring.c      ****   PDRUNCFG     &= ~(1 << 5);          // Power-up System Osc      
- 358              		.loc 1 124 0
+ 124:wiring.c      ****   uint32_t i;
+ 125:wiring.c      **** 
+ 126:wiring.c      ****   //  run the PLL at 48 mhz using the 12 mhz internal resonator as the source
+ 127:wiring.c      ****   PDRUNCFG     &= ~(1 << 5);          // Power-up System Osc      
+ 358              		.loc 1 127 0
  359 0000 214A     		ldr	r2, .L48	@ tmp146,
  360 0002 2021     		mov	r1, #32	@ tmp147,
  361 0004 1368     		ldr	r3, [r2]	@ D.6951, MEM[(volatile uint32_t *)1074037304B]
- 125:wiring.c      ****   SYSOSCCTRL    = 0x00000000;
- 362              		.loc 1 125 0
+ 128:wiring.c      ****   SYSOSCCTRL    = 0x00000000;
+ 362              		.loc 1 128 0
  363 0006 0020     		mov	r0, #0	@ tmp150,
- 124:wiring.c      ****   PDRUNCFG     &= ~(1 << 5);          // Power-up System Osc      
- 364              		.loc 1 124 0
+ 127:wiring.c      ****   PDRUNCFG     &= ~(1 << 5);          // Power-up System Osc      
+ 364              		.loc 1 127 0
  365 0008 8B43     		bic	r3, r1	@ D.6952, tmp147
  366 000a 1360     		str	r3, [r2]	@ D.6952, MEM[(volatile uint32_t *)1074037304B]
- 367              		.loc 1 125 0
+ 367              		.loc 1 128 0
  368 000c 1F4B     		ldr	r3, .L48+4	@ tmp149,
  369 000e 111C     		mov	r1, r2	@ tmp193, tmp146
  370 0010 1860     		str	r0, [r3]	@ tmp150, MEM[(volatile uint32_t *)1074036768B]
@@ -535,148 +538,150 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  372 0012 C823     		mov	r3, #200	@ ivtmp.27,
  373              	.LVL27:
  374              	.L31:
- 126:wiring.c      ****   for (i = 0; i < 200; i++) asm("nop");
- 375              		.loc 1 126 0 discriminator 2
- 376              	@ 126 "wiring.c" 1
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 10
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 10
 
 
+ 129:wiring.c      ****   for (i = 0; i < 200; i++) asm("nop");
+ 375              		.loc 1 129 0 discriminator 2
+ 376              	@ 129 "wiring.c" 1
  377 0014 C046     		nop
  378              	@ 0 "" 2
  379              		.code	16
  380 0016 013B     		sub	r3, r3, #1	@ ivtmp.27,
  381 0018 002B     		cmp	r3, #0	@ ivtmp.27,
  382 001a FBD1     		bne	.L31	@,
- 127:wiring.c      ****   SYSPLLCLKSEL  = 0x00000000;         // Select PLL Input         
- 383              		.loc 1 127 0
+ 130:wiring.c      ****   SYSPLLCLKSEL  = 0x00000000;         // Select PLL Input         
+ 383              		.loc 1 130 0
  384 001c 1C4A     		ldr	r2, .L48+8	@ tmp151,
- 128:wiring.c      ****   SYSPLLCLKUEN  = 0x01;               // Update Clock Source      
- 385              		.loc 1 128 0
+ 131:wiring.c      ****   SYSPLLCLKUEN  = 0x01;               // Update Clock Source      
+ 385              		.loc 1 131 0
  386 001e 0120     		mov	r0, #1	@ tmp154,
- 127:wiring.c      ****   SYSPLLCLKSEL  = 0x00000000;         // Select PLL Input         
- 387              		.loc 1 127 0
+ 130:wiring.c      ****   SYSPLLCLKSEL  = 0x00000000;         // Select PLL Input         
+ 387              		.loc 1 130 0
  388 0020 1360     		str	r3, [r2]	@ ivtmp.27, MEM[(volatile uint32_t *)1074036800B]
- 389              		.loc 1 128 0
+ 389              		.loc 1 131 0
  390 0022 1C4A     		ldr	r2, .L48+12	@ tmp153,
  391 0024 1060     		str	r0, [r2]	@ tmp154, MEM[(volatile uint32_t *)1074036804B]
- 129:wiring.c      ****   SYSPLLCLKUEN  = 0x00;               // Toggle Update Register   
- 392              		.loc 1 129 0
+ 132:wiring.c      ****   SYSPLLCLKUEN  = 0x00;               // Toggle Update Register   
+ 392              		.loc 1 132 0
  393 0026 1360     		str	r3, [r2]	@ ivtmp.27, MEM[(volatile uint32_t *)1074036804B]
- 130:wiring.c      ****   SYSPLLCLKUEN  = 0x01;
- 394              		.loc 1 130 0
+ 133:wiring.c      ****   SYSPLLCLKUEN  = 0x01;
+ 394              		.loc 1 133 0
  395 0028 1060     		str	r0, [r2]	@ tmp154, MEM[(volatile uint32_t *)1074036804B]
  396              	.L32:
- 131:wiring.c      ****   while (!(SYSPLLCLKUEN & 0x01));     // Wait Until Updated       
- 397              		.loc 1 131 0 discriminator 1
+ 134:wiring.c      ****   while (!(SYSPLLCLKUEN & 0x01));     // Wait Until Updated       
+ 397              		.loc 1 134 0 discriminator 1
  398 002a 1368     		ldr	r3, [r2]	@ D.6965, MEM[(volatile uint32_t *)1074036804B]
  399 002c D807     		lsl	r0, r3, #31	@, D.6965,
  400 002e FCD5     		bpl	.L32	@,
- 132:wiring.c      ****   SYSPLLCTRL    = 0x00000023;
- 401              		.loc 1 132 0
+ 135:wiring.c      ****   SYSPLLCTRL    = 0x00000023;
+ 401              		.loc 1 135 0
  402 0030 1948     		ldr	r0, .L48+16	@ tmp162,
  403 0032 2322     		mov	r2, #35	@ tmp163,
  404 0034 0260     		str	r2, [r0]	@ tmp163, MEM[(volatile uint32_t *)1074036744B]
- 133:wiring.c      ****   PDRUNCFG     &= ~(1 << 7);          // Power-up SYSPLL          
- 405              		.loc 1 133 0
+ 136:wiring.c      ****   PDRUNCFG     &= ~(1 << 7);          // Power-up SYSPLL          
+ 405              		.loc 1 136 0
  406 0036 0B68     		ldr	r3, [r1]	@ D.6968, MEM[(volatile uint32_t *)1074037304B]
  407 0038 8022     		mov	r2, #128	@ tmp165,
  408 003a 9343     		bic	r3, r2	@ D.6969, tmp165
  409 003c 0B60     		str	r3, [r1]	@ D.6969, MEM[(volatile uint32_t *)1074037304B]
  410              	.L33:
- 134:wiring.c      ****   while (!(SYSPLLSTAT & 0x01));       // Wait Until PLL Locked    
- 411              		.loc 1 134 0 discriminator 1
+ 137:wiring.c      ****   while (!(SYSPLLSTAT & 0x01));       // Wait Until PLL Locked    
+ 411              		.loc 1 137 0 discriminator 1
  412 003e 1749     		ldr	r1, .L48+20	@ tmp167,
  413 0040 0122     		mov	r2, #1	@ tmp169,
  414 0042 0868     		ldr	r0, [r1]	@ D.6975, MEM[(volatile uint32_t *)1074036748B]
  415 0044 1042     		tst	r0, r2	@ D.6975, tmp169
  416 0046 FAD0     		beq	.L33	@,
- 135:wiring.c      ****   MAINCLKSEL    = 0x00000003;         // Select PLL Clock Output  
- 417              		.loc 1 135 0
+ 138:wiring.c      ****   MAINCLKSEL    = 0x00000003;         // Select PLL Clock Output  
+ 417              		.loc 1 138 0
  418 0048 154B     		ldr	r3, .L48+24	@ tmp170,
- 136:wiring.c      ****   MAINCLKUEN    = 0x01;               // Update MCLK Clock Source 
- 419              		.loc 1 136 0
+ 139:wiring.c      ****   MAINCLKUEN    = 0x01;               // Update MCLK Clock Source 
+ 419              		.loc 1 139 0
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 11
+
+
  420 004a 1648     		ldr	r0, .L48+28	@ tmp172,
- 135:wiring.c      ****   MAINCLKSEL    = 0x00000003;         // Select PLL Clock Output  
- 421              		.loc 1 135 0
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 11
-
-
+ 138:wiring.c      ****   MAINCLKSEL    = 0x00000003;         // Select PLL Clock Output  
+ 421              		.loc 1 138 0
  422 004c 0321     		mov	r1, #3	@ tmp171,
  423 004e 1960     		str	r1, [r3]	@ tmp171, MEM[(volatile uint32_t *)1074036848B]
- 137:wiring.c      ****   MAINCLKUEN    = 0x00;               // Toggle Update Register   
- 424              		.loc 1 137 0
+ 140:wiring.c      ****   MAINCLKUEN    = 0x00;               // Toggle Update Register   
+ 424              		.loc 1 140 0
  425 0050 0021     		mov	r1, #0	@ tmp175,
- 136:wiring.c      ****   MAINCLKUEN    = 0x01;               // Update MCLK Clock Source 
- 426              		.loc 1 136 0
+ 139:wiring.c      ****   MAINCLKUEN    = 0x01;               // Update MCLK Clock Source 
+ 426              		.loc 1 139 0
  427 0052 0260     		str	r2, [r0]	@ tmp169, MEM[(volatile uint32_t *)1074036852B]
- 428              		.loc 1 137 0
+ 428              		.loc 1 140 0
  429 0054 0160     		str	r1, [r0]	@ tmp175, MEM[(volatile uint32_t *)1074036852B]
- 138:wiring.c      ****   MAINCLKUEN    = 0x01;
- 430              		.loc 1 138 0
+ 141:wiring.c      ****   MAINCLKUEN    = 0x01;
+ 430              		.loc 1 141 0
  431 0056 0260     		str	r2, [r0]	@ tmp169, MEM[(volatile uint32_t *)1074036852B]
  432              	.L34:
- 139:wiring.c      ****   while (!(MAINCLKUEN & 0x01));       // Wait Until Updated       
- 433              		.loc 1 139 0 discriminator 1
+ 142:wiring.c      ****   while (!(MAINCLKUEN & 0x01));       // Wait Until Updated       
+ 433              		.loc 1 142 0 discriminator 1
  434 0058 0368     		ldr	r3, [r0]	@ D.6983, MEM[(volatile uint32_t *)1074036852B]
  435 005a 0122     		mov	r2, #1	@ tmp180,
  436 005c 1342     		tst	r3, r2	@ D.6983, tmp180
  437 005e FBD0     		beq	.L34	@,
- 140:wiring.c      ****   
- 141:wiring.c      ****   //  enable clocks on advanced high-performance bus
- 142:wiring.c      ****   SYSAHBCLKCTRL = 0x3FFFF;
- 438              		.loc 1 142 0
+ 143:wiring.c      ****   
+ 144:wiring.c      ****   //  enable clocks on advanced high-performance bus
+ 145:wiring.c      ****   SYSAHBCLKCTRL = 0x3FFFF;
+ 438              		.loc 1 145 0
  439 0060 1148     		ldr	r0, .L48+32	@ tmp182,
  440 0062 1249     		ldr	r1, .L48+36	@ tmp181,
- 143:wiring.c      **** 
- 144:wiring.c      ****   //  configure timers
- 145:wiring.c      ****   TMR16B0PR     = 47;
- 441              		.loc 1 145 0
+ 146:wiring.c      **** 
+ 147:wiring.c      ****   //  configure timers
+ 148:wiring.c      ****   //  the concept here is to run the TMR16B0 at 1 Mhz (tick per microsecond) 
+ 149:wiring.c      ****   //  and run the ISR ever millisecond.
+ 150:wiring.c      ****   TMR16B0PR     = 47;                  // divide the 48 Mhz clock by 48
+ 441              		.loc 1 150 0
  442 0064 124B     		ldr	r3, .L48+40	@ tmp183,
- 142:wiring.c      ****   SYSAHBCLKCTRL = 0x3FFFF;
- 443              		.loc 1 142 0
+ 145:wiring.c      ****   SYSAHBCLKCTRL = 0x3FFFF;
+ 443              		.loc 1 145 0
  444 0066 0860     		str	r0, [r1]	@ tmp182, MEM[(volatile uint32_t *)1074036864B]
- 445              		.loc 1 145 0
+ 445              		.loc 1 150 0
  446 0068 2F20     		mov	r0, #47	@ tmp184,
  447 006a 1860     		str	r0, [r3]	@ tmp184, MEM[(volatile uint32_t *)1073790988B]
- 146:wiring.c      ****   TMR16B0MCR    = 3;
- 448              		.loc 1 146 0
+ 151:wiring.c      ****   TMR16B0MCR    = 3;                   // reset and interrupt on match
+ 448              		.loc 1 151 0
  449 006c 1148     		ldr	r0, .L48+44	@ tmp185,
  450 006e 0321     		mov	r1, #3	@ tmp186,
  451 0070 0160     		str	r1, [r0]	@ tmp186, MEM[(volatile uint32_t *)1073790996B]
- 147:wiring.c      ****   TMR16B0MR0    = 1000;
- 452              		.loc 1 147 0
+ 152:wiring.c      ****   TMR16B0MR0    = 1000;                // matching on 1000
+ 452              		.loc 1 152 0
  453 0072 FA23     		mov	r3, #250	@ tmp196,
  454 0074 1048     		ldr	r0, .L48+48	@ tmp187,
  455 0076 9900     		lsl	r1, r3, #2	@ tmp188, tmp196,
- 148:wiring.c      ****   ISER          = 0x10000;             // Enable timer0 interrupt
- 456              		.loc 1 148 0
+ 153:wiring.c      ****   ISER          = 0x10000;             // enable timer0 interrupt
+ 456              		.loc 1 153 0
  457 0078 8023     		mov	r3, #128	@ tmp197,
- 147:wiring.c      ****   TMR16B0MR0    = 1000;
- 458              		.loc 1 147 0
+ 152:wiring.c      ****   TMR16B0MR0    = 1000;                // matching on 1000
+ 458              		.loc 1 152 0
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 12
+
+
  459 007a 0160     		str	r1, [r0]	@ tmp188, MEM[(volatile uint32_t *)1073791000B]
- 460              		.loc 1 148 0
+ 460              		.loc 1 153 0
  461 007c 5902     		lsl	r1, r3, #9	@ tmp190, tmp197,
  462 007e 0F48     		ldr	r0, .L48+52	@ tmp189,
- 149:wiring.c      ****   TMR16B0TCR    = 0x1;
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 12
-
-
- 463              		.loc 1 149 0
+ 154:wiring.c      ****   TMR16B0TCR    = 0x1;                 // enable timer
+ 463              		.loc 1 154 0
  464 0080 0F4B     		ldr	r3, .L48+56	@ tmp191,
- 148:wiring.c      ****   ISER          = 0x10000;             // Enable timer0 interrupt
- 465              		.loc 1 148 0
+ 153:wiring.c      ****   ISER          = 0x10000;             // enable timer0 interrupt
+ 465              		.loc 1 153 0
  466 0082 0160     		str	r1, [r0]	@ tmp190, MEM[(volatile uint32_t *)3758153984B]
  467              	.LBE8:
- 150:wiring.c      **** 
- 151:wiring.c      **** }
- 468              		.loc 1 151 0
+ 155:wiring.c      **** 
+ 156:wiring.c      **** }
+ 468              		.loc 1 156 0
  469              		@ sp needed for prologue	@
  470              	.LBB9:
- 149:wiring.c      ****   TMR16B0TCR    = 0x1;
- 471              		.loc 1 149 0
+ 154:wiring.c      ****   TMR16B0TCR    = 0x1;                 // enable timer
+ 471              		.loc 1 154 0
  472 0084 1A60     		str	r2, [r3]	@ tmp180, MEM[(volatile uint32_t *)1073790980B]
  473              	.LBE9:
- 474              		.loc 1 151 0
+ 474              		.loc 1 156 0
  475 0086 7047     		bx	lr
  476              	.L49:
  477              		.align	2
@@ -713,14 +718,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  508              		.type	_ZL12timer0_fract, %object
  509              		.size	_ZL12timer0_fract, 1
  510              	_ZL12timer0_fract:
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 13
+
+
  511 0000 00       		.space	1
  512              		.section	.bss.timer0_millis,"aw",%nobits
  513              		.align	2
  514              		.set	.LANCHOR0,. + 0
  515              		.type	timer0_millis, %object
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 13
-
-
  516              		.size	timer0_millis, 4
  517              	timer0_millis:
  518 0000 00000000 		.space	4
@@ -773,14 +778,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  565 0060 02       		.byte	0x2
  566 0061 50       		.byte	0x50
  567 0062 66000000 		.4byte	0x66
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 14
+
+
  568 0066 02       		.uleb128 0x2
  569 0067 04       		.byte	0x4
  570 0068 07       		.byte	0x7
  571 0069 EA2D0000 		.4byte	.LASF7
  572 006d 02       		.uleb128 0x2
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 14
-
-
  573 006e 08       		.byte	0x8
  574 006f 05       		.byte	0x5
  575 0070 DB370000 		.4byte	.LASF8
@@ -833,14 +838,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  622 00c9 00000000 		.4byte	.Ldebug_ranges0+0
  623 00cd 07       		.uleb128 0x7
  624 00ce 6D00     		.ascii	"m\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 15
+
+
  625 00d0 01       		.byte	0x1
  626 00d1 31       		.byte	0x31
  627 00d2 66000000 		.4byte	0x66
  628 00d6 00000000 		.4byte	.LLST0
  629 00da 07       		.uleb128 0x7
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 15
-
-
  630 00db 6600     		.ascii	"f\000"
  631 00dd 01       		.byte	0x1
  632 00de 32       		.byte	0x32
@@ -852,7 +857,7 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  638 00ea 01       		.byte	0x1
  639 00eb AF0C0000 		.4byte	.LASF16
  640 00ef 01       		.byte	0x1
- 641 00f0 42       		.byte	0x42
+ 641 00f0 43       		.byte	0x43
  642 00f1 F81F0000 		.4byte	.LASF18
  643 00f5 66000000 		.4byte	0x66
  644 00f9 00000000 		.4byte	.LFB52
@@ -868,7 +873,7 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  654 0112 0A       		.uleb128 0xa
  655 0113 6D00     		.ascii	"m\000"
  656 0115 01       		.byte	0x1
- 657 0116 44       		.byte	0x44
+ 657 0116 45       		.byte	0x45
  658 0117 66000000 		.4byte	0x66
  659 011b 01       		.byte	0x1
  660 011c 50       		.byte	0x50
@@ -878,7 +883,7 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  664 0120 01       		.byte	0x1
  665 0121 CE150000 		.4byte	.LASF17
  666 0125 01       		.byte	0x1
- 667 0126 4F       		.byte	0x4f
+ 667 0126 50       		.byte	0x50
  668 0127 AD620000 		.4byte	.LASF19
  669 012b 66000000 		.4byte	0x66
  670 012f 00000000 		.4byte	.LFB53
@@ -893,17 +898,17 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  679 0144 24000000 		.4byte	.LBE5
  680 0148 07       		.uleb128 0x7
  681 0149 6D00     		.ascii	"m\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 16
+
+
  682 014b 01       		.byte	0x1
- 683 014c 50       		.byte	0x50
+ 683 014c 51       		.byte	0x51
  684 014d 66000000 		.4byte	0x66
  685 0151 69000000 		.4byte	.LLST2
  686 0155 07       		.uleb128 0x7
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 16
-
-
  687 0156 7400     		.ascii	"t\000"
  688 0158 01       		.byte	0x1
- 689 0159 51       		.byte	0x51
+ 689 0159 52       		.byte	0x52
  690 015a 42000000 		.4byte	0x42
  691 015e 7C000000 		.4byte	.LLST3
  692 0162 00       		.byte	0
@@ -912,7 +917,7 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  695 0165 01       		.byte	0x1
  696 0166 580B0000 		.4byte	.LASF21
  697 016a 01       		.byte	0x1
- 698 016b 60       		.byte	0x60
+ 698 016b 62       		.byte	0x62
  699 016c D5150000 		.4byte	.LASF23
  700 0170 00000000 		.4byte	.LFB54
  701 0174 2C000000 		.4byte	.LFE54
@@ -922,7 +927,7 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  705 0181 0C       		.uleb128 0xc
  706 0182 6D7300   		.ascii	"ms\000"
  707 0185 01       		.byte	0x1
- 708 0186 60       		.byte	0x60
+ 708 0186 62       		.byte	0x62
  709 0187 66000000 		.4byte	0x66
  710 018b BA000000 		.4byte	.LLST5
  711 018f 09       		.uleb128 0x9
@@ -931,7 +936,7 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  714 0198 0D       		.uleb128 0xd
  715 0199 EB010000 		.4byte	.LASF24
  716 019d 01       		.byte	0x1
- 717 019e 62       		.byte	0x62
+ 717 019e 64       		.byte	0x64
  718 019f 5B000000 		.4byte	0x5b
  719 01a3 D8000000 		.4byte	.LLST6
  720 01a7 0E       		.uleb128 0xe
@@ -946,21 +951,21 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  729 01bc 01       		.byte	0x1
  730 01bd 4D5A0000 		.4byte	.LASF25
  731 01c1 01       		.byte	0x1
- 732 01c2 6D       		.byte	0x6d
+ 732 01c2 6F       		.byte	0x6f
  733 01c3 331D0000 		.4byte	.LASF26
  734 01c7 00000000 		.4byte	.LFB55
  735 01cb 18000000 		.4byte	.LFE55
  736 01cf EB000000 		.4byte	.LLST7
  737 01d3 01       		.byte	0x1
  738 01d4 21020000 		.4byte	0x221
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 17
+
+
  739 01d8 0C       		.uleb128 0xc
  740 01d9 757300   		.ascii	"us\000"
  741 01dc 01       		.byte	0x1
- 742 01dd 6D       		.byte	0x6d
+ 742 01dd 6F       		.byte	0x6f
  743 01de 82000000 		.4byte	0x82
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 17
-
-
  744 01e2 0B010000 		.4byte	.LLST8
  745 01e6 09       		.uleb128 0x9
  746 01e7 04000000 		.4byte	.LBB7
@@ -968,13 +973,13 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  748 01ef 0D       		.uleb128 0xd
  749 01f0 EB010000 		.4byte	.LASF24
  750 01f4 01       		.byte	0x1
- 751 01f5 6F       		.byte	0x6f
+ 751 01f5 71       		.byte	0x71
  752 01f6 5B000000 		.4byte	0x5b
  753 01fa 37010000 		.4byte	.LLST9
  754 01fe 07       		.uleb128 0x7
  755 01ff 656E6400 		.ascii	"end\000"
  756 0203 01       		.byte	0x1
- 757 0204 6F       		.byte	0x6f
+ 757 0204 71       		.byte	0x71
  758 0205 5B000000 		.4byte	0x5b
  759 0209 4A010000 		.4byte	.LLST10
  760 020d 0E       		.uleb128 0xe
@@ -989,7 +994,7 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  769 0222 01       		.byte	0x1
  770 0223 49530000 		.4byte	.LASF27
  771 0227 01       		.byte	0x1
- 772 0228 78       		.byte	0x78
+ 772 0228 7A       		.byte	0x7a
  773 0229 85490000 		.4byte	.LASF28
  774 022d 00000000 		.4byte	.LFB56
  775 0231 C4000000 		.4byte	.LFE56
@@ -1003,7 +1008,7 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  783 0242 07       		.uleb128 0x7
  784 0243 6900     		.ascii	"i\000"
  785 0245 01       		.byte	0x1
- 786 0246 7A       		.byte	0x7a
+ 786 0246 7C       		.byte	0x7c
  787 0247 5B000000 		.4byte	0x5b
  788 024b 5D010000 		.4byte	.LLST11
  789 024f 00       		.byte	0
@@ -1013,14 +1018,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  793 0256 01       		.byte	0x1
  794 0257 29       		.byte	0x29
  795 0258 63020000 		.4byte	0x263
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 18
+
+
  796 025c 01       		.byte	0x1
  797 025d 05       		.byte	0x5
  798 025e 03       		.byte	0x3
  799 025f 00000000 		.4byte	timer0_overflow_count
  800 0263 10       		.uleb128 0x10
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 18
-
-
  801 0264 66000000 		.4byte	0x66
  802 0268 0F       		.uleb128 0xf
  803 0269 702C0000 		.4byte	.LASF30
@@ -1073,14 +1078,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  850 001d 3E       		.uleb128 0x3e
  851 001e 0B       		.uleb128 0xb
  852 001f 03       		.uleb128 0x3
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 19
+
+
  853 0020 0E       		.uleb128 0xe
  854 0021 00       		.byte	0
  855 0022 00       		.byte	0
  856 0023 03       		.uleb128 0x3
  857 0024 16       		.uleb128 0x16
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 19
-
-
  858 0025 00       		.byte	0
  859 0026 03       		.uleb128 0x3
  860 0027 0E       		.uleb128 0xe
@@ -1133,14 +1138,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  907 0058 01       		.byte	0x1
  908 0059 55       		.uleb128 0x55
  909 005a 06       		.uleb128 0x6
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 20
+
+
  910 005b 00       		.byte	0
  911 005c 00       		.byte	0
  912 005d 07       		.uleb128 0x7
  913 005e 34       		.uleb128 0x34
  914 005f 00       		.byte	0
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 20
-
-
  915 0060 03       		.uleb128 0x3
  916 0061 08       		.uleb128 0x8
  917 0062 3A       		.uleb128 0x3a
@@ -1193,14 +1198,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  964 0093 34       		.uleb128 0x34
  965 0094 00       		.byte	0
  966 0095 03       		.uleb128 0x3
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 21
+
+
  967 0096 08       		.uleb128 0x8
  968 0097 3A       		.uleb128 0x3a
  969 0098 0B       		.uleb128 0xb
  970 0099 3B       		.uleb128 0x3b
  971 009a 0B       		.uleb128 0xb
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 21
-
-
  972 009b 49       		.uleb128 0x49
  973 009c 13       		.uleb128 0x13
  974 009d 02       		.uleb128 0x2
@@ -1253,14 +1258,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  1021 00ce 03       		.uleb128 0x3
  1022 00cf 0E       		.uleb128 0xe
  1023 00d0 3A       		.uleb128 0x3a
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 22
+
+
  1024 00d1 0B       		.uleb128 0xb
  1025 00d2 3B       		.uleb128 0x3b
  1026 00d3 0B       		.uleb128 0xb
  1027 00d4 49       		.uleb128 0x49
  1028 00d5 13       		.uleb128 0x13
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 22
-
-
  1029 00d6 02       		.uleb128 0x2
  1030 00d7 06       		.uleb128 0x6
  1031 00d8 00       		.byte	0
@@ -1313,14 +1318,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  1078 0109 0A       		.uleb128 0xa
  1079 010a 00       		.byte	0
  1080 010b 00       		.byte	0
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 23
+
+
  1081 010c 00       		.byte	0
  1082              		.section	.debug_loc,"",%progbits
  1083              	.Ldebug_loc0:
  1084              	.LLST0:
  1085 0000 08000000 		.4byte	.LVL0
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 23
-
-
  1086 0004 0E000000 		.4byte	.LVL1
  1087 0008 0300     		.2byte	0x3
  1088 000a 72       		.byte	0x72
@@ -1373,14 +1378,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  1135 0086 52       		.byte	0x52
  1136 0087 10000000 		.4byte	.LVL10
  1137 008b 22000000 		.4byte	.LVL12
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 24
+
+
  1138 008f 0100     		.2byte	0x1
  1139 0091 50       		.byte	0x50
  1140 0092 00000000 		.4byte	0
  1141 0096 00000000 		.4byte	0
  1142              	.LLST4:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 24
-
-
  1143 009a 00000000 		.4byte	.LFB54
  1144 009e 02000000 		.4byte	.LCFI0
  1145 00a2 0200     		.2byte	0x2
@@ -1433,14 +1438,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  1192 011a 0A000000 		.4byte	.LVL23
  1193 011e 0100     		.2byte	0x1
  1194 0120 54       		.byte	0x54
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 25
+
+
  1195 0121 0A000000 		.4byte	.LVL23
  1196 0125 18000000 		.4byte	.LFE55
  1197 0129 0400     		.2byte	0x4
  1198 012b F3       		.byte	0xf3
  1199 012c 01       		.uleb128 0x1
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 25
-
-
  1200 012d 50       		.byte	0x50
  1201 012e 9F       		.byte	0x9f
  1202 012f 00000000 		.4byte	0
@@ -1493,14 +1498,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  1249              	.Ldebug_ranges0:
  1250 0000 00000000 		.4byte	.LBB2
  1251 0004 26000000 		.4byte	.LBE2
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 26
+
+
  1252 0008 26000000 		.4byte	.LBB3
  1253 000c 28000000 		.4byte	.LBE3
  1254 0010 00000000 		.4byte	0
  1255 0014 00000000 		.4byte	0
  1256 0018 00000000 		.4byte	.LBB8
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 26
-
-
  1257 001c 84000000 		.4byte	.LBE8
  1258 0020 84000000 		.4byte	.LBB9
  1259 0024 86000000 		.4byte	.LBE9
@@ -1553,14 +1558,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  1306 0022 0C       		.uleb128 0xc
  1307 0023 06       		.uleb128 0x6
  1308 0024 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 27
+
+
  1309 0025 0D       		.uleb128 0xd
  1310 0026 C33B0000 		.4byte	.LASF36
  1311              		.file 7 "/Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/
  1312 002a 03       		.byte	0x3
  1313 002b 0F       		.uleb128 0xf
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 27
-
-
  1314 002c 07       		.uleb128 0x7
  1315 002d 07       		.byte	0x7
  1316 002e 00000000 		.4byte	.Ldebug_macro2
@@ -1613,14 +1618,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  1363 0073 0C       		.uleb128 0xc
  1364 0074 05       		.byte	0x5
  1365 0075 18       		.uleb128 0x18
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 28
+
+
  1366 0076 F55E0000 		.4byte	.LASF40
  1367              		.file 13 "/Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi
  1368 007a 03       		.byte	0x3
  1369 007b 1A       		.uleb128 0x1a
  1370 007c 0D       		.uleb128 0xd
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 28
-
-
  1371 007d 07       		.byte	0x7
  1372 007e 00000000 		.4byte	.Ldebug_macro8
  1373              		.file 14 "/Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi
@@ -1673,14 +1678,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  1420 00c4 03       		.byte	0x3
  1421 00c5 25       		.uleb128 0x25
  1422 00c6 12       		.uleb128 0x12
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 29
+
+
  1423 00c7 07       		.byte	0x7
  1424 00c8 00000000 		.4byte	.Ldebug_macro13
  1425 00cc 04       		.byte	0x4
  1426              		.file 19 "/Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi
  1427 00cd 03       		.byte	0x3
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 29
-
-
  1428 00ce 2D       		.uleb128 0x2d
  1429 00cf 13       		.uleb128 0x13
  1430 00d0 05       		.byte	0x5
@@ -1733,14 +1738,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  1477 0112 2E       		.uleb128 0x2e
  1478 0113 18       		.uleb128 0x18
  1479 0114 07       		.byte	0x7
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 30
+
+
  1480 0115 00000000 		.4byte	.Ldebug_macro18
  1481 0119 03       		.byte	0x3
  1482 011a 45       		.uleb128 0x45
  1483 011b 0E       		.uleb128 0xe
  1484 011c 07       		.byte	0x7
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 30
-
-
  1485 011d 00000000 		.4byte	.Ldebug_macro19
  1486 0121 04       		.byte	0x4
  1487              		.file 25 "/Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi
@@ -1793,14 +1798,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  1534 0164 03       		.byte	0x3
  1535 0165 12       		.uleb128 0x12
  1536 0166 1D       		.uleb128 0x1d
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 31
+
+
  1537 0167 05       		.byte	0x5
  1538 0168 02       		.uleb128 0x2
  1539 0169 F31C0000 		.4byte	.LASF51
  1540 016d 04       		.byte	0x4
  1541              		.file 30 "/Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 31
-
-
  1542 016e 03       		.byte	0x3
  1543 016f 14       		.uleb128 0x14
  1544 0170 1E       		.uleb128 0x1e
@@ -1853,14 +1858,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  1591 01af 06       		.uleb128 0x6
  1592 01b0 EF1A0000 		.4byte	.LASF53
  1593 01b4 04       		.byte	0x4
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 32
+
+
  1594 01b5 04       		.byte	0x4
  1595 01b6 07       		.byte	0x7
  1596 01b7 00000000 		.4byte	.Ldebug_macro31
  1597 01bb 04       		.byte	0x4
  1598 01bc 04       		.byte	0x4
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 32
-
-
  1599 01bd 04       		.byte	0x4
  1600              		.file 36 "printf.h"
  1601 01be 03       		.byte	0x3
@@ -1913,14 +1918,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  1648 0016 01       		.uleb128 0x1
  1649 0017 1A2E0000 		.4byte	.LASF62
  1650 001b 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 33
+
+
  1651 001c 01       		.uleb128 0x1
  1652 001d 4E530000 		.4byte	.LASF63
  1653 0021 05       		.byte	0x5
  1654 0022 01       		.uleb128 0x1
  1655 0023 DD170000 		.4byte	.LASF64
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 33
-
-
  1656 0027 05       		.byte	0x5
  1657 0028 01       		.uleb128 0x1
  1658 0029 EC3E0000 		.4byte	.LASF65
@@ -1973,14 +1978,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  1705 0088 01       		.uleb128 0x1
  1706 0089 1A1D0000 		.4byte	.LASF81
  1707 008d 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 34
+
+
  1708 008e 01       		.uleb128 0x1
  1709 008f 2C560000 		.4byte	.LASF82
  1710 0093 05       		.byte	0x5
  1711 0094 01       		.uleb128 0x1
  1712 0095 DE390000 		.4byte	.LASF83
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 34
-
-
  1713 0099 05       		.byte	0x5
  1714 009a 01       		.uleb128 0x1
  1715 009b 49440000 		.4byte	.LASF84
@@ -2033,14 +2038,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  1762 00fa 01       		.uleb128 0x1
  1763 00fb A5510000 		.4byte	.LASF100
  1764 00ff 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 35
+
+
  1765 0100 01       		.uleb128 0x1
  1766 0101 C5050000 		.4byte	.LASF101
  1767 0105 05       		.byte	0x5
  1768 0106 01       		.uleb128 0x1
  1769 0107 A5060000 		.4byte	.LASF102
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 35
-
-
  1770 010b 05       		.byte	0x5
  1771 010c 01       		.uleb128 0x1
  1772 010d EC4E0000 		.4byte	.LASF103
@@ -2093,14 +2098,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  1819 016c 01       		.uleb128 0x1
  1820 016d 6F4B0000 		.4byte	.LASF119
  1821 0171 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 36
+
+
  1822 0172 01       		.uleb128 0x1
  1823 0173 2B080000 		.4byte	.LASF120
  1824 0177 05       		.byte	0x5
  1825 0178 01       		.uleb128 0x1
  1826 0179 182F0000 		.4byte	.LASF121
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 36
-
-
  1827 017d 05       		.byte	0x5
  1828 017e 01       		.uleb128 0x1
  1829 017f DF610000 		.4byte	.LASF122
@@ -2153,14 +2158,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  1876 01de 01       		.uleb128 0x1
  1877 01df B8620000 		.4byte	.LASF138
  1878 01e3 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 37
+
+
  1879 01e4 01       		.uleb128 0x1
  1880 01e5 C7540000 		.4byte	.LASF139
  1881 01e9 05       		.byte	0x5
  1882 01ea 01       		.uleb128 0x1
  1883 01eb BC500000 		.4byte	.LASF140
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 37
-
-
  1884 01ef 05       		.byte	0x5
  1885 01f0 01       		.uleb128 0x1
  1886 01f1 530E0000 		.4byte	.LASF141
@@ -2213,14 +2218,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  1933 0250 01       		.uleb128 0x1
  1934 0251 D8220000 		.4byte	.LASF157
  1935 0255 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 38
+
+
  1936 0256 01       		.uleb128 0x1
  1937 0257 08670000 		.4byte	.LASF158
  1938 025b 05       		.byte	0x5
  1939 025c 01       		.uleb128 0x1
  1940 025d C1530000 		.4byte	.LASF159
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 38
-
-
  1941 0261 05       		.byte	0x5
  1942 0262 01       		.uleb128 0x1
  1943 0263 710B0000 		.4byte	.LASF160
@@ -2273,14 +2278,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  1990 02c2 01       		.uleb128 0x1
  1991 02c3 94440000 		.4byte	.LASF176
  1992 02c7 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 39
+
+
  1993 02c8 01       		.uleb128 0x1
  1994 02c9 E2670000 		.4byte	.LASF177
  1995 02cd 05       		.byte	0x5
  1996 02ce 01       		.uleb128 0x1
  1997 02cf D4100000 		.4byte	.LASF178
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 39
-
-
  1998 02d3 05       		.byte	0x5
  1999 02d4 01       		.uleb128 0x1
  2000 02d5 57520000 		.4byte	.LASF179
@@ -2333,14 +2338,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  2047 0334 01       		.uleb128 0x1
  2048 0335 B0050000 		.4byte	.LASF195
  2049 0339 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 40
+
+
  2050 033a 01       		.uleb128 0x1
  2051 033b FA2C0000 		.4byte	.LASF196
  2052 033f 05       		.byte	0x5
  2053 0340 01       		.uleb128 0x1
  2054 0341 25000000 		.4byte	.LASF197
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 40
-
-
  2055 0345 05       		.byte	0x5
  2056 0346 01       		.uleb128 0x1
  2057 0347 88710000 		.4byte	.LASF198
@@ -2393,14 +2398,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  2104 03a6 01       		.uleb128 0x1
  2105 03a7 4D060000 		.4byte	.LASF214
  2106 03ab 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 41
+
+
  2107 03ac 01       		.uleb128 0x1
  2108 03ad C3410000 		.4byte	.LASF215
  2109 03b1 05       		.byte	0x5
  2110 03b2 01       		.uleb128 0x1
  2111 03b3 66210000 		.4byte	.LASF216
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 41
-
-
  2112 03b7 05       		.byte	0x5
  2113 03b8 01       		.uleb128 0x1
  2114 03b9 443C0000 		.4byte	.LASF217
@@ -2453,14 +2458,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  2161 0418 01       		.uleb128 0x1
  2162 0419 C0490000 		.4byte	.LASF233
  2163 041d 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 42
+
+
  2164 041e 01       		.uleb128 0x1
  2165 041f 853F0000 		.4byte	.LASF234
  2166 0423 05       		.byte	0x5
  2167 0424 01       		.uleb128 0x1
  2168 0425 65050000 		.4byte	.LASF235
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 42
-
-
  2169 0429 05       		.byte	0x5
  2170 042a 01       		.uleb128 0x1
  2171 042b 03480000 		.4byte	.LASF236
@@ -2513,14 +2518,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  2218 048a 01       		.uleb128 0x1
  2219 048b 092A0000 		.4byte	.LASF252
  2220 048f 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 43
+
+
  2221 0490 01       		.uleb128 0x1
  2222 0491 33670000 		.4byte	.LASF253
  2223 0495 05       		.byte	0x5
  2224 0496 01       		.uleb128 0x1
  2225 0497 69200000 		.4byte	.LASF254
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 43
-
-
  2226 049b 05       		.byte	0x5
  2227 049c 01       		.uleb128 0x1
  2228 049d 44090000 		.4byte	.LASF255
@@ -2573,14 +2578,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  2275 04fc 01       		.uleb128 0x1
  2276 04fd 88420000 		.4byte	.LASF271
  2277 0501 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 44
+
+
  2278 0502 01       		.uleb128 0x1
  2279 0503 710A0000 		.4byte	.LASF272
  2280 0507 05       		.byte	0x5
  2281 0508 01       		.uleb128 0x1
  2282 0509 9C710000 		.4byte	.LASF273
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 44
-
-
  2283 050d 05       		.byte	0x5
  2284 050e 01       		.uleb128 0x1
  2285 050f 994E0000 		.4byte	.LASF274
@@ -2633,14 +2638,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  2332 056e 01       		.uleb128 0x1
  2333 056f 0F550000 		.4byte	.LASF290
  2334 0573 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 45
+
+
  2335 0574 01       		.uleb128 0x1
  2336 0575 64610000 		.4byte	.LASF291
  2337 0579 05       		.byte	0x5
  2338 057a 01       		.uleb128 0x1
  2339 057b 70250000 		.4byte	.LASF292
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 45
-
-
  2340 057f 05       		.byte	0x5
  2341 0580 01       		.uleb128 0x1
  2342 0581 C33D0000 		.4byte	.LASF293
@@ -2693,14 +2698,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  2389 05e0 01       		.uleb128 0x1
  2390 05e1 4E5E0000 		.4byte	.LASF309
  2391 05e5 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 46
+
+
  2392 05e6 01       		.uleb128 0x1
  2393 05e7 104C0000 		.4byte	.LASF310
  2394 05eb 05       		.byte	0x5
  2395 05ec 01       		.uleb128 0x1
  2396 05ed 4B020000 		.4byte	.LASF311
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 46
-
-
  2397 05f1 05       		.byte	0x5
  2398 05f2 01       		.uleb128 0x1
  2399 05f3 265B0000 		.4byte	.LASF312
@@ -2753,14 +2758,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  2446 0652 01       		.uleb128 0x1
  2447 0653 49520000 		.4byte	.LASF328
  2448 0657 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 47
+
+
  2449 0658 01       		.uleb128 0x1
  2450 0659 A1640000 		.4byte	.LASF329
  2451 065d 05       		.byte	0x5
  2452 065e 01       		.uleb128 0x1
  2453 065f 59670000 		.4byte	.LASF330
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 47
-
-
  2454 0663 05       		.byte	0x5
  2455 0664 01       		.uleb128 0x1
  2456 0665 000C0000 		.4byte	.LASF331
@@ -2813,14 +2818,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  2503 06c4 01       		.uleb128 0x1
  2504 06c5 2A1F0000 		.4byte	.LASF347
  2505 06c9 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 48
+
+
  2506 06ca 01       		.uleb128 0x1
  2507 06cb DE380000 		.4byte	.LASF348
  2508 06cf 05       		.byte	0x5
  2509 06d0 01       		.uleb128 0x1
  2510 06d1 14510000 		.4byte	.LASF349
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 48
-
-
  2511 06d5 05       		.byte	0x5
  2512 06d6 01       		.uleb128 0x1
  2513 06d7 FC2D0000 		.4byte	.LASF350
@@ -2873,14 +2878,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  2560 0736 01       		.uleb128 0x1
  2561 0737 CF000000 		.4byte	.LASF366
  2562 073b 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 49
+
+
  2563 073c 01       		.uleb128 0x1
  2564 073d 8E490000 		.4byte	.LASF367
  2565 0741 05       		.byte	0x5
  2566 0742 01       		.uleb128 0x1
  2567 0743 3F120000 		.4byte	.LASF368
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 49
-
-
  2568 0747 05       		.byte	0x5
  2569 0748 01       		.uleb128 0x1
  2570 0749 1C420000 		.4byte	.LASF369
@@ -2933,14 +2938,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  2617 07a8 01       		.uleb128 0x1
  2618 07a9 45070000 		.4byte	.LASF385
  2619 07ad 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 50
+
+
  2620 07ae 01       		.uleb128 0x1
  2621 07af 02640000 		.4byte	.LASF386
  2622 07b3 05       		.byte	0x5
  2623 07b4 01       		.uleb128 0x1
  2624 07b5 4E640000 		.4byte	.LASF387
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 50
-
-
  2625 07b9 05       		.byte	0x5
  2626 07ba 01       		.uleb128 0x1
  2627 07bb E7510000 		.4byte	.LASF388
@@ -2993,14 +2998,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  2674 001d 08220000 		.4byte	.LASF402
  2675 0021 05       		.byte	0x5
  2676 0022 32       		.uleb128 0x32
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 51
+
+
  2677 0023 95560000 		.4byte	.LASF403
  2678 0027 05       		.byte	0x5
  2679 0028 36       		.uleb128 0x36
  2680 0029 2E370000 		.4byte	.LASF404
  2681 002d 05       		.byte	0x5
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 51
-
-
  2682 002e 39       		.uleb128 0x39
  2683 002f 26170000 		.4byte	.LASF405
  2684 0033 05       		.byte	0x5
@@ -3053,14 +3058,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  2731 000b 42300000 		.4byte	.LASF416
  2732 000f 05       		.byte	0x5
  2733 0010 23       		.uleb128 0x23
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 52
+
+
  2734 0011 AF590000 		.4byte	.LASF417
  2735 0015 05       		.byte	0x5
  2736 0016 26       		.uleb128 0x26
  2737 0017 E25C0000 		.4byte	.LASF418
  2738 001b 05       		.byte	0x5
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 52
-
-
  2739 001c 32       		.uleb128 0x32
  2740 001d D5630000 		.4byte	.LASF419
  2741 0021 05       		.byte	0x5
@@ -3113,14 +3118,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  2788 007d C3170000 		.4byte	.LASF435
  2789 0081 05       		.byte	0x5
  2790 0082 4F       		.uleb128 0x4f
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 53
+
+
  2791 0083 EF140000 		.4byte	.LASF436
  2792 0087 05       		.byte	0x5
  2793 0088 69       		.uleb128 0x69
  2794 0089 87590000 		.4byte	.LASF437
  2795 008d 05       		.byte	0x5
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 53
-
-
  2796 008e 7C       		.uleb128 0x7c
  2797 008f 94120000 		.4byte	.LASF438
  2798 0093 05       		.byte	0x5
@@ -3173,14 +3178,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  2845 004d 05       		.byte	0x5
  2846 004e A701     		.uleb128 0xa7
  2847 0050 2B3C0000 		.4byte	.LASF453
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 54
+
+
  2848 0054 05       		.byte	0x5
  2849 0055 AD01     		.uleb128 0xad
  2850 0057 E40A0000 		.4byte	.LASF454
  2851 005b 05       		.byte	0x5
  2852 005c D701     		.uleb128 0xd7
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 54
-
-
  2853 005e 21360000 		.4byte	.LASF455
  2854 0062 05       		.byte	0x5
  2855 0063 F501     		.uleb128 0xf5
@@ -3233,14 +3238,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  2902 00d2 05       		.byte	0x5
  2903 00d3 A902     		.uleb128 0x129
  2904 00d5 15440000 		.4byte	.LASF472
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 55
+
+
  2905 00d9 05       		.byte	0x5
  2906 00da AA02     		.uleb128 0x12a
  2907 00dc 5C2E0000 		.4byte	.LASF473
  2908 00e0 05       		.byte	0x5
  2909 00e1 B402     		.uleb128 0x134
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 55
-
-
  2910 00e3 980E0000 		.4byte	.LASF474
  2911 00e7 05       		.byte	0x5
  2912 00e8 B502     		.uleb128 0x135
@@ -3293,14 +3298,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  2959 0157 05       		.byte	0x5
  2960 0158 F402     		.uleb128 0x174
  2961 015a 2F430000 		.4byte	.LASF491
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 56
+
+
  2962 015e 05       		.byte	0x5
  2963 015f 8203     		.uleb128 0x182
  2964 0161 02360000 		.4byte	.LASF492
  2965 0165 05       		.byte	0x5
  2966 0166 8303     		.uleb128 0x183
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 56
-
-
  2967 0168 96200000 		.4byte	.LASF493
  2968 016c 05       		.byte	0x5
  2969 016d 8403     		.uleb128 0x184
@@ -3353,14 +3358,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  3016 01dc 05       		.byte	0x5
  3017 01dd C803     		.uleb128 0x1c8
  3018 01df F5510000 		.4byte	.LASF510
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 57
+
+
  3019 01e3 05       		.byte	0x5
  3020 01e4 CE03     		.uleb128 0x1ce
  3021 01e6 38380000 		.4byte	.LASF511
  3022 01ea 05       		.byte	0x5
  3023 01eb CF03     		.uleb128 0x1cf
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 57
-
-
  3024 01ed B03D0000 		.4byte	.LASF512
  3025 01f1 05       		.byte	0x5
  3026 01f2 DA03     		.uleb128 0x1da
@@ -3413,14 +3418,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  3073 0040 0E       		.uleb128 0xe
  3074 0041 1D5D0000 		.4byte	.LASF527
  3075 0045 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 58
+
+
  3076 0046 0F       		.uleb128 0xf
  3077 0047 CF180000 		.4byte	.LASF528
  3078 004b 05       		.byte	0x5
  3079 004c 12       		.uleb128 0x12
  3080 004d 2D220000 		.4byte	.LASF529
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 58
-
-
  3081 0051 05       		.byte	0x5
  3082 0052 13       		.uleb128 0x13
  3083 0053 C60C0000 		.4byte	.LASF530
@@ -3473,14 +3478,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  3130 00b2 25       		.uleb128 0x25
  3131 00b3 6C1B0000 		.4byte	.LASF546
  3132 00b7 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 59
+
+
  3133 00b8 26       		.uleb128 0x26
  3134 00b9 2C240000 		.4byte	.LASF547
  3135 00bd 05       		.byte	0x5
  3136 00be 29       		.uleb128 0x29
  3137 00bf A13C0000 		.4byte	.LASF548
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 59
-
-
  3138 00c3 05       		.byte	0x5
  3139 00c4 2A       		.uleb128 0x2a
  3140 00c5 36490000 		.4byte	.LASF549
@@ -3533,14 +3538,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  3187 0124 40       		.uleb128 0x40
  3188 0125 C5370000 		.4byte	.LASF565
  3189 0129 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 60
+
+
  3190 012a 42       		.uleb128 0x42
  3191 012b D8120000 		.4byte	.LASF566
  3192 012f 05       		.byte	0x5
  3193 0130 43       		.uleb128 0x43
  3194 0131 DB0E0000 		.4byte	.LASF567
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 60
-
-
  3195 0135 05       		.byte	0x5
  3196 0136 44       		.uleb128 0x44
  3197 0137 41030000 		.4byte	.LASF568
@@ -3593,14 +3598,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  3244 002d 05       		.byte	0x5
  3245 002e 8E02     		.uleb128 0x10e
  3246 0030 0B500000 		.4byte	.LASF581
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 61
+
+
  3247 0034 05       		.byte	0x5
  3248 0035 8F02     		.uleb128 0x10f
  3249 0037 90270000 		.4byte	.LASF582
  3250 003b 05       		.byte	0x5
  3251 003c 9002     		.uleb128 0x110
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 61
-
-
  3252 003e A82E0000 		.4byte	.LASF583
  3253 0042 05       		.byte	0x5
  3254 0043 9102     		.uleb128 0x111
@@ -3653,14 +3658,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  3301 0022 1D       		.uleb128 0x1d
  3302 0023 EF3A0000 		.4byte	.LASF598
  3303 0027 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 62
+
+
  3304 0028 1E       		.uleb128 0x1e
  3305 0029 51490000 		.4byte	.LASF599
  3306 002d 05       		.byte	0x5
  3307 002e 1F       		.uleb128 0x1f
  3308 002f 68080000 		.4byte	.LASF600
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 62
-
-
  3309 0033 05       		.byte	0x5
  3310 0034 20       		.uleb128 0x20
  3311 0035 AB0F0000 		.4byte	.LASF601
@@ -3713,14 +3718,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  3358 0094 34       		.uleb128 0x34
  3359 0095 FB030000 		.4byte	.LASF617
  3360 0099 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 63
+
+
  3361 009a 37       		.uleb128 0x37
  3362 009b 31540000 		.4byte	.LASF618
  3363 009f 05       		.byte	0x5
  3364 00a0 38       		.uleb128 0x38
  3365 00a1 9A390000 		.4byte	.LASF619
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 63
-
-
  3366 00a5 05       		.byte	0x5
  3367 00a6 39       		.uleb128 0x39
  3368 00a7 8E2C0000 		.4byte	.LASF620
@@ -3773,14 +3778,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  3415 0106 4E       		.uleb128 0x4e
  3416 0107 A6280000 		.4byte	.LASF636
  3417 010b 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 64
+
+
  3418 010c 50       		.uleb128 0x50
  3419 010d 16110000 		.4byte	.LASF637
  3420 0111 05       		.byte	0x5
  3421 0112 51       		.uleb128 0x51
  3422 0113 605C0000 		.4byte	.LASF638
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 64
-
-
  3423 0117 05       		.byte	0x5
  3424 0118 52       		.uleb128 0x52
  3425 0119 7E270000 		.4byte	.LASF639
@@ -3833,14 +3838,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  3472 0178 67       		.uleb128 0x67
  3473 0179 F90D0000 		.4byte	.LASF655
  3474 017d 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 65
+
+
  3475 017e 68       		.uleb128 0x68
  3476 017f B95B0000 		.4byte	.LASF656
  3477 0183 05       		.byte	0x5
  3478 0184 69       		.uleb128 0x69
  3479 0185 A05E0000 		.4byte	.LASF657
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 65
-
-
  3480 0189 05       		.byte	0x5
  3481 018a 6A       		.uleb128 0x6a
  3482 018b 112D0000 		.4byte	.LASF658
@@ -3893,14 +3898,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  3529 01ed 8401     		.uleb128 0x84
  3530 01ef 34320000 		.4byte	.LASF674
  3531 01f3 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 66
+
+
  3532 01f4 8501     		.uleb128 0x85
  3533 01f6 E0660000 		.4byte	.LASF675
  3534 01fa 05       		.byte	0x5
  3535 01fb 8601     		.uleb128 0x86
  3536 01fd 66290000 		.4byte	.LASF676
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 66
-
-
  3537 0201 05       		.byte	0x5
  3538 0202 8901     		.uleb128 0x89
  3539 0204 9E180000 		.4byte	.LASF677
@@ -3953,14 +3958,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  3586 0272 9C01     		.uleb128 0x9c
  3587 0274 08390000 		.4byte	.LASF693
  3588 0278 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 67
+
+
  3589 0279 9E01     		.uleb128 0x9e
  3590 027b 53190000 		.4byte	.LASF694
  3591 027f 05       		.byte	0x5
  3592 0280 9F01     		.uleb128 0x9f
  3593 0282 A82A0000 		.4byte	.LASF695
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 67
-
-
  3594 0286 05       		.byte	0x5
  3595 0287 A001     		.uleb128 0xa0
  3596 0289 455C0000 		.4byte	.LASF696
@@ -4013,14 +4018,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  3643 02f7 BF01     		.uleb128 0xbf
  3644 02f9 275F0000 		.4byte	.LASF712
  3645 02fd 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 68
+
+
  3646 02fe C001     		.uleb128 0xc0
  3647 0300 F4120000 		.4byte	.LASF713
  3648 0304 05       		.byte	0x5
  3649 0305 C101     		.uleb128 0xc1
  3650 0307 6E300000 		.4byte	.LASF714
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 68
-
-
  3651 030b 05       		.byte	0x5
  3652 030c C201     		.uleb128 0xc2
  3653 030e B8280000 		.4byte	.LASF715
@@ -4073,14 +4078,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  3700 037c D601     		.uleb128 0xd6
  3701 037e 345D0000 		.4byte	.LASF731
  3702 0382 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 69
+
+
  3703 0383 D701     		.uleb128 0xd7
  3704 0385 50480000 		.4byte	.LASF732
  3705 0389 05       		.byte	0x5
  3706 038a D801     		.uleb128 0xd8
  3707 038c 371A0000 		.4byte	.LASF733
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 69
-
-
  3708 0390 05       		.byte	0x5
  3709 0391 E001     		.uleb128 0xe0
  3710 0393 46240000 		.4byte	.LASF734
@@ -4133,14 +4138,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  3757 0401 8102     		.uleb128 0x101
  3758 0403 37020000 		.4byte	.LASF750
  3759 0407 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 70
+
+
  3760 0408 8202     		.uleb128 0x102
  3761 040a 3E4D0000 		.4byte	.LASF751
  3762 040e 05       		.byte	0x5
  3763 040f 8302     		.uleb128 0x103
  3764 0411 822B0000 		.4byte	.LASF752
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 70
-
-
  3765 0415 05       		.byte	0x5
  3766 0416 8402     		.uleb128 0x104
  3767 0418 320B0000 		.4byte	.LASF753
@@ -4193,14 +4198,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  3814 001f 05       		.byte	0x5
  3815 0020 BF01     		.uleb128 0xbf
  3816 0022 D8650000 		.4byte	.LASF766
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 71
+
+
  3817 0026 05       		.byte	0x5
  3818 0027 C001     		.uleb128 0xc0
  3819 0029 680B0000 		.4byte	.LASF767
  3820 002d 05       		.byte	0x5
  3821 002e C101     		.uleb128 0xc1
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 71
-
-
  3822 0030 5E0B0000 		.4byte	.LASF768
  3823 0034 05       		.byte	0x5
  3824 0035 C201     		.uleb128 0xc2
@@ -4253,14 +4258,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  3871              		.section	.debug_macro,"G",%progbits,wm4._default_types.h.6.5e12cd604db8ce00b62bb2f02708eaf3,comdat
  3872              	.Ldebug_macro14:
  3873 0000 0400     		.2byte	0x4
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 72
+
+
  3874 0002 00       		.byte	0
  3875 0003 05       		.byte	0x5
  3876 0004 06       		.uleb128 0x6
  3877 0005 BF5D0000 		.4byte	.LASF782
  3878 0009 05       		.byte	0x5
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 72
-
-
  3879 000a 11       		.uleb128 0x11
  3880 000b 1B3B0000 		.4byte	.LASF783
  3881 000f 05       		.byte	0x5
@@ -4313,14 +4318,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  3928 002d 05       		.byte	0x5
  3929 002e 11       		.uleb128 0x11
  3930 002f 84150000 		.4byte	.LASF798
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 73
+
+
  3931 0033 05       		.byte	0x5
  3932 0034 12       		.uleb128 0x12
  3933 0035 E9270000 		.4byte	.LASF799
  3934 0039 05       		.byte	0x5
  3935 003a 13       		.uleb128 0x13
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 73
-
-
  3936 003b D01F0000 		.4byte	.LASF800
  3937 003f 05       		.byte	0x5
  3938 0040 14       		.uleb128 0x14
@@ -4373,14 +4378,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  3985 002d 09180000 		.4byte	.LASF812
  3986 0031 05       		.byte	0x5
  3987 0032 AD02     		.uleb128 0x12d
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 74
+
+
  3988 0034 ED590000 		.4byte	.LASF813
  3989 0038 05       		.byte	0x5
  3990 0039 AE02     		.uleb128 0x12e
  3991 003b 75530000 		.4byte	.LASF814
  3992 003f 05       		.byte	0x5
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 74
-
-
  3993 0040 AF02     		.uleb128 0x12f
  3994 0042 230C0000 		.4byte	.LASF815
  3995 0046 05       		.byte	0x5
@@ -4433,14 +4438,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4042 00b2 1A480000 		.4byte	.LASF831
  4043 00b6 05       		.byte	0x5
  4044 00b7 8B06     		.uleb128 0x30b
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 75
+
+
  4045 00b9 CA0F0000 		.4byte	.LASF832
  4046 00bd 05       		.byte	0x5
  4047 00be 8C06     		.uleb128 0x30c
  4048 00c0 B7140000 		.4byte	.LASF833
  4049 00c4 05       		.byte	0x5
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 75
-
-
  4050 00c5 8D06     		.uleb128 0x30d
  4051 00c7 3A170000 		.4byte	.LASF834
  4052 00cb 05       		.byte	0x5
@@ -4493,14 +4498,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4099 0137 F2180000 		.4byte	.LASF850
  4100 013b 05       		.byte	0x5
  4101 013c 9E06     		.uleb128 0x31e
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 76
+
+
  4102 013e 87340000 		.4byte	.LASF851
  4103 0142 05       		.byte	0x5
  4104 0143 9F06     		.uleb128 0x31f
  4105 0145 3C590000 		.4byte	.LASF852
  4106 0149 05       		.byte	0x5
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 76
-
-
  4107 014a A006     		.uleb128 0x320
  4108 014c 8A000000 		.4byte	.LASF853
  4109 0150 05       		.byte	0x5
@@ -4553,14 +4558,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4156 002a 8D01     		.uleb128 0x8d
  4157 002c 633F0000 		.4byte	.LASF866
  4158 0030 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 77
+
+
  4159 0031 8E01     		.uleb128 0x8e
  4160 0033 904A0000 		.4byte	.LASF867
  4161 0037 05       		.byte	0x5
  4162 0038 8F01     		.uleb128 0x8f
  4163 003a 044F0000 		.4byte	.LASF868
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 77
-
-
  4164 003e 05       		.byte	0x5
  4165 003f 9001     		.uleb128 0x90
  4166 0041 320A0000 		.4byte	.LASF869
@@ -4613,14 +4618,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4213 001d F62F0000 		.4byte	.LASF880
  4214 0021 00       		.byte	0
  4215              		.section	.debug_macro,"G",%progbits,wm4.types.h.80.1f2c84c0d57dd52dd9936095d9ac218e,comdat
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 78
+
+
  4216              	.Ldebug_macro21:
  4217 0000 0400     		.2byte	0x4
  4218 0002 00       		.byte	0
  4219 0003 05       		.byte	0x5
  4220 0004 50       		.uleb128 0x50
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 78
-
-
  4221 0005 EA2E0000 		.4byte	.LASF881
  4222 0009 05       		.byte	0x5
  4223 000a 57       		.uleb128 0x57
@@ -4673,14 +4678,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4270 0074 06       		.byte	0x6
  4271 0075 F901     		.uleb128 0xf9
  4272 0077 BE710000 		.4byte	.LASF898
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 79
+
+
  4273 007b 05       		.byte	0x5
  4274 007c FE01     		.uleb128 0xfe
  4275 007e 1A680000 		.4byte	.LASF899
  4276 0082 05       		.byte	0x5
  4277 0083 8302     		.uleb128 0x103
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 79
-
-
  4278 0085 BC430000 		.4byte	.LASF900
  4279 0089 06       		.byte	0x6
  4280 008a E503     		.uleb128 0x1e5
@@ -4733,14 +4738,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4327 0035 E0230000 		.4byte	.LASF913
  4328 0039 05       		.byte	0x5
  4329 003a 49       		.uleb128 0x49
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 80
+
+
  4330 003b 3B0C0000 		.4byte	.LASF914
  4331 003f 05       		.byte	0x5
  4332 0040 4A       		.uleb128 0x4a
  4333 0041 E3640000 		.4byte	.LASF915
  4334 0045 05       		.byte	0x5
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 80
-
-
  4335 0046 4B       		.uleb128 0x4b
  4336 0047 A6240000 		.4byte	.LASF916
  4337 004b 05       		.byte	0x5
@@ -4793,14 +4798,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4384 00ab B64D0000 		.4byte	.LASF932
  4385 00af 05       		.byte	0x5
  4386 00b0 8F01     		.uleb128 0x8f
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 81
+
+
  4387 00b2 324F0000 		.4byte	.LASF933
  4388 00b6 05       		.byte	0x5
  4389 00b7 9201     		.uleb128 0x92
  4390 00b9 F4060000 		.4byte	.LASF934
  4391 00bd 05       		.byte	0x5
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 81
-
-
  4392 00be 9301     		.uleb128 0x93
  4393 00c0 E2540000 		.4byte	.LASF935
  4394 00c4 05       		.byte	0x5
@@ -4853,14 +4858,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4441 0130 E12B0000 		.4byte	.LASF951
  4442 0134 05       		.byte	0x5
  4443 0135 8C05     		.uleb128 0x28c
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 82
+
+
  4444 0137 B62C0000 		.4byte	.LASF952
  4445 013b 05       		.byte	0x5
  4446 013c 8D05     		.uleb128 0x28d
  4447 013e 7E3B0000 		.4byte	.LASF953
  4448 0142 05       		.byte	0x5
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 82
-
-
  4449 0143 9605     		.uleb128 0x296
  4450 0145 21160000 		.4byte	.LASF954
  4451 0149 05       		.byte	0x5
@@ -4913,14 +4918,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4498 0027 9903     		.uleb128 0x199
  4499 0029 6B380000 		.4byte	.LASF592
  4500 002d 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 83
+
+
  4501 002e 9E03     		.uleb128 0x19e
  4502 0030 AB300000 		.4byte	.LASF875
  4503 0034 00       		.byte	0
  4504              		.section	.debug_macro,"G",%progbits,wm4.alloca.h.8.dfc0c703c47ec3e69746825b17d9e66d,comdat
  4505              	.Ldebug_macro26:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 83
-
-
  4506 0000 0400     		.2byte	0x4
  4507 0002 00       		.byte	0
  4508 0003 05       		.byte	0x5
@@ -4973,14 +4978,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4555 0005 71150000 		.4byte	.LASF969
  4556 0009 05       		.byte	0x5
  4557 000a 59       		.uleb128 0x59
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 84
+
+
  4558 000b FF370000 		.4byte	.LASF970
  4559 000f 05       		.byte	0x5
  4560 0010 5C       		.uleb128 0x5c
  4561 0011 C5420000 		.4byte	.LASF971
  4562 0015 05       		.byte	0x5
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 84
-
-
  4563 0016 5F       		.uleb128 0x5f
  4564 0017 B8650000 		.4byte	.LASF972
  4565 001b 00       		.byte	0
@@ -5033,14 +5038,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4612 0000 0400     		.2byte	0x4
  4613 0002 00       		.byte	0
  4614 0003 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 85
+
+
  4615 0004 1E       		.uleb128 0x1e
  4616 0005 F13C0000 		.4byte	.LASF986
  4617 0009 05       		.byte	0x5
  4618 000a 1F       		.uleb128 0x1f
  4619 000b 3D150000 		.4byte	.LASF987
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 85
-
-
  4620 000f 05       		.byte	0x5
  4621 0010 20       		.uleb128 0x20
  4622 0011 055D0000 		.4byte	.LASF988
@@ -5093,14 +5098,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4669 004d 17670000 		.4byte	.LASF1001
  4670 0051 00       		.byte	0
  4671              		.section	.debug_macro,"G",%progbits,wm4.printf.h.118.ab3672ee221610a07496c11f46394049,comdat
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 86
+
+
  4672              	.Ldebug_macro33:
  4673 0000 0400     		.2byte	0x4
  4674 0002 00       		.byte	0
  4675 0003 05       		.byte	0x5
  4676 0004 76       		.uleb128 0x76
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 86
-
-
  4677 0005 8D2F0000 		.4byte	.LASF1002
  4678 0009 05       		.byte	0x5
  4679 000a 77       		.uleb128 0x77
@@ -5153,14 +5158,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4726 0052 17       		.uleb128 0x17
  4727 0053 CF0E0000 		.4byte	.LASF1017
  4728 0057 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 87
+
+
  4729 0058 19       		.uleb128 0x19
  4730 0059 332A0000 		.4byte	.LASF1018
  4731 005d 05       		.byte	0x5
  4732 005e 1A       		.uleb128 0x1a
  4733 005f D62B0000 		.4byte	.LASF1019
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 87
-
-
  4734 0063 05       		.byte	0x5
  4735 0064 1C       		.uleb128 0x1c
  4736 0065 3E010000 		.4byte	.LASF1020
@@ -5213,14 +5218,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4783 00c4 36       		.uleb128 0x36
  4784 00c5 025C0000 		.4byte	.LASF1036
  4785 00c9 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 88
+
+
  4786 00ca 38       		.uleb128 0x38
  4787 00cb AC4A0000 		.4byte	.LASF1037
  4788 00cf 05       		.byte	0x5
  4789 00d0 39       		.uleb128 0x39
  4790 00d1 C3480000 		.4byte	.LASF1038
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 88
-
-
  4791 00d5 05       		.byte	0x5
  4792 00d6 3B       		.uleb128 0x3b
  4793 00d7 8B5A0000 		.4byte	.LASF1039
@@ -5273,14 +5278,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4840 0136 68       		.uleb128 0x68
  4841 0137 64270000 		.4byte	.LASF1055
  4842 013b 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 89
+
+
  4843 013c 69       		.uleb128 0x69
  4844 013d 3E550000 		.4byte	.LASF1056
  4845 0141 05       		.byte	0x5
  4846 0142 6A       		.uleb128 0x6a
  4847 0143 62310000 		.4byte	.LASF1057
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 89
-
-
  4848 0147 05       		.byte	0x5
  4849 0148 6B       		.uleb128 0x6b
  4850 0149 D8450000 		.4byte	.LASF1058
@@ -5333,14 +5338,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4897 01a8 7D       		.uleb128 0x7d
  4898 01a9 D63D0000 		.4byte	.LASF1074
  4899 01ad 05       		.byte	0x5
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 90
+
+
  4900 01ae 7E       		.uleb128 0x7e
  4901 01af 90090000 		.4byte	.LASF1075
  4902 01b3 05       		.byte	0x5
  4903 01b4 7F       		.uleb128 0x7f
  4904 01b5 17400000 		.4byte	.LASF1076
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 90
-
-
  4905 01b9 05       		.byte	0x5
  4906 01ba 8001     		.uleb128 0x80
  4907 01bc 252E0000 		.4byte	.LASF1077
@@ -5393,14 +5398,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4933      78323030 
  4933      3000
  4934              	.LASF372:
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 91
+
+
  4935 0069 5F5F4743 		.ascii	"__GCC_ATOMIC_WCHAR_T_LOCK_FREE 1\000"
  4935      435F4154 
  4935      4F4D4943 
  4935      5F574348 
  4935      41525F54 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 91
-
-
  4936              	.LASF853:
  4937 008a 5F524545 		.ascii	"_REENT_GETDATE_ERR_P(ptr) (&((ptr)->_new._reent._ge"
  4937      4E545F47 
@@ -5453,14 +5458,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4952      3700
  4953              	.LASF11:
  4954 01a4 73697A65 		.ascii	"sizetype\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 92
+
+
  4954      74797065 
  4954      00
  4955              	.LASF134:
  4956 01ad 5F5F4C4F 		.ascii	"__LONG_LONG_MAX__ 9223372036854775807LL\000"
  4956      4E475F4C 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 92
-
-
  4956      4F4E475F 
  4956      4D41585F 
  4956      5F203932 
@@ -5513,14 +5518,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4973      6720646F 
  4974              	.LASF653:
  4975 02bb 50524964 		.ascii	"PRIdFAST16 __PRI16(d)\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 93
+
+
  4975      46415354 
  4975      3136205F 
  4975      5F505249 
  4975      31362864 
  4976              	.LASF754:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 93
-
-
  4977 02d1 50524958 		.ascii	"PRIXPTR __PRIPTR(X)\000"
  4977      50545220 
  4977      5F5F5052 
@@ -5573,14 +5578,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  4993      5F4D494E 
  4993      5F5F2028 
  4993      2D302E35 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 94
+
+
  4994              	.LASF944:
  4995 03be 5F5F7367 		.ascii	"__sgetc_r(__ptr,__p) __sgetc_raw_r(__ptr, __p)\000"
  4995      6574635F 
  4995      72285F5F 
  4995      7074722C 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 94
-
-
  4995      5F5F7029 
  4996              	.LASF889:
  4997 03ed 46445F53 		.ascii	"FD_SETSIZE 64\000"
@@ -5633,14 +5638,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5013      4D494E5F 
  5013      5F203145 
  5013      2D393544 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 95
+
+
  5014              	.LASF711:
  5015 04c4 53434E78 		.ascii	"SCNx64 __SCN64(x)\000"
  5015      3634205F 
  5015      5F53434E 
  5015      36342878 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 95
-
-
  5015      2900
  5016              	.LASF1049:
  5017 04d6 706F7274 		.ascii	"portInputRegister(P) *(port_to_input_PGM + (P))\000"
@@ -5693,14 +5698,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5033      535F4445 
  5033      4E4F524D 
  5033      5F5F2031 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 96
+
+
  5034              	.LASF101:
  5035 05c5 5F5F494E 		.ascii	"__INT8_TYPE__ signed char\000"
  5035      54385F54 
  5035      5950455F 
  5035      5F207369 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 96
-
-
  5035      676E6564 
  5036              	.LASF294:
  5037 05df 5F5F5553 		.ascii	"__USACCUM_MIN__ 0.0UHK\000"
@@ -5753,14 +5758,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5053      00
  5054              	.LASF164:
  5055 0696 5F5F5549 		.ascii	"__UINT8_C(c) c\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 97
+
+
  5055      4E54385F 
  5055      43286329 
  5055      206300
  5056              	.LASF102:
  5057 06a5 5F5F494E 		.ascii	"__INT16_TYPE__ short int\000"
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 97
-
-
  5057      5431365F 
  5057      54595045 
  5057      5F5F2073 
@@ -5813,14 +5818,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5075      3100
  5076              	.LASF608:
  5077 0753 50524969 		.ascii	"PRIiLEAST8 __PRI8(i)\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 98
+
+
  5077      4C454153 
  5077      5438205F 
  5077      5F505249 
  5077      38286929 
  5078              	.LASF616:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 98
-
-
  5079 0768 53434E75 		.ascii	"SCNuLEAST8 __SCN8(u)\000"
  5079      4C454153 
  5079      5438205F 
@@ -5873,14 +5878,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5095      455F5F20 
  5096              	.LASF95:
  5097 084d 5F5F5749 		.ascii	"__WINT_TYPE__ unsigned int\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 99
+
+
  5097      4E545F54 
  5097      5950455F 
  5097      5F20756E 
  5097      7369676E 
  5098              	.LASF600:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 99
-
-
  5099 0868 50524978 		.ascii	"PRIx8 __PRI8(x)\000"
  5099      38205F5F 
  5099      50524938 
@@ -5933,14 +5938,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5116      3634205F 
  5116      5F505249 
  5116      3634286F 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 100
+
+
  5117              	.LASF1026:
  5118 0975 6D617828 		.ascii	"max(a,b) ((a)>(b)?(a):(b))\000"
  5118      612C6229 
  5118      20282861 
  5118      293E2862 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 100
-
-
  5118      293F2861 
  5119              	.LASF1075:
  5120 0990 54494D45 		.ascii	"TIMER4A 11\000"
@@ -5993,14 +5998,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5137      5F5F5354 
  5137      52494E47 
  5138              	.LASF272:
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 101
+
+
  5139 0a71 5F5F554C 		.ascii	"__ULFRACT_FBIT__ 32\000"
  5139      46524143 
  5139      545F4642 
  5139      49545F5F 
  5139      20333200 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 101
-
-
  5140              	.LASF522:
  5141 0a85 5530444C 		.ascii	"U0DLL MMIO(0x40008000)\000"
  5141      4C204D4D 
@@ -6053,14 +6058,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5157      50545220 
  5157      5F5F5052 
  5157      49505452 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 102
+
+
  5157      28782900 
  5158              	.LASF409:
  5159 0b46 5F504F49 		.ascii	"_POINTER_INT long\000"
  5159      4E544552 
  5159      5F494E54 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 102
-
-
  5159      206C6F6E 
  5159      6700
  5160              	.LASF21:
@@ -6113,14 +6118,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5179      5F464249 
  5179      545F5F20 
  5179      333100
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 103
+
+
  5180              	.LASF739:
  5181 0c0f 50524975 		.ascii	"PRIuMAX __PRIMAX(u)\000"
  5181      4D415820 
  5181      5F5F5052 
  5181      494D4158 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 103
-
-
  5181      28752900 
  5182              	.LASF815:
  5183 0c23 5F52414E 		.ascii	"_RAND48_MULT_2 (0x0005)\000"
@@ -6173,14 +6178,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5200      6572725F 
  5200      72287829 
  5200      20282878 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 104
+
+
  5200      292D3E5F 
  5201              	.LASF907:
  5202 0d00 5F5F5352 		.ascii	"__SRD 0x0004\000"
  5202      44203078 
  5202      30303034 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 104
-
-
  5202      00
  5203              	.LASF928:
  5204 0d0d 4C5F746D 		.ascii	"L_tmpnam FILENAME_MAX\000"
@@ -6233,14 +6238,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5221              	.LASF398:
  5222 0da9 5F5F4E45 		.ascii	"__NEWLIB_H__ 1\000"
  5222      574C4942 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 105
+
+
  5222      5F485F5F 
  5222      203100
  5223              	.LASF148:
  5224 0db8 5F5F494E 		.ascii	"__INT16_MAX__ 32767\000"
  5224      5431365F 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 105
-
-
  5224      4D41585F 
  5224      5F203332 
  5224      37363700 
@@ -6293,14 +6298,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5242 0e98 494E545F 		.ascii	"INT_LEAST32_MIN (-2147483647L-1)\000"
  5242      4C454153 
  5242      5433325F 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 106
+
+
  5242      4D494E20 
  5242      282D3231 
  5243              	.LASF727:
  5244 0eb9 50524978 		.ascii	"PRIxFAST64 __PRI64(x)\000"
  5244      46415354 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 106
-
-
  5244      3634205F 
  5244      5F505249 
  5244      36342878 
@@ -6353,14 +6358,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5263      525F4D41 
  5263      58205F5F 
  5263      57434841 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 107
+
+
  5263      525F4D41 
  5264              	.LASF601:
  5265 0fab 50524958 		.ascii	"PRIX8 __PRI8(X)\000"
  5265      38205F5F 
  5265      50524938 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 107
-
-
  5265      28582900 
  5266              	.LASF765:
  5267 0fbb 5F535953 		.ascii	"_SYS_SIZE_T_H \000"
@@ -6413,14 +6418,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5282      2D5F5F53 
  5283              	.LASF207:
  5284 10a4 5F5F4442 		.ascii	"__DBL_EPSILON__ double(2.2204460492503131e-16L)\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 108
+
+
  5284      4C5F4550 
  5284      53494C4F 
  5284      4E5F5F20 
  5284      646F7562 
  5285              	.LASF178:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 108
-
-
  5286 10d4 5F5F5549 		.ascii	"__UINT_FAST64_MAX__ 18446744073709551615ULL\000"
  5286      4E545F46 
  5286      41535436 
@@ -6473,14 +6478,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5302      5F5F2000 
  5303              	.LASF296:
  5304 11b6 5F5F5553 		.ascii	"__USACCUM_EPSILON__ 0x1P-8UHK\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 109
+
+
  5304      41434355 
  5304      4D5F4550 
  5304      53494C4F 
  5304      4E5F5F20 
  5305              	.LASF144:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 109
-
-
  5306 11d4 5F5F5549 		.ascii	"__UINTMAX_C(c) c ## ULL\000"
  5306      4E544D41 
  5306      585F4328 
@@ -6533,14 +6538,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5322      434F4E53 
  5322      4554204D 
  5322      4D494F28 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 110
+
+
  5322      30783430 
  5323              	.LASF713:
  5324 12f4 50524969 		.ascii	"PRIiLEAST64 __PRI64(i)\000"
  5324      4C454153 
  5324      54363420 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 110
-
-
  5324      5F5F5052 
  5324      49363428 
  5325              	.LASF1016:
@@ -6593,14 +6598,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5342      4E313628 
  5342      7829205F 
  5342      5F535452 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 111
+
+
  5342      494E4749 
  5343              	.LASF494:
  5344 13f2 55494E54 		.ascii	"UINT_FAST64_MAX UINT_LEAST64_MAX\000"
  5344      5F464153 
  5344      5436345F 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 111
-
-
  5344      4D415820 
  5344      55494E54 
  5345              	.LASF774:
@@ -6653,14 +6658,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5360      4C542870 
  5361 14ea 756C7429 		.ascii	"ult)\000"
  5361      00
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 112
+
+
  5362              	.LASF436:
  5363 14ef 5F504152 		.ascii	"_PARAMS(paramlist) paramlist\000"
  5363      414D5328 
  5363      70617261 
  5363      6D6C6973 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 112
-
-
  5363      74292070 
  5364              	.LASF931:
  5365 150c 5345454B 		.ascii	"SEEK_CUR 1\000"
@@ -6713,14 +6718,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5382              	.LASF17:
  5383 15ce 6D696372 		.ascii	"micros\000"
  5383      6F7300
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 113
+
+
  5384              	.LASF23:
  5385 15d5 5F5A3564 		.ascii	"_Z5delaym\000"
  5385      656C6179 
  5385      6D00
  5386              	.LASF964:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 113
-
-
  5387 15df 45584954 		.ascii	"EXIT_SUCCESS 0\000"
  5387      5F535543 
  5387      43455353 
@@ -6773,14 +6778,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5405 16d0 494E544D 		.ascii	"INTMAX_MIN (-INTMAX_MAX - 1)\000"
  5405      41585F4D 
  5405      494E2028 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 114
+
+
  5405      2D494E54 
  5405      4D41585F 
  5406              	.LASF949:
  5407 16ed 5F5F7363 		.ascii	"__sclearerr(p) ((void)((p)->_flags &= ~(__SERR|__SE"
  5407      6C656172 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 114
-
-
  5407      65727228 
  5407      70292028 
  5407      28766F69 
@@ -6833,14 +6838,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5425 17f3 67657463 		.ascii	"getchar() getc(stdin)\000"
  5425      68617228 
  5425      29206765 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 115
+
+
  5425      74632873 
  5425      7464696E 
  5426              	.LASF812:
  5427 1809 5F52414E 		.ascii	"_RAND48_SEED_2 (0x1234)\000"
  5427      4434385F 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 115
-
-
  5427      53454544 
  5427      5F322028 
  5427      30783132 
@@ -6893,14 +6898,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5444              	.LASF850:
  5445 18f2 5F524545 		.ascii	"_REENT_WCSRTOMBS_STATE(ptr) ((ptr)->_new._reent._wc"
  5445      4E545F57 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 116
+
+
  5445      43535254 
  5445      4F4D4253 
  5445      5F535441 
  5446 1925 7372746F 		.ascii	"srtombs_state)\000"
  5446      6D62735F 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 116
-
-
  5446      73746174 
  5446      652900
  5447              	.LASF826:
@@ -6953,14 +6958,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5463      3800
  5464              	.LASF189:
  5465 1a07 5F5F464C 		.ascii	"__FLT_MAX_10_EXP__ 38\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 117
+
+
  5465      545F4D41 
  5465      585F3130 
  5465      5F455850 
  5465      5F5F2033 
  5466              	.LASF260:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 117
-
-
  5467 1a1d 5F5F4652 		.ascii	"__FRACT_MAX__ 0X7FFFP-15R\000"
  5467      4143545F 
  5467      4D41585F 
@@ -7013,14 +7018,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5484 1b04 53434E64 		.ascii	"SCNd64 __SCN64(d)\000"
  5484      3634205F 
  5484      5F53434E 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 118
+
+
  5484      36342864 
  5484      2900
  5485              	.LASF737:
  5486 1b16 50524969 		.ascii	"PRIiMAX __PRIMAX(i)\000"
  5486      4D415820 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 118
-
-
  5486      5F5F5052 
  5486      494D4158 
  5486      28692900 
@@ -7073,14 +7078,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5504      656F6628 
  5504      70292028 
  5504      28287029 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 119
+
+
  5504      2D3E5F66 
  5505              	.LASF646:
  5506 1c0c 50524978 		.ascii	"PRIxLEAST16 __PRI16(x)\000"
  5506      4C454153 
  5506      54313620 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 119
-
-
  5506      5F5F5052 
  5506      49313628 
  5507              	.LASF457:
@@ -7133,14 +7138,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5524      54333220 
  5524      5F5F5343 
  5524      4E333228 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 120
+
+
  5525              	.LASF407:
  5526 1cce 5F535953 		.ascii	"_SYS_FEATURES_H \000"
  5526      5F464541 
  5526      54555245 
  5526      535F4820 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 120
-
-
  5526      00
  5527              	.LASF624:
  5528 1cdf 53434E64 		.ascii	"SCNdFAST8 __SCN8(d)\000"
@@ -7193,14 +7198,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5544 1d90 54494D45 		.ascii	"TIMER2B 7\000"
  5544      52324220 
  5544      3700
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 121
+
+
  5545              	.LASF12:
  5546 1d9a 63686172 		.ascii	"char\000"
  5546      00
  5547              	.LASF358:
  5548 1d9f 5F5F5553 		.ascii	"__USA_IBIT__ 16\000"
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 121
-
-
  5548      415F4942 
  5548      49545F5F 
  5548      20313600 
@@ -7253,14 +7258,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5564      54415445 
  5565 1ec9 6F77635F 		.ascii	"owc_state)\000"
  5565      73746174 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 122
+
+
  5565      652900
  5566              	.LASF804:
  5567 1ed4 5F57494E 		.ascii	"_WINT_T \000"
  5567      545F5420 
  5567      00
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 122
-
-
  5568              	.LASF724:
  5569 1edd 50524969 		.ascii	"PRIiFAST64 __PRI64(i)\000"
  5569      46415354 
@@ -7313,14 +7318,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5585      4C454153 
  5585      54313620 
  5585      5F5F5052 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 123
+
+
  5585      49313628 
  5586              	.LASF670:
  5587 1fbe 50524978 		.ascii	"PRIx32 __PRI32(x)\000"
  5587      3332205F 
  5587      5F505249 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 123
-
-
  5587      33322878 
  5587      2900
  5588              	.LASF800:
@@ -7373,14 +7378,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5605      46415354 
  5605      36345F4D 
  5605      41582049 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 124
+
+
  5605      4E545F4C 
  5606              	.LASF841:
  5607 20b5 5F524545 		.ascii	"_REENT_EMERGENCY(ptr) ((ptr)->_emergency)\000"
  5607      4E545F45 
  5607      4D455247 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 124
-
-
  5607      454E4359 
  5607      28707472 
  5608              	.LASF962:
@@ -7433,14 +7438,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5625      4E5F5049 
  5625      4F315F37 
  5625      204D4D49 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 125
+
+
  5625      4F283078 
  5626              	.LASF444:
  5627 21b8 5F5F696E 		.ascii	"__int8_t_defined 1\000"
  5627      74385F74 
  5627      5F646566 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 125
-
-
  5627      696E6564 
  5627      203100
  5628              	.LASF533:
@@ -7493,14 +7498,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5646      44424954 
  5646      53292929 
  5646      00
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 126
+
+
  5647              	.LASF194:
  5648 229e 5F5F464C 		.ascii	"__FLT_DENORM_MIN__ 1.4012984643248171e-45F\000"
  5648      545F4445 
  5648      4E4F524D 
  5648      5F4D494E 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 126
-
-
  5648      5F5F2031 
  5649              	.LASF761:
  5650 22c9 5F5F6E65 		.ascii	"__need_size_t \000"
@@ -7553,14 +7558,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5667      29206320 
  5667      23232055 
  5668              	.LASF909:
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 127
+
+
  5669 23a5 5F5F5352 		.ascii	"__SRW 0x0010\000"
  5669      57203078 
  5669      30303130 
  5669      00
  5670              	.LASF1072:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 127
-
-
  5671 23b2 54494D45 		.ascii	"TIMER3A 8\000"
  5671      52334120 
  5671      3800
@@ -7613,14 +7618,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5687      4E333228 
  5688              	.LASF93:
  5689 2491 5F5F5054 		.ascii	"__PTRDIFF_TYPE__ int\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 128
+
+
  5689      52444946 
  5689      465F5459 
  5689      50455F5F 
  5689      20696E74 
  5690              	.LASF916:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 128
-
-
  5691 24a6 5F5F534E 		.ascii	"__SNPT 0x0800\000"
  5691      50542030 
  5691      78303830 
@@ -7673,14 +7678,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5708      4D5F4642 
  5708      49545F5F 
  5708      203800
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 129
+
+
  5709              	.LASF779:
  5710 2583 5F5F6E65 		.ascii	"__need_size_t\000"
  5710      65645F73 
  5710      697A655F 
  5710      7400
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 129
-
-
  5711              	.LASF377:
  5712 2591 5F5F4743 		.ascii	"__GCC_ATOMIC_TEST_AND_SET_TRUEVAL 1\000"
  5712      435F4154 
@@ -7733,14 +7738,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5728      63696928 
  5728      5F5F6329 
  5728      2028285F 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 130
+
+
  5728      5F632926 
  5729              	.LASF230:
  5730 266e 5F5F4445 		.ascii	"__DEC32_MAX__ 9.999999E96DF\000"
  5730      4333325F 
  5730      4D41585F 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 130
-
-
  5730      5F20392E 
  5730      39393939 
  5731              	.LASF876:
@@ -7793,14 +7798,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5748 2737 5F5F5349 		.ascii	"__SIG_ATOMIC_MIN__ (-__SIG_ATOMIC_MAX__ - 1)\000"
  5748      475F4154 
  5748      4F4D4943 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 131
+
+
  5748      5F4D494E 
  5748      5F5F2028 
  5749              	.LASF1055:
  5750 2764 50432033 		.ascii	"PC 3\000"
  5750      00
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 131
-
-
  5751              	.LASF304:
  5752 2769 5F5F5541 		.ascii	"__UACCUM_MIN__ 0.0UK\000"
  5752      4343554D 
@@ -7853,14 +7858,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5768      4C454153 
  5768      54363420 
  5768      5F5F5343 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 132
+
+
  5768      4E363428 
  5769              	.LASF209:
  5770 2856 5F5F4442 		.ascii	"__DBL_HAS_DENORM__ 1\000"
  5770      4C5F4841 
  5770      535F4445 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 132
-
-
  5770      4E4F524D 
  5770      5F5F2031 
  5771              	.LASF827:
@@ -7913,14 +7918,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5788      46524143 
  5788      545F4550 
  5788      53494C4F 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 133
+
+
  5788      4E5F5F20 
  5789              	.LASF965:
  5790 2952 52414E44 		.ascii	"RAND_MAX __RAND_MAX\000"
  5790      5F4D4158 
  5790      205F5F52 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 133
-
-
  5790      414E445F 
  5790      4D415800 
  5791              	.LASF676:
@@ -7973,14 +7978,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5807      6E675F63 
  5807      6C617373 
  5807      5F682000 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 134
+
+
  5808              	.LASF680:
  5809 2a4e 50524975 		.ascii	"PRIuLEAST32 __PRI32(u)\000"
  5809      4C454153 
  5809      54333220 
  5809      5F5F5052 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 134
-
-
  5809      49333228 
  5810              	.LASF364:
  5811 2a65 5F5F5553 		.ascii	"__USER_LABEL_PREFIX__ \000"
@@ -8033,14 +8038,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5825      652900
  5826              	.LASF752:
  5827 2b82 50524975 		.ascii	"PRIuPTR __PRIPTR(u)\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 135
+
+
  5827      50545220 
  5827      5F5F5052 
  5827      49505452 
  5827      28752900 
  5828              	.LASF480:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 135
-
-
  5829 2b96 494E545F 		.ascii	"INT_LEAST64_MIN (-9223372036854775807LL-1LL)\000"
  5829      4C454153 
  5829      5436345F 
@@ -8093,14 +8098,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5846              	.LASF620:
  5847 2c8e 5052496F 		.ascii	"PRIoFAST8 __PRI8(o)\000"
  5847      46415354 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 136
+
+
  5847      38205F5F 
  5847      50524938 
  5847      286F2900 
  5848              	.LASF973:
  5849 2ca2 5F435459 		.ascii	"_CTYPE_H_ \000"
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 136
-
-
  5849      50455F48 
  5849      5F2000
  5850              	.LASF923:
@@ -8153,14 +8158,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5867 2d70 53434E75 		.ascii	"SCNuPTR __SCNPTR(u)\000"
  5867      50545220 
  5867      5F5F5343 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 137
+
+
  5867      4E505452 
  5867      28752900 
  5868              	.LASF118:
  5869 2d84 5F5F494E 		.ascii	"__INT_FAST16_TYPE__ int\000"
  5869      545F4641 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 137
-
-
  5869      53543136 
  5869      5F545950 
  5869      455F5F20 
@@ -8213,14 +8218,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5887      455F5F20 
  5887      73686F72 
  5888              	.LASF42:
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 138
+
+
  5889 2e53 5072696E 		.ascii	"Print_h \000"
  5889      745F6820 
  5889      00
  5890              	.LASF473:
  5891 2e5c 55494E54 		.ascii	"UINT32_MAX 4294967295UL\000"
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 138
-
-
  5891      33325F4D 
  5891      41582034 
  5891      32393439 
@@ -8273,14 +8278,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5907      49545F5F 
  5907      20333200 
  5908              	.LASF984:
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 139
+
+
  5909 2f4d 69736173 		.ascii	"isascii(__c) ((unsigned)(__c)<=0177)\000"
  5909      63696928 
  5909      5F5F6329 
  5909      20282875 
  5909      6E736967 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 139
-
-
  5910              	.LASF261:
  5911 2f72 5F5F4652 		.ascii	"__FRACT_EPSILON__ 0x1P-15R\000"
  5911      4143545F 
@@ -8333,14 +8338,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5926      5F203235 
  5926      3500
  5927              	.LASF714:
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 140
+
+
  5928 306e 5052496F 		.ascii	"PRIoLEAST64 __PRI64(o)\000"
  5928      4C454153 
  5928      54363420 
  5928      5F5F5052 
  5928      49363428 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 140
-
-
  5929              	.LASF517:
  5930 3085 465F4350 		.ascii	"F_CPU 48000000\000"
  5930      55203438 
@@ -8393,14 +8398,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5947      4F4D4943 
  5947      5F434841 
  5947      5231365F 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 141
+
+
  5948              	.LASF69:
  5949 3189 5F5F4154 		.ascii	"__ATOMIC_RELEASE 3\000"
  5949      4F4D4943 
  5949      5F52454C 
  5949      45415345 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 141
-
-
  5949      203300
  5950              	.LASF1050:
  5951 319c 706F7274 		.ascii	"portModeRegister(P) *(port_to_mode_PGM + (P))\000"
@@ -8453,14 +8458,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5967      5A455F5F 
  5967      203100
  5968              	.LASF786:
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 142
+
+
  5969 3255 5F5F5F69 		.ascii	"___int_least16_t_defined 1\000"
  5969      6E745F6C 
  5969      65617374 
  5969      31365F74 
  5969      5F646566 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 142
-
-
  5970              	.LASF1045:
  5971 3270 64696769 		.ascii	"digitalPinToBitMask(P) *(digital_pin_to_bit_mask_PG"
  5971      74616C50 
@@ -8513,14 +8518,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  5981      207B307D 
  5982 343a 4C2C207B 		.ascii	"L, {_NULL, 0, {_NULL}, {{_NULL}, {_NULL}, 0, 0}}, _"
  5982      5F4E554C 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 143
+
+
  5982      4C2C2030 
  5982      2C207B5F 
  5982      4E554C4C 
  5983 346d 4E554C4C 		.ascii	"NULL, {_NULL, 0, _NULL} }\000"
  5983      2C207B5F 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 143
-
-
  5983      4E554C4C 
  5983      2C20302C 
  5983      205F4E55 
@@ -8573,14 +8578,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6001              	.LASF671:
  6002 3551 50524958 		.ascii	"PRIX32 __PRI32(X)\000"
  6002      3332205F 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 144
+
+
  6002      5F505249 
  6002      33322858 
  6002      2900
  6003              	.LASF829:
  6004 3563 5F524545 		.ascii	"_REENT_CHECK_SIGNAL_BUF(ptr) \000"
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 144
-
-
  6004      4E545F43 
  6004      4845434B 
  6004      5F534947 
@@ -8633,14 +8638,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6020      2900
  6021              	.LASF578:
  6022 364c 5F545F57 		.ascii	"_T_WCHAR_ \000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 145
+
+
  6022      43484152 
  6022      5F2000
  6023              	.LASF302:
  6024 3657 5F5F5541 		.ascii	"__UACCUM_FBIT__ 16\000"
  6024      4343554D 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 145
-
-
  6024      5F464249 
  6024      545F5F20 
  6024      313600
@@ -8693,14 +8698,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6042 3717 5F5F554C 		.ascii	"__ULACCUM_MIN__ 0.0ULK\000"
  6042      41434355 
  6042      4D5F4D49 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 146
+
+
  6042      4E5F5F20 
  6042      302E3055 
  6043              	.LASF404:
  6044 372e 5F415445 		.ascii	"_ATEXIT_DYNAMIC_ALLOC 1\000"
  6044      5849545F 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 146
-
-
  6044      44594E41 
  6044      4D49435F 
  6044      414C4C4F 
@@ -8753,14 +8758,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6063              	.LASF970:
  6064 37ff 73747269 		.ascii	"stricmp strcasecmp\000"
  6064      636D7020 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 147
+
+
  6064      73747263 
  6064      61736563 
  6064      6D7000
  6065              	.LASF481:
  6066 3812 494E545F 		.ascii	"INT_LEAST64_MAX 9223372036854775807LL\000"
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 147
-
-
  6066      4C454153 
  6066      5436345F 
  6066      4D415820 
@@ -8813,14 +8818,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6084      4E203000 
  6085              	.LASF348:
  6086 38de 5F5F4841 		.ascii	"__HA_IBIT__ 8\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 148
+
+
  6086      5F494249 
  6086      545F5F20 
  6086      3800
  6087              	.LASF537:
  6088 38ec 50524553 		.ascii	"PRESETCTRL MMIO(0x40048004)\000"
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 148
-
-
  6088      45544354 
  6088      524C204D 
  6088      4D494F28 
@@ -8873,14 +8878,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6106      50524938 
  6106      28692900 
  6107              	.LASF104:
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 149
+
+
  6108 39ae 5F5F494E 		.ascii	"__INT64_TYPE__ long long int\000"
  6108      5436345F 
  6108      54595045 
  6108      5F5F206C 
  6108      6F6E6720 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 149
-
-
  6109              	.LASF267:
  6110 39cb 5F5F4C46 		.ascii	"__LFRACT_FBIT__ 31\000"
  6110      52414354 
@@ -8933,14 +8938,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6126      5F5F5343 
  6126      4E505452 
  6126      28692900 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 150
+
+
  6127              	.LASF265:
  6128 3a98 5F5F5546 		.ascii	"__UFRACT_MAX__ 0XFFFFP-16UR\000"
  6128      52414354 
  6128      5F4D4158 
  6128      5F5F2030 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 150
-
-
  6128      58464646 
  6129              	.LASF1028:
  6130 3ab4 726F756E 		.ascii	"round(x) ((x)>=0?(long)((x)+0.5):(long)((x)-0.5))\000"
@@ -8993,14 +8998,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6148      7400
  6149              	.LASF953:
  6150 3b7e 636C6561 		.ascii	"clearerr(p) __sclearerr(p)\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 151
+
+
  6150      72657272 
  6150      28702920 
  6150      5F5F7363 
  6150      6C656172 
  6151              	.LASF280:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 151
-
-
  6152 3b99 5F5F4C4C 		.ascii	"__LLFRACT_MAX__ 0X7FFFFFFFFFFFFFFFP-63LLR\000"
  6152      46524143 
  6152      545F4D41 
@@ -9053,14 +9058,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6170 3c5c 5F5F5345 		.ascii	"__SEOF 0x0020\000"
  6170      4F462030 
  6170      78303032 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 152
+
+
  6170      3000
  6171              	.LASF554:
  6172 3c6a 544D5231 		.ascii	"TMR16B0TCR MMIO(0x4000C004)\000"
  6172      36423054 
  6172      4352204D 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 152
-
-
  6172      4D494F28 
  6172      30783430 
  6173              	.LASF471:
@@ -9113,14 +9118,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6190              	.LASF320:
  6191 3d59 5F5F4C4C 		.ascii	"__LLACCUM_MAX__ 0X7FFFFFFFFFFFFFFFP-31LLK\000"
  6191      41434355 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 153
+
+
  6191      4D5F4D41 
  6191      585F5F20 
  6191      30583746 
  6192              	.LASF186:
  6193 3d83 5F5F464C 		.ascii	"__FLT_MIN_EXP__ (-125)\000"
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 153
-
-
  6193      545F4D49 
  6193      4E5F4558 
  6193      505F5F20 
@@ -9173,14 +9178,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6211 3e2d 5F5F5541 		.ascii	"__UACCUM_EPSILON__ 0x1P-16UK\000"
  6211      4343554D 
  6211      5F455053 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 154
+
+
  6211      494C4F4E 
  6211      5F5F2030 
  6212              	.LASF589:
  6213 3e4a 5F574348 		.ascii	"_WCHAR_T_DECLARED \000"
  6213      41525F54 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 154
-
-
  6213      5F444543 
  6213      4C415245 
  6213      442000
@@ -9233,14 +9238,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6230 3f1e 642D345F 		.ascii	"d-4_7-branch revision 200083]\"\000"
  6230      372D6272 
  6230      616E6368 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 155
+
+
  6230      20726576 
  6230      6973696F 
  6231              	.LASF574:
  6232 3f3d 5F5F6E65 		.ascii	"__need_wchar_t \000"
  6232      65645F77 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 155
-
-
  6232      63686172 
  6232      5F742000 
  6233              	.LASF662:
@@ -9293,14 +9298,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6252      5F505452 
  6252      44494646 
  6252      5F545F5F 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 156
+
+
  6253              	.LASF576:
  6254 400a 5F5F5743 		.ascii	"__WCHAR_T__ \000"
  6254      4841525F 
  6254      545F5F20 
  6254      00
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 156
-
-
  6255              	.LASF1076:
  6256 4017 54494D45 		.ascii	"TIMER4B 12\000"
  6256      52344220 
@@ -9353,14 +9358,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6273              	.LASF1078:
  6274 40ea 54494D45 		.ascii	"TIMER4D 14\000"
  6274      52344420 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 157
+
+
  6274      313400
  6275              	.LASF240:
  6276 40f5 5F5F4445 		.ascii	"__DEC128_MANT_DIG__ 34\000"
  6276      43313238 
  6276      5F4D414E 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 157
-
-
  6276      545F4449 
  6276      475F5F20 
  6277              	.LASF145:
@@ -9413,14 +9418,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6293              	.LASF215:
  6294 41c3 5F5F4C44 		.ascii	"__LDBL_MIN_10_EXP__ (-307)\000"
  6294      424C5F4D 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 158
+
+
  6294      494E5F31 
  6294      305F4558 
  6294      505F5F20 
  6295              	.LASF4:
  6296 41de 6C6F6E67 		.ascii	"long int\000"
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 158
-
-
  6296      20696E74 
  6296      00
  6297              	.LASF559:
@@ -9473,14 +9478,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6313              	.LASF603:
  6314 42b5 53434E69 		.ascii	"SCNi8 __SCN8(i)\000"
  6314      38205F5F 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 159
+
+
  6314      53434E38 
  6314      28692900 
  6315              	.LASF971:
  6316 42c5 7374726E 		.ascii	"strncmpi strncasecmp\000"
  6316      636D7069 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 159
-
-
  6316      20737472 
  6316      6E636173 
  6316      65636D70 
@@ -9533,14 +9538,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6334 43bc 5F5F7469 		.ascii	"__timer_t_defined \000"
  6334      6D65725F 
  6334      745F6465 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 160
+
+
  6334      66696E65 
  6334      642000
  6335              	.LASF775:
  6336 43cf 5F5F5F69 		.ascii	"___int_size_t_h \000"
  6336      6E745F73 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 160
-
-
  6336      697A655F 
  6336      745F6820 
  6336      00
@@ -9593,14 +9598,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6354      363400
  6355              	.LASF749:
  6356 4480 50524964 		.ascii	"PRIdPTR __PRIPTR(d)\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 161
+
+
  6356      50545220 
  6356      5F5F5052 
  6356      49505452 
  6356      28642900 
  6357              	.LASF176:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 161
-
-
  6358 4494 5F5F5549 		.ascii	"__UINT_FAST16_MAX__ 4294967295U\000"
  6358      4E545F46 
  6358      41535431 
@@ -9653,14 +9658,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6378      41585F5F 
  6379              	.LASF504:
  6380 4559 57434841 		.ascii	"WCHAR_MIN __WCHAR_MIN__\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 162
+
+
  6380      525F4D49 
  6380      4E205F5F 
  6380      57434841 
  6380      525F4D49 
  6381              	.LASF171:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 162
-
-
  6382 4571 5F5F494E 		.ascii	"__INT_FAST8_MAX__ 2147483647\000"
  6382      545F4641 
  6382      5354385F 
@@ -9713,14 +9718,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6399      5F70292D 
  6399      3E5F6C62 
  6400 465e 285F5F70 		.ascii	"(__p)->_p != '\\n' ? (int)*(__p)->_p++ : __swbuf_r("
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 163
+
+
  6400      292D3E5F 
  6400      7020213D 
  6400      20275C6E 
  6400      27203F20 
  6401 4690 5F5F7074 		.ascii	"__ptr, '\\n', __p) : __swbuf_r(__ptr, (int)(__c), _"
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 163
-
-
  6401      722C2027 
  6401      5C6E272C 
  6401      205F5F70 
@@ -9773,14 +9778,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6417              	.LASF149:
  6418 479e 5F5F494E 		.ascii	"__INT32_MAX__ 2147483647L\000"
  6418      5433325F 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 164
+
+
  6418      4D41585F 
  6418      5F203231 
  6418      34373438 
  6419              	.LASF534:
  6420 47b8 494F434F 		.ascii	"IOCON_PIO1_5 MMIO(0x400440A0)\000"
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 164
-
-
  6420      4E5F5049 
  6420      4F315F35 
  6420      204D4D49 
@@ -9833,14 +9838,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6437      41535F44 
  6437      454E4F52 
  6437      4D5F5F20 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 165
+
+
  6438              	.LASF467:
  6439 48b2 55494E54 		.ascii	"UINT16_MAX 65535\000"
  6439      31365F4D 
  6439      41582036 
  6439      35353335 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 165
-
-
  6439      00
  6440              	.LASF1038:
  6441 48c3 68696768 		.ascii	"highByte(w) ((uint8_t) ((w) >> 8))\000"
@@ -9893,14 +9898,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6458              	.LASF28:
  6459 4985 5F5A3469 		.ascii	"_Z4initv\000"
  6459      6E697476 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 166
+
+
  6459      00
  6460              	.LASF367:
  6461 498e 5F5F5743 		.ascii	"__WCHAR_UNSIGNED__ 1\000"
  6461      4841525F 
  6461      554E5349 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 166
-
-
  6461      474E4544 
  6461      5F5F2031 
  6462              	.LASF85:
@@ -9953,14 +9958,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6479      41544F4D 
  6479      49435F4D 
  6479      4158205F 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 167
+
+
  6479      5F535444 
  6480              	.LASF333:
  6481 4a78 5F5F4451 		.ascii	"__DQ_FBIT__ 63\000"
  6481      5F464249 
  6481      545F5F20 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 167
-
-
  6481      363300
  6482              	.LASF5:
  6483 4a87 75696E74 		.ascii	"uint16_t\000"
@@ -10013,14 +10018,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6499      53543332 
  6499      5F545950 
  6499      455F5F20 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 168
+
+
  6500              	.LASF289:
  6501 4b87 5F5F5341 		.ascii	"__SACCUM_MIN__ (-0X1P7HK-0X1P7HK)\000"
  6501      4343554D 
  6501      5F4D494E 
  6501      5F5F2028 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 168
-
-
  6501      2D305831 
  6502              	.LASF275:
  6503 4ba9 5F5F554C 		.ascii	"__ULFRACT_MAX__ 0XFFFFFFFFP-32ULR\000"
@@ -10073,14 +10078,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6518      5F5F5343 
  6518      4E4D4158 
  6518      28692900 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 169
+
+
  6519              	.LASF165:
  6520 4cc2 5F5F5549 		.ascii	"__UINT_LEAST16_MAX__ 65535\000"
  6520      4E545F4C 
  6520      45415354 
  6520      31365F4D 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 169
-
-
  6520      41585F5F 
  6521              	.LASF463:
  6522 4cdd 494E545F 		.ascii	"INT_LEAST8_MAX 127\000"
@@ -10133,14 +10138,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6537      205F5F62 
  6537      75696C74 
  6538              	.LASF932:
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 170
+
+
  6539 4db6 5345454B 		.ascii	"SEEK_END 2\000"
  6539      5F454E44 
  6539      203200
  6540              	.LASF501:
  6541 4dc1 50545244 		.ascii	"PTRDIFF_MAX __PTRDIFF_MAX__\000"
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 170
-
-
  6541      4946465F 
  6541      4D415820 
  6541      5F5F5054 
@@ -10193,14 +10198,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6559      545F4D49 
  6559      4E5F5F20 
  6559      302E3055 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 171
+
+
  6560              	.LASF1008:
  6561 4eb0 494E5055 		.ascii	"INPUT_PULLUP 0x2\000"
  6561      545F5055 
  6561      4C4C5550 
  6561      20307832 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 171
-
-
  6561      00
  6562              	.LASF334:
  6563 4ec1 5F5F4451 		.ascii	"__DQ_IBIT__ 0\000"
@@ -10253,14 +10258,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6580              	.LASF432:
  6581 4f93 5F444546 		.ascii	"_DEFUN_VOID(name) name(_NOARGS)\000"
  6581      554E5F56 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 172
+
+
  6581      4F494428 
  6581      6E616D65 
  6581      29206E61 
  6582              	.LASF137:
  6583 4fb3 5F5F5749 		.ascii	"__WINT_MAX__ 4294967295U\000"
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 172
-
-
  6583      4E545F4D 
  6583      41585F5F 
  6583      20343239 
@@ -10313,14 +10318,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6601      74726469 
  6601      66665F74 
  6601      5F682000 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 173
+
+
  6602              	.LASF996:
  6603 5096 5F5F7661 		.ascii	"__va_copy(d,s) __builtin_va_copy(d,s)\000"
  6603      5F636F70 
  6603      7928642C 
  6603      7329205F 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 173
-
-
  6603      5F627569 
  6604              	.LASF140:
  6605 50bc 5F5F5349 		.ascii	"__SIZE_MAX__ 4294967295U\000"
@@ -10373,14 +10378,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6621      742C6C6F 
  6621      772C6869 
  6622 5190 68696768 		.ascii	"high)?(high):(amt)))\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 174
+
+
  6622      293F2868 
  6622      69676829 
  6622      3A28616D 
  6622      74292929 
  6623              	.LASF100:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 174
-
-
  6624 51a5 5F5F5349 		.ascii	"__SIG_ATOMIC_TYPE__ int\000"
  6624      475F4154 
  6624      4F4D4943 
@@ -10433,14 +10438,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6642      52494E47 
  6643              	.LASF328:
  6644 5249 5F5F5151 		.ascii	"__QQ_IBIT__ 0\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 175
+
+
  6644      5F494249 
  6644      545F5F20 
  6644      3000
  6645              	.LASF179:
  6646 5257 5F5F494E 		.ascii	"__INTPTR_MAX__ 2147483647\000"
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 175
-
-
  6646      54505452 
  6646      5F4D4158 
  6646      5F5F2032 
@@ -10493,14 +10498,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6662      203000
  6663              	.LASF115:
  6664 5321 5F5F5549 		.ascii	"__UINT_LEAST32_TYPE__ long unsigned int\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 176
+
+
  6664      4E545F4C 
  6664      45415354 
  6664      33325F54 
  6664      5950455F 
  6665              	.LASF27:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 176
-
-
  6666 5349 696E6974 		.ascii	"init\000"
  6666      00
  6667              	.LASF63:
@@ -10553,14 +10558,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6684 5401 5F5F5F69 		.ascii	"___int_least32_t_defined 1\000"
  6684      6E745F6C 
  6684      65617374 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 177
+
+
  6684      33325F74 
  6684      5F646566 
  6685              	.LASF777:
  6686 541c 5F53495A 		.ascii	"_SIZET_ \000"
  6686      45545F20 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 177
-
-
  6686      00
  6687              	.LASF50:
  6688 5425 5F535444 		.ascii	"_STDLIB_H_ \000"
@@ -10613,14 +10618,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6704      32313437 
  6705              	.LASF935:
  6706 54e2 7374646F 		.ascii	"stdout (_REENT->_stdout)\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 178
+
+
  6706      75742028 
  6706      5F524545 
  6706      4E542D3E 
  6706      5F737464 
  6707              	.LASF742:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 178
-
-
  6708 54fb 53434E64 		.ascii	"SCNdMAX __SCNMAX(d)\000"
  6708      4D415820 
  6708      5F5F5343 
@@ -10673,14 +10678,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6725      30303030 
  6725      31452D36 
  6725      31343344 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 179
+
+
  6725      4C00
  6726              	.LASF91:
  6727 55db 5F5F474E 		.ascii	"__GNUG__ 4\000"
  6727      55475F5F 
  6727      203400
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 179
-
-
  6728              	.LASF276:
  6729 55e6 5F5F554C 		.ascii	"__ULFRACT_EPSILON__ 0x1P-32ULR\000"
  6729      46524143 
@@ -10733,14 +10738,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6745 56ab 73747274 		.ascii	"strtodf strtof\000"
  6745      6F646620 
  6745      73747274 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 180
+
+
  6745      6F6600
  6746              	.LASF415:
  6747 56ba 5F484156 		.ascii	"_HAVE_STDC \000"
  6747      455F5354 
  6747      44432000 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 180
-
-
  6748              	.LASF896:
  6749 56c6 46445F5A 		.ascii	"FD_ZERO(p) (__extension__ (void)({ size_t __i; char"
  6749      45524F28 
@@ -10793,14 +10798,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6763      56455253 
  6763      494F4E20 
  6763      22312E31 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 181
+
+
  6764              	.LASF2:
  6765 57db 73686F72 		.ascii	"short int\000"
  6765      7420696E 
  6765      7400
  6766              	.LASF840:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 181
-
-
  6767 57e5 5F524545 		.ascii	"_REENT_TM(ptr) (&(ptr)->_new._reent._localtime_buf)"
  6767      4E545F54 
  6767      4D287074 
@@ -10853,14 +10858,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6783      28292061 
  6783      736D2822 
  6784              	.LASF1035:
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 182
+
+
  6785 58f9 636C6F63 		.ascii	"clockCyclesToMicroseconds(a) ( (a) / clockCyclesPer"
  6785      6B437963 
  6785      6C657354 
  6785      6F4D6963 
  6785      726F7365 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 182
-
-
  6786 592c 4D696372 		.ascii	"Microsecond() )\000"
  6786      6F736563 
  6786      6F6E6428 
@@ -10913,14 +10918,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6803      4C454153 
  6803      5438205F 
  6803      5F53434E 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 183
+
+
  6803      38286429 
  6804              	.LASF15:
  6805 5a1a 626F6F6C 		.ascii	"bool\000"
  6805      00
  6806              	.LASF650:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 183
-
-
  6807 5a1f 53434E6F 		.ascii	"SCNoLEAST16 __SCN16(o)\000"
  6807      4C454153 
  6807      54313620 
@@ -10973,14 +10978,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6824              	.LASF678:
  6825 5ade 50524969 		.ascii	"PRIiLEAST32 __PRI32(i)\000"
  6825      4C454153 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 184
+
+
  6825      54333220 
  6825      5F5F5052 
  6825      49333228 
  6826              	.LASF443:
  6827 5af5 5F5F6861 		.ascii	"__have_long32 1\000"
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 184
-
-
  6827      76655F6C 
  6827      6F6E6733 
  6827      32203100 
@@ -11033,14 +11038,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6843      66696E65 
  6843      64203100 
  6844              	.LASF553:
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 185
+
+
  6845 5be3 4D523049 		.ascii	"MR0INT 0\000"
  6845      4E542030 
  6845      00
  6846              	.LASF401:
  6847 5bec 5F57414E 		.ascii	"_WANT_REGISTER_FINI 1\000"
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 185
-
-
  6847      545F5245 
  6847      47495354 
  6847      45525F46 
@@ -11093,14 +11098,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6864      545F5F20 
  6864      3700
  6865              	.LASF704:
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 186
+
+
  6866 5cbf 50524975 		.ascii	"PRIu64 __PRI64(u)\000"
  6866      3634205F 
  6866      5F505249 
  6866      36342875 
  6866      2900
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 186
-
-
  6867              	.LASF465:
  6868 5cd1 494E5431 		.ascii	"INT16_MIN -32768\000"
  6868      365F4D49 
@@ -11153,14 +11158,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6884      2900
  6885              	.LASF323:
  6886 5d7f 5F5F554C 		.ascii	"__ULLACCUM_IBIT__ 32\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 187
+
+
  6886      4C414343 
  6886      554D5F49 
  6886      4249545F 
  6886      5F203332 
  6887              	.LASF998:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 187
-
-
  6888 5d94 5F56415F 		.ascii	"_VA_LIST \000"
  6888      4C495354 
  6888      2000
@@ -11213,14 +11218,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6905              	.LASF394:
  6906 5e72 5F5F4152 		.ascii	"__ARM_EABI__ 1\000"
  6906      4D5F4541 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 188
+
+
  6906      42495F5F 
  6906      203100
  6907              	.LASF1007:
  6908 5e81 4F555450 		.ascii	"OUTPUT 0x1\000"
  6908      55542030 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 188
-
-
  6908      783100
  6909              	.LASF448:
  6910 5e8c 5F5F696E 		.ascii	"__int32_t_defined 1\000"
@@ -11273,14 +11278,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6926      4C454153 
  6926      54363420 
  6926      5F5F5052 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 189
+
+
  6926      49363428 
  6927              	.LASF614:
  6928 5f3e 53434E69 		.ascii	"SCNiLEAST8 __SCN8(i)\000"
  6928      4C454153 
  6928      5438205F 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 189
-
-
  6928      5F53434E 
  6928      38286929 
  6929              	.LASF1021:
@@ -11333,14 +11338,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6947 6023 5F474343 		.ascii	"_GCC_SIZE_T \000"
  6947      5F53495A 
  6947      455F5420 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 190
+
+
  6947      00
  6948              	.LASF284:
  6949 6030 5F5F554C 		.ascii	"__ULLFRACT_MIN__ 0.0ULLR\000"
  6949      4C465241 
  6949      43545F4D 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 190
-
-
  6949      494E5F5F 
  6949      20302E30 
  6950              	.LASF3:
@@ -11393,14 +11398,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6966      49545F5F 
  6966      203000
  6967              	.LASF649:
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 191
+
+
  6968 610e 53434E69 		.ascii	"SCNiLEAST16 __SCN16(i)\000"
  6968      4C454153 
  6968      54313620 
  6968      5F5F5343 
  6968      4E313628 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 191
-
-
  6969              	.LASF6:
  6970 6125 75696E74 		.ascii	"uint32_t\000"
  6970      33325F74 
@@ -11453,14 +11458,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  6986      49545F5F 
  6986      203800
  6987              	.LASF48:
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 192
+
+
  6988 6210 5F5F6E65 		.ascii	"__need_wint_t \000"
  6988      65645F77 
  6988      696E745F 
  6988      742000
  6989              	.LASF301:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 192
-
-
  6990 621f 5F5F4143 		.ascii	"__ACCUM_EPSILON__ 0x1P-15K\000"
  6990      43554D5F 
  6990      45505349 
@@ -11513,14 +11518,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  7008      46465F4D 
  7009              	.LASF720:
  7010 62df 53434E6F 		.ascii	"SCNoLEAST64 __SCN64(o)\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 193
+
+
  7010      4C454153 
  7010      54363420 
  7010      5F5F5343 
  7010      4E363428 
  7011              	.LASF238:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 193
-
-
  7012 62f6 5F5F4445 		.ascii	"__DEC64_EPSILON__ 1E-15DD\000"
  7012      4336345F 
  7012      45505349 
@@ -11573,14 +11578,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  7029 63e1 5F5F4C4C 		.ascii	"__LLFRACT_FBIT__ 63\000"
  7029      46524143 
  7029      545F4642 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 194
+
+
  7029      49545F5F 
  7029      20363300 
  7030              	.LASF575:
  7031 63f5 5F5F7763 		.ascii	"__wchar_t__ \000"
  7031      6861725F 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 194
-
-
  7031      745F5F20 
  7031      00
  7032              	.LASF386:
@@ -11633,14 +11638,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  7049      36342869 
  7049      2900
  7050              	.LASF1081:
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 195
+
+
  7051 64d8 54494D45 		.ascii	"TIMER5C 17\000"
  7051      52354320 
  7051      313700
  7052              	.LASF915:
  7053 64e3 5F5F534F 		.ascii	"__SOPT 0x0400\000"
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 195
-
-
  7053      50542030 
  7053      78303430 
  7053      3000
@@ -11693,14 +11698,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  7071 6599 53434E78 		.ascii	"SCNx16 __SCN16(x)\000"
  7071      3136205F 
  7071      5F53434E 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 196
+
+
  7071      31362878 
  7071      2900
  7072              	.LASF1052:
  7073 65ab 4E4F545F 		.ascii	"NOT_A_PORT 0\000"
  7073      415F504F 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 196
-
-
  7073      52542030 
  7073      00
  7074              	.LASF972:
@@ -11753,14 +11758,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  7091      542000
  7092              	.LASF903:
  7093 6669 5F666C6F 		.ascii	"_flockfile(fp) (((fp)->_flags & __SSTR) ? 0 : __loc"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 197
+
+
  7093      636B6669 
  7093      6C652866 
  7093      70292028 
  7093      28286670 
  7094 669c 6B5F6163 		.ascii	"k_acquire_recursive((fp)->_lock))\000"
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 197
-
-
  7094      71756972 
  7094      655F7265 
  7094      63757273 
@@ -11813,14 +11818,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  7111              	.LASF330:
  7112 6759 5F5F4851 		.ascii	"__HQ_IBIT__ 0\000"
  7112      5F494249 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 198
+
+
  7112      545F5F20 
  7112      3000
  7113              	.LASF201:
  7114 6767 5F5F4442 		.ascii	"__DBL_MIN_10_EXP__ (-307)\000"
  7114      4C5F4D49 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 198
-
-
  7114      4E5F3130 
  7114      5F455850 
  7114      5F5F2028 
@@ -11873,14 +11878,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  7130      76617229 
  7131 6862 7464696E 		.ascii	"tdin = &(var)->__sf[0]; (var)->_stdout = &(var)->__"
  7131      203D2026 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 199
+
+
  7131      28766172 
  7131      292D3E5F 
  7131      5F73665B 
  7132 6895 73665B31 		.ascii	"sf[1]; (var)->_stderr = &(var)->__sf[2]; (var)->_in"
  7132      5D3B2028 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 199
-
-
  7132      76617229 
  7132      2D3E5F73 
  7132      74646572 
@@ -11933,14 +11938,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  7142      6C74696D 
  7142      655F6275 
  7142      662C2030 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 200
+
+
  7142      2C207369 
  7143 6ac4 696D655F 		.ascii	"ime_buf)); (var)->_new._reent._gamma_signgam = 0; ("
  7143      62756629 
  7143      293B2028 
  7143      76617229 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 200
-
-
  7143      2D3E5F6E 
  7144 6af7 76617229 		.ascii	"var)->_new._reent._rand_next = 1; (var)->_new._reen"
  7144      2D3E5F6E 
@@ -11993,14 +11998,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  7153      77636820 
  7153      3D20303B 
  7154 6cf5 74652E5F 		.ascii	"te.__count = 0; (var)->_new._reent._mbtowc_state.__"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 201
+
+
  7154      5F636F75 
  7154      6E74203D 
  7154      20303B20 
  7154      28766172 
  7155 6d28 76616C75 		.ascii	"value.__wch = 0; (var)->_new._reent._wctomb_state._"
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 201
-
-
  7155      652E5F5F 
  7155      77636820 
  7155      3D20303B 
@@ -12053,14 +12058,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  7165 6f26 68203D20 		.ascii	"h = 0; (var)->_new._reent._wcsrtombs_state.__count "
  7165      303B2028 
  7165      76617229 
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 202
+
+
  7165      2D3E5F6E 
  7165      65772E5F 
  7166 6f59 3D20303B 		.ascii	"= 0; (var)->_new._reent._wcsrtombs_state.__value.__"
  7166      20287661 
  7166      72292D3E 
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 202
-
-
  7166      5F6E6577 
  7166      2E5F7265 
  7167 6f8c 77636820 		.ascii	"wch = 0; (var)->_new._reent._l64a_buf[0] = '\\0'; ("
@@ -12113,14 +12118,14 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  7176      2E5F696F 
  7176      6273203D 
  7177 7164 2073697A 		.ascii	" sizeof((var)->__sf)); }\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 203
+
+
  7177      656F6628 
  7177      28766172 
  7177      292D3E5F 
  7177      5F736629 
  7178              	.LASF997:
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 203
-
-
  7179 717d 5F56415F 		.ascii	"_VA_LIST_ \000"
  7179      4C495354 
  7179      5F2000
@@ -12173,42 +12178,42 @@ ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 1
  7197      32313437 
  7198              	.LASF609:
  7199 722a 5052496F 		.ascii	"PRIoLEAST8 __PRI8(o)\000"
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 204
+
+
  7199      4C454153 
  7199      5438205F 
  7199      5F505249 
  7199      38286F29 
  7200              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.4 20130613 (release) [ARM/embedded-4_7-br
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 204
-
-
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 205
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 205
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 wiring.c
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:64     .text._Z15TIMER0_OVF_vectv:0000000000000000 $t
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:69     .text._Z15TIMER0_OVF_vectv:0000000000000000 _Z15TIMER0_OVF_vectv
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:131    .text._Z15TIMER0_OVF_vectv:000000000000002c $d
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:139    .text._Z6millisv:0000000000000000 $t
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:144    .text._Z6millisv:0000000000000000 _Z6millisv
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:170    .text._Z6millisv:000000000000000c $d
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:175    .text._Z6microsv:0000000000000000 $t
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:180    .text._Z6microsv:0000000000000000 _Z6microsv
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:232    .text._Z6microsv:0000000000000028 $d
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:239    .text._Z5delaym:0000000000000000 $t
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:244    .text._Z5delaym:0000000000000000 _Z5delaym
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:296    .text._Z5delaym:0000000000000028 $d
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:301    .text._Z17delayMicrosecondsj:0000000000000000 $t
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:306    .text._Z17delayMicrosecondsj:0000000000000000 _Z17delayMicrosecondsj
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:348    .text._Z4initv:0000000000000000 $t
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:353    .text._Z4initv:0000000000000000 _Z4initv
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:479    .text._Z4initv:0000000000000088 $d
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:517    .bss.timer0_millis:0000000000000000 timer0_millis
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:504    .bss.timer0_overflow_count:0000000000000000 timer0_overflow_count
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:500    .bss.timer0_overflow_count:0000000000000000 $d
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:510    .bss._ZL12timer0_fract:0000000000000000 _ZL12timer0_fract
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:511    .bss._ZL12timer0_fract:0000000000000000 $d
-/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s:513    .bss.timer0_millis:0000000000000000 $d
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:64     .text._Z15TIMER0_OVF_vectv:0000000000000000 $t
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:69     .text._Z15TIMER0_OVF_vectv:0000000000000000 _Z15TIMER0_OVF_vectv
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:131    .text._Z15TIMER0_OVF_vectv:000000000000002c $d
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:139    .text._Z6millisv:0000000000000000 $t
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:144    .text._Z6millisv:0000000000000000 _Z6millisv
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:170    .text._Z6millisv:000000000000000c $d
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:175    .text._Z6microsv:0000000000000000 $t
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:180    .text._Z6microsv:0000000000000000 _Z6microsv
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:232    .text._Z6microsv:0000000000000028 $d
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:239    .text._Z5delaym:0000000000000000 $t
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:244    .text._Z5delaym:0000000000000000 _Z5delaym
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:296    .text._Z5delaym:0000000000000028 $d
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:301    .text._Z17delayMicrosecondsj:0000000000000000 $t
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:306    .text._Z17delayMicrosecondsj:0000000000000000 _Z17delayMicrosecondsj
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:348    .text._Z4initv:0000000000000000 $t
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:353    .text._Z4initv:0000000000000000 _Z4initv
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:479    .text._Z4initv:0000000000000088 $d
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:517    .bss.timer0_millis:0000000000000000 timer0_millis
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:504    .bss.timer0_overflow_count:0000000000000000 timer0_overflow_count
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:500    .bss.timer0_overflow_count:0000000000000000 $d
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:510    .bss._ZL12timer0_fract:0000000000000000 _ZL12timer0_fract
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:511    .bss._ZL12timer0_fract:0000000000000000 $d
+/var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s:513    .bss.timer0_millis:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
                            .group:0000000000000000 wm4.1.8ebf1c990d6a0cbee7a5e554ec03ca59
                            .group:0000000000000000 wm4.newlib.h.8.a9901dc52d1357e3e94003403d43f8b5
@@ -12241,7 +12246,7 @@ DEFINED SYMBOLS
                            .group:0000000000000000 wm4.string.h.86.d5c872ff52e2712c985b588a0ef39f3c
                            .group:0000000000000000 wm4.ctype.h.2.c8defeb78957b878a8c8884c0f101735
                            .group:0000000000000000 wm4.Print.h.30.f0c5252e1c1c571b69cebbc87428dee1
-ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cc6Kc30g.s 			page 206
+ARM GAS  /var/folders/wv/bpgj319905s5rl92drfwf9k40000gn/T//cceHelIk.s 			page 206
 
 
                            .group:0000000000000000 wm4.stdarg.h.31.fa591a4b1df9e413e9f5b8097f9ae89d

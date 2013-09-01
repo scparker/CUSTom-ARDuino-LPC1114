@@ -399,6 +399,8 @@ Discarded input sections
  .text          0x0000000000000000        0x0 out/WString.o
  .data          0x0000000000000000        0x0 out/WString.o
  .bss           0x0000000000000000        0x0 out/WString.o
+ .text._Z4itoaiPci
+                0x0000000000000000       0x3c out/WString.o
  .text._ZN6StringD2Ev
                 0x0000000000000000        0xe out/WString.o
  .text._ZN6String10invalidateEv
@@ -424,7 +426,7 @@ Discarded input sections
  .text._ZN6StringC2Ejh
                 0x0000000000000000       0x2c out/WString.o
  .text._ZN6StringC2Eih
-                0x0000000000000000       0x2c out/WString.o
+                0x0000000000000000       0x26 out/WString.o
  .text._ZN6StringC2Ehh
                 0x0000000000000000       0x2c out/WString.o
  .text._ZN6StringC2Ec
@@ -538,7 +540,7 @@ Discarded input sections
  .text._ZNK6String7toFloatEv
                 0x0000000000000000       0x16 out/WString.o
  .rodata.str1.1
-                0x0000000000000000        0xe out/WString.o
+                0x0000000000000000       0x17 out/WString.o
  .bss._ZZN6StringixEjE19dummy_writable_char
                 0x0000000000000000        0x1 out/WString.o
  .debug_macro   0x0000000000000000      0x7f6 out/WString.o
@@ -982,8 +984,6 @@ Discarded input sections
                 0x0000000000000000       0x14 out/Print.o
  .text._ZN5Print7printlnEli
                 0x0000000000000000       0x14 out/Print.o
- .text._ZN5Print5printEii
-                0x0000000000000000        0x8 out/Print.o
  .text._ZN5Print10printFloatEdh
                 0x0000000000000000      0x170 out/Print.o
  .text._ZN5Print5printEdi
@@ -1429,7 +1429,7 @@ LOAD /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/
                 [0x0000000000001000]                PROVIDE (__ram_size, __ram_size)
                 [0x0000000010001000]                PROVIDE (__ram_end, __ram_end)
 
-.text           0x0000000000000000     0x1680
+.text           0x0000000000000000     0x16a0
                 0x0000000000000000                . = ALIGN (0x4)
                 0x0000000000000000                __text_start = .
                 [0x0000000000000000]                PROVIDE (__text_start, __text_start)
@@ -1462,246 +1462,249 @@ LOAD /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/
                 0x0000000000000358       0x48 out/sketch.o
                 0x0000000000000358                setup()
  .text._Z4loopv
-                0x00000000000003a0      0x120 out/sketch.o
+                0x00000000000003a0      0x134 out/sketch.o
                 0x00000000000003a0                loop()
  .text._ZN14HardwareSerial9availableEv
-                0x00000000000004c0       0x18 out/HardwareSerial.o
-                0x00000000000004c0                HardwareSerial::available()
+                0x00000000000004d4       0x18 out/HardwareSerial.o
+                0x00000000000004d4                HardwareSerial::available()
  .text._ZN14HardwareSerial4peekEv
-                0x00000000000004d8       0x24 out/HardwareSerial.o
-                0x00000000000004d8                HardwareSerial::peek()
+                0x00000000000004ec       0x24 out/HardwareSerial.o
+                0x00000000000004ec                HardwareSerial::peek()
  .text._ZN14HardwareSerial4readEv
-                0x00000000000004fc       0x2c out/HardwareSerial.o
-                0x00000000000004fc                HardwareSerial::read()
+                0x0000000000000510       0x2c out/HardwareSerial.o
+                0x0000000000000510                HardwareSerial::read()
  .text._ZN14HardwareSerial5flushEv
-                0x0000000000000528        0x2 out/HardwareSerial.o
-                0x0000000000000528                HardwareSerial::flush()
- *fill*         0x000000000000052a        0x2 00
+                0x000000000000053c        0x2 out/HardwareSerial.o
+                0x000000000000053c                HardwareSerial::flush()
+ *fill*         0x000000000000053e        0x2 00
  .text._ZN14HardwareSerial5writeEh
-                0x000000000000052c       0x64 out/HardwareSerial.o
-                0x000000000000052c                HardwareSerial::write(unsigned char)
+                0x0000000000000540       0x64 out/HardwareSerial.o
+                0x0000000000000540                HardwareSerial::write(unsigned char)
  .text._Z15UART_IRQHandlerv
-                0x0000000000000590       0xcc out/HardwareSerial.o
-                0x0000000000000590                UART_IRQHandler()
+                0x00000000000005a4       0xcc out/HardwareSerial.o
+                0x00000000000005a4                UART_IRQHandler()
  .text._ZN14HardwareSerialC2Ev
-                0x000000000000065c       0x18 out/HardwareSerial.o
-                0x000000000000065c                HardwareSerial::HardwareSerial()
-                0x000000000000065c                HardwareSerial::HardwareSerial()
+                0x0000000000000670       0x18 out/HardwareSerial.o
+                0x0000000000000670                HardwareSerial::HardwareSerial()
+                0x0000000000000670                HardwareSerial::HardwareSerial()
  .text._ZN14HardwareSerial5beginEm
-                0x0000000000000674       0xb0 out/HardwareSerial.o
-                0x0000000000000674                HardwareSerial::begin(unsigned long)
+                0x0000000000000688       0xb0 out/HardwareSerial.o
+                0x0000000000000688                HardwareSerial::begin(unsigned long)
  .text.startup._GLOBAL__sub_I_uart_rx_buffer
-                0x0000000000000724       0x10 out/HardwareSerial.o
+                0x0000000000000738       0x10 out/HardwareSerial.o
  .text.startup.main
-                0x0000000000000734       0x10 out/main.o
-                0x0000000000000734                main
+                0x0000000000000748       0x10 out/main.o
+                0x0000000000000748                main
  .text._Z14I2C_IRQHandlerv
-                0x0000000000000744      0x14c out/Wire.o
-                0x0000000000000744                I2C_IRQHandler()
+                0x0000000000000758      0x14c out/Wire.o
+                0x0000000000000758                I2C_IRQHandler()
  .text._Z7I2CInitm
-                0x0000000000000890       0x9c out/Wire.o
-                0x0000000000000890                I2CInit(unsigned long)
+                0x00000000000008a4       0x9c out/Wire.o
+                0x00000000000008a4                I2CInit(unsigned long)
  .text._Z9I2CEnginev
-                0x000000000000092c       0x58 out/Wire.o
-                0x000000000000092c                I2CEngine()
+                0x0000000000000940       0x58 out/Wire.o
+                0x0000000000000940                I2CEngine()
  .text._ZN7TwoWire5beginEv
-                0x0000000000000984        0xa out/Wire.o
-                0x0000000000000984                TwoWire::begin()
- *fill*         0x000000000000098e        0x2 00
+                0x0000000000000998        0xa out/Wire.o
+                0x0000000000000998                TwoWire::begin()
+ *fill*         0x00000000000009a2        0x2 00
  .text._ZN7TwoWire11requestFromEhhh
-                0x0000000000000990       0x28 out/Wire.o
-                0x0000000000000990                TwoWire::requestFrom(unsigned char, unsigned char, unsigned char)
+                0x00000000000009a4       0x28 out/Wire.o
+                0x00000000000009a4                TwoWire::requestFrom(unsigned char, unsigned char, unsigned char)
  .text._ZN7TwoWire11requestFromEii
-                0x00000000000009b8        0xe out/Wire.o
-                0x00000000000009b8                TwoWire::requestFrom(int, int)
- *fill*         0x00000000000009c6        0x2 00
+                0x00000000000009cc        0xe out/Wire.o
+                0x00000000000009cc                TwoWire::requestFrom(int, int)
+ *fill*         0x00000000000009da        0x2 00
  .text._ZN7TwoWire17beginTransmissionEh
-                0x00000000000009c8       0x20 out/Wire.o
-                0x00000000000009c8                TwoWire::beginTransmission(unsigned char)
+                0x00000000000009dc       0x20 out/Wire.o
+                0x00000000000009dc                TwoWire::beginTransmission(unsigned char)
  .text._ZN7TwoWire15endTransmissionEv
-                0x00000000000009e8        0xa out/Wire.o
-                0x00000000000009e8                TwoWire::endTransmission()
- *fill*         0x00000000000009f2        0x2 00
+                0x00000000000009fc        0xa out/Wire.o
+                0x00000000000009fc                TwoWire::endTransmission()
+ *fill*         0x0000000000000a06        0x2 00
  .text._ZN7TwoWire5writeEh
-                0x00000000000009f4       0x1c out/Wire.o
-                0x00000000000009f4                TwoWire::write(unsigned char)
+                0x0000000000000a08       0x1c out/Wire.o
+                0x0000000000000a08                TwoWire::write(unsigned char)
  .text._ZN7TwoWire4readEv
-                0x0000000000000a10       0x1c out/Wire.o
-                0x0000000000000a10                TwoWire::read()
+                0x0000000000000a24       0x1c out/Wire.o
+                0x0000000000000a24                TwoWire::read()
  .text._ZN5Print5writeEPKhj
-                0x0000000000000a2c       0x22 out/Print.o
-                0x0000000000000a2c                Print::write(unsigned char const*, unsigned int)
+                0x0000000000000a40       0x22 out/Print.o
+                0x0000000000000a40                Print::write(unsigned char const*, unsigned int)
  .text._ZN5Print5writeEPKc
-                0x0000000000000a4e       0x1c out/Print.o
-                0x0000000000000a4e                Print::write(char const*)
+                0x0000000000000a62       0x1c out/Print.o
+                0x0000000000000a62                Print::write(char const*)
  .text._ZN5Print5printEPKc
-                0x0000000000000a6a        0x8 out/Print.o
-                0x0000000000000a6a                Print::print(char const*)
+                0x0000000000000a7e        0x8 out/Print.o
+                0x0000000000000a7e                Print::print(char const*)
  .text._ZN5Print5printEc
-                0x0000000000000a72        0xa out/Print.o
-                0x0000000000000a72                Print::print(char)
+                0x0000000000000a86        0xa out/Print.o
+                0x0000000000000a86                Print::print(char)
  .text._ZN5Print7printlnEv
-                0x0000000000000a7c       0x18 out/Print.o
-                0x0000000000000a7c                Print::println()
+                0x0000000000000a90       0x18 out/Print.o
+                0x0000000000000a90                Print::println()
  .text._ZN5Print7printlnEPKc
-                0x0000000000000a94       0x14 out/Print.o
-                0x0000000000000a94                Print::println(char const*)
- .text._ZN5Print7printlnEc
                 0x0000000000000aa8       0x14 out/Print.o
-                0x0000000000000aa8                Print::println(char)
+                0x0000000000000aa8                Print::println(char const*)
+ .text._ZN5Print7printlnEc
+                0x0000000000000abc       0x14 out/Print.o
+                0x0000000000000abc                Print::println(char)
  .text._ZN5Print11printNumberEmh
-                0x0000000000000abc       0x46 out/Print.o
-                0x0000000000000abc                Print::printNumber(unsigned long, unsigned char)
+                0x0000000000000ad0       0x46 out/Print.o
+                0x0000000000000ad0                Print::printNumber(unsigned long, unsigned char)
  .text._ZN5Print5printEmi
-                0x0000000000000b02       0x18 out/Print.o
-                0x0000000000000b02                Print::print(unsigned long, int)
+                0x0000000000000b16       0x18 out/Print.o
+                0x0000000000000b16                Print::print(unsigned long, int)
  .text._ZN5Print5printEhi
-                0x0000000000000b1a        0x8 out/Print.o
-                0x0000000000000b1a                Print::print(unsigned char, int)
+                0x0000000000000b2e        0x8 out/Print.o
+                0x0000000000000b2e                Print::print(unsigned char, int)
  .text._ZN5Print5printEli
-                0x0000000000000b22       0x3c out/Print.o
-                0x0000000000000b22                Print::print(long, int)
+                0x0000000000000b36       0x3c out/Print.o
+                0x0000000000000b36                Print::print(long, int)
+ .text._ZN5Print5printEii
+                0x0000000000000b72        0x8 out/Print.o
+                0x0000000000000b72                Print::print(int, int)
  .text._ZN5Print7printlnEii
-                0x0000000000000b5e       0x14 out/Print.o
-                0x0000000000000b5e                Print::println(int, int)
- *fill*         0x0000000000000b72        0x2 00
+                0x0000000000000b7a       0x14 out/Print.o
+                0x0000000000000b7a                Print::println(int, int)
+ *fill*         0x0000000000000b8e        0x2 00
  .text.__register_exitproc
-                0x0000000000000b74       0xc4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__atexit.o)
-                0x0000000000000b74                __register_exitproc
+                0x0000000000000b90       0xc4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__atexit.o)
+                0x0000000000000b90                __register_exitproc
  .text.__libc_fini_array
-                0x0000000000000c38       0x60 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-fini.o)
-                0x0000000000000c38                __libc_fini_array
- .text.malloc   0x0000000000000c98       0x14 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-malloc.o)
-                0x0000000000000c98                malloc
+                0x0000000000000c54       0x60 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-fini.o)
+                0x0000000000000c54                __libc_fini_array
+ .text.malloc   0x0000000000000cb4       0x14 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-malloc.o)
+                0x0000000000000cb4                malloc
  .text._malloc_r
-                0x0000000000000cac      0x514 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mallocr.o)
-                0x0000000000000cac                _malloc_r
+                0x0000000000000cc8      0x514 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mallocr.o)
+                0x0000000000000cc8                _malloc_r
  .text.__malloc_lock
-                0x00000000000011c0        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mlock.o)
-                0x00000000000011c0                __malloc_lock
+                0x00000000000011dc        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mlock.o)
+                0x00000000000011dc                __malloc_lock
  .text.__malloc_unlock
-                0x00000000000011c4        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mlock.o)
-                0x00000000000011c4                __malloc_unlock
- .text._sbrk_r  0x00000000000011c8       0x24 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-sbrkr.o)
-                0x00000000000011c8                _sbrk_r
- .text.strlen   0x00000000000011ec       0x10 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strlen.o)
-                0x00000000000011ec                strlen
+                0x00000000000011e0        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mlock.o)
+                0x00000000000011e0                __malloc_unlock
+ .text._sbrk_r  0x00000000000011e4       0x24 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-sbrkr.o)
+                0x00000000000011e4                _sbrk_r
+ .text.strlen   0x0000000000001208       0x10 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strlen.o)
+                0x0000000000001208                strlen
  .text.startup.register_fini
-                0x00000000000011fc       0x18 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
- .text.atexit   0x0000000000001214       0x10 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atexit.o)
-                0x0000000000001214                atexit
+                0x0000000000001218       0x18 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
+ .text.atexit   0x0000000000001230       0x10 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atexit.o)
+                0x0000000000001230                atexit
  .text._malloc_trim_r
-                0x0000000000001224       0xa0 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-freer.o)
-                0x0000000000001224                _malloc_trim_r
- .text._free_r  0x00000000000012c4      0x190 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-freer.o)
-                0x00000000000012c4                _free_r
- .text._sbrk    0x0000000000001454       0x34 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(sbrk.o)
-                0x0000000000001454                _sbrk
- .text          0x0000000000001488       0x14 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_thumb1_case_uqi.o)
-                0x0000000000001488                __gnu_thumb1_case_uqi
- .text          0x000000000000149c       0x9c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_udivsi3.o)
-                0x000000000000149c                __udivsi3
-                0x000000000000149c                __aeabi_uidiv
-                0x0000000000001524                __aeabi_uidivmod
- .text          0x0000000000001538        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_dvmd_tls.o)
-                0x0000000000001538                __aeabi_ldiv0
-                0x0000000000001538                __aeabi_idiv0
-                0x000000000000153c                . = ALIGN (0x4)
+                0x0000000000001240       0xa0 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-freer.o)
+                0x0000000000001240                _malloc_trim_r
+ .text._free_r  0x00000000000012e0      0x190 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-freer.o)
+                0x00000000000012e0                _free_r
+ .text._sbrk    0x0000000000001470       0x34 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(sbrk.o)
+                0x0000000000001470                _sbrk
+ .text          0x00000000000014a4       0x14 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_thumb1_case_uqi.o)
+                0x00000000000014a4                __gnu_thumb1_case_uqi
+ .text          0x00000000000014b8       0x9c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_udivsi3.o)
+                0x00000000000014b8                __udivsi3
+                0x00000000000014b8                __aeabi_uidiv
+                0x0000000000001540                __aeabi_uidivmod
+ .text          0x0000000000001554        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_dvmd_tls.o)
+                0x0000000000001554                __aeabi_ldiv0
+                0x0000000000001554                __aeabi_idiv0
+                0x0000000000001558                . = ALIGN (0x4)
  *(.glue_7t .glue_7)
  .glue_7        0x0000000000000000        0x0 linker stubs
  .glue_7t       0x0000000000000000        0x0 linker stubs
-                0x000000000000153c                . = ALIGN (0x4)
+                0x0000000000001558                . = ALIGN (0x4)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata._ZL18port_to_output_PGM
-                0x000000000000153c       0x14 out/wiring_digital.o
+                0x0000000000001558       0x14 out/wiring_digital.o
  .rodata._ZL27digital_pin_to_bit_mask_PGM
-                0x0000000000001550       0x28 out/wiring_digital.o
+                0x000000000000156c       0x28 out/wiring_digital.o
  .rodata._ZL23digital_pin_to_port_PGM
-                0x0000000000001578       0x14 out/wiring_digital.o
+                0x0000000000001594       0x14 out/wiring_digital.o
  .rodata._ZL16port_to_mode_PGM
-                0x000000000000158c       0x14 out/wiring_digital.o
+                0x00000000000015a8       0x14 out/wiring_digital.o
  .rodata.str1.1
-                0x00000000000015a0       0x8e out/sketch.o
-                                         0xba (size before relaxing)
- *fill*         0x000000000000162e        0x2 00
+                0x00000000000015bc       0x90 out/sketch.o
+                                         0xbc (size before relaxing)
+ *fill*         0x000000000000164c        0x4 00
  .rodata._ZTV14HardwareSerial
-                0x0000000000001630       0x20 out/HardwareSerial.o
-                0x0000000000001630                vtable for HardwareSerial
+                0x0000000000001650       0x20 out/HardwareSerial.o
+                0x0000000000001650                vtable for HardwareSerial
  .rodata.str1.4
-                0x0000000000001650        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
+                0x0000000000001670        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
  .rodata._global_impure_ptr
-                0x0000000000001654        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
-                0x0000000000001654                _global_impure_ptr
-                0x0000000000001658                . = ALIGN (0x4)
+                0x0000000000001674        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
+                0x0000000000001674                _global_impure_ptr
+                0x0000000000001678                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000000001658                . = ALIGN (0x4)
+                0x0000000000001678                . = ALIGN (0x4)
  *(.gcc_except_table)
-                0x0000000000001658                . = ALIGN (0x4)
+                0x0000000000001678                . = ALIGN (0x4)
  *(.eh_frame_hdr)
-                0x0000000000001658                . = ALIGN (0x4)
+                0x0000000000001678                . = ALIGN (0x4)
  *(.eh_frame)
- .eh_frame      0x0000000000001658        0x0 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
-                0x0000000000001658                . = ALIGN (0x4)
+ .eh_frame      0x0000000000001678        0x0 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
+                0x0000000000001678                . = ALIGN (0x4)
  *(.init)
- .init          0x0000000000001658        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crti.o
-                0x0000000000001658                _init
- .init          0x000000000000165c        0x8 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtn.o
-                0x0000000000001664                . = ALIGN (0x4)
-                0x0000000000001664                __preinit_array_start = .
+ .init          0x0000000000001678        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crti.o
+                0x0000000000001678                _init
+ .init          0x000000000000167c        0x8 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtn.o
+                0x0000000000001684                . = ALIGN (0x4)
+                0x0000000000001684                __preinit_array_start = .
  *(.preinit_array)
-                0x0000000000001664                . = ALIGN (0x4)
-                0x0000000000001664                __preinit_array_end = .
-                0x0000000000001664                __init_array_start = .
+                0x0000000000001684                . = ALIGN (0x4)
+                0x0000000000001684                __preinit_array_end = .
+                0x0000000000001684                __init_array_start = .
  *(SORT(.init_array.*))
  .init_array.00000
-                0x0000000000001664        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
-                0x0000000000001668                . = ALIGN (0x4)
+                0x0000000000001684        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
+                0x0000000000001688                . = ALIGN (0x4)
  *(.init_array)
- .init_array    0x0000000000001668        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
- .init_array    0x000000000000166c        0x4 out/HardwareSerial.o
-                0x0000000000001670                . = ALIGN (0x4)
-                0x0000000000001670                __init_array_end = .
+ .init_array    0x0000000000001688        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
+ .init_array    0x000000000000168c        0x4 out/HardwareSerial.o
+                0x0000000000001690                . = ALIGN (0x4)
+                0x0000000000001690                __init_array_end = .
  *(.fini)
- .fini          0x0000000000001670        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crti.o
-                0x0000000000001670                _fini
- .fini          0x0000000000001674        0x8 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtn.o
-                0x000000000000167c                . = ALIGN (0x4)
-                0x000000000000167c                __fini_array_start = .
+ .fini          0x0000000000001690        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crti.o
+                0x0000000000001690                _fini
+ .fini          0x0000000000001694        0x8 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtn.o
+                0x000000000000169c                . = ALIGN (0x4)
+                0x000000000000169c                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x000000000000167c        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
-                0x0000000000001680                . = ALIGN (0x4)
+ .fini_array    0x000000000000169c        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
+                0x00000000000016a0                . = ALIGN (0x4)
  *(SORT(.fini_array.*))
-                0x0000000000001680                . = ALIGN (0x4)
-                0x0000000000001680                __fini_array_end = .
-                0x0000000000001680                . = ALIGN (0x4)
-                0x0000000000001680                __text_end = .
-                [0x0000000000001680]                PROVIDE (__text_end, __text_end)
+                0x00000000000016a0                . = ALIGN (0x4)
+                0x00000000000016a0                __fini_array_end = .
+                0x00000000000016a0                . = ALIGN (0x4)
+                0x00000000000016a0                __text_end = .
+                [0x00000000000016a0]                PROVIDE (__text_end, __text_end)
 
-.vfp11_veneer   0x0000000000001680        0x0
+.vfp11_veneer   0x00000000000016a0        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x0000000000001680        0x0
+.v4_bx          0x00000000000016a0        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x0000000000001680        0x0
+.iplt           0x00000000000016a0        0x0
  .iplt          0x0000000000000000        0x0 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
 
-.rel.dyn        0x0000000000001680        0x0
+.rel.dyn        0x00000000000016a0        0x0
  .rel.iplt      0x0000000000000000        0x0 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
-                0x0000000000001680                . = ALIGN (0x4)
-                0x0000000000001680                __exidx_start = .
-                [0x0000000000001680]                PROVIDE (__exidx_start, __exidx_start)
+                0x00000000000016a0                . = ALIGN (0x4)
+                0x00000000000016a0                __exidx_start = .
+                [0x00000000000016a0]                PROVIDE (__exidx_start, __exidx_start)
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0000000000001680                . = ALIGN (0x4)
-                0x0000000000001680                __exidx_end = .
-                [0x0000000000001680]                PROVIDE (__exidx_end, __exidx_end)
+                0x00000000000016a0                . = ALIGN (0x4)
+                0x00000000000016a0                __exidx_end = .
+                [0x00000000000016a0]                PROVIDE (__exidx_end, __exidx_end)
 
-.data           0x0000000010000000      0x83c load address 0x0000000000001680
+.data           0x0000000010000000      0x83c load address 0x00000000000016a0
                 0x0000000010000000                . = ALIGN (0x4)
-                0x0000000000001680                __data_init_start = LOADADDR (.data)
-                [0x0000000000001680]                PROVIDE (__data_init_start, __data_init_start)
+                0x00000000000016a0                __data_init_start = LOADADDR (.data)
+                [0x00000000000016a0]                PROVIDE (__data_init_start, __data_init_start)
                 0x0000000010000000                __data_start = .
                 [0x0000000010000000]                PROVIDE (__data_start, __data_start)
                 0x0000000010000000                . = ALIGN (0x4)
@@ -1724,10 +1727,10 @@ LOAD /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/
                 0x000000001000083c                __data_end = .
                 [0x000000001000083c]                PROVIDE (__data_end, __data_end)
 
-.jcr            0x000000001000083c        0x0 load address 0x0000000000001ebc
+.jcr            0x000000001000083c        0x0 load address 0x0000000000001edc
  .jcr           0x000000001000083c        0x0 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
 
-.igot.plt       0x000000001000083c        0x0 load address 0x0000000000001ebc
+.igot.plt       0x000000001000083c        0x0 load address 0x0000000000001edc
  .igot.plt      0x0000000000000000        0x0 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
 
 .bss            0x0000000010000840      0x2e4
@@ -1875,7 +1878,7 @@ LOAD /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x0000000000000000      0x648
+.debug_aranges  0x0000000000000000      0x650
  *(.debug_aranges)
  .debug_aranges
                 0x0000000000000000       0x28 out/lpc1114.o
@@ -1888,144 +1891,144 @@ LOAD /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/
  .debug_aranges
                 0x00000000000000f0       0x30 out/sketch.o
  .debug_aranges
-                0x0000000000000120      0x240 out/WString.o
+                0x0000000000000120      0x248 out/WString.o
  .debug_aranges
-                0x0000000000000360       0x70 out/HardwareSerial.o
+                0x0000000000000368       0x70 out/HardwareSerial.o
  .debug_aranges
-                0x00000000000003d0       0x20 out/main.o
+                0x00000000000003d8       0x20 out/main.o
  .debug_aranges
-                0x00000000000003f0       0x90 out/Wire.o
+                0x00000000000003f8       0x90 out/Wire.o
  .debug_aranges
-                0x0000000000000480       0x50 out/new.o
+                0x0000000000000488       0x50 out/new.o
  .debug_aranges
-                0x00000000000004d0       0x98 out/Stream.o
+                0x00000000000004d8       0x98 out/Stream.o
  .debug_aranges
-                0x0000000000000568       0xe0 out/Print.o
+                0x0000000000000570       0xe0 out/Print.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0xa565
+.debug_info     0x0000000000000000     0xa684
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x147 out/lpc1114.o
  .debug_info    0x0000000000000147      0x398 out/wiring_digital.o
  .debug_info    0x00000000000004df      0x610 out/printf.o
  .debug_info    0x0000000000000aef      0x28c out/wiring.o
- .debug_info    0x0000000000000d7b      0x872 out/sketch.o
- .debug_info    0x00000000000015ed     0x3290 out/WString.o
- .debug_info    0x000000000000487d     0x163b out/HardwareSerial.o
- .debug_info    0x0000000000005eb8       0xf7 out/main.o
- .debug_info    0x0000000000005faf      0x82f out/Wire.o
- .debug_info    0x00000000000067de      0x234 out/new.o
- .debug_info    0x0000000000006a12     0x1940 out/Stream.o
- .debug_info    0x0000000000008352     0x2213 out/Print.o
+ .debug_info    0x0000000000000d7b      0x8cc out/sketch.o
+ .debug_info    0x0000000000001647     0x3355 out/WString.o
+ .debug_info    0x000000000000499c     0x163b out/HardwareSerial.o
+ .debug_info    0x0000000000005fd7       0xf7 out/main.o
+ .debug_info    0x00000000000060ce      0x82f out/Wire.o
+ .debug_info    0x00000000000068fd      0x234 out/new.o
+ .debug_info    0x0000000000006b31     0x1940 out/Stream.o
+ .debug_info    0x0000000000008471     0x2213 out/Print.o
 
-.debug_abbrev   0x0000000000000000     0x1bfa
+.debug_abbrev   0x0000000000000000     0x1c3a
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000       0xf6 out/lpc1114.o
  .debug_abbrev  0x00000000000000f6      0x171 out/wiring_digital.o
  .debug_abbrev  0x0000000000000267      0x28e out/printf.o
  .debug_abbrev  0x00000000000004f5      0x10d out/wiring.o
  .debug_abbrev  0x0000000000000602      0x1c9 out/sketch.o
- .debug_abbrev  0x00000000000007cb      0x430 out/WString.o
- .debug_abbrev  0x0000000000000bfb      0x3dc out/HardwareSerial.o
- .debug_abbrev  0x0000000000000fd7       0x66 out/main.o
- .debug_abbrev  0x000000000000103d      0x291 out/Wire.o
- .debug_abbrev  0x00000000000012ce      0x12c out/new.o
- .debug_abbrev  0x00000000000013fa      0x404 out/Stream.o
- .debug_abbrev  0x00000000000017fe      0x3fc out/Print.o
+ .debug_abbrev  0x00000000000007cb      0x470 out/WString.o
+ .debug_abbrev  0x0000000000000c3b      0x3dc out/HardwareSerial.o
+ .debug_abbrev  0x0000000000001017       0x66 out/main.o
+ .debug_abbrev  0x000000000000107d      0x291 out/Wire.o
+ .debug_abbrev  0x000000000000130e      0x12c out/new.o
+ .debug_abbrev  0x000000000000143a      0x404 out/Stream.o
+ .debug_abbrev  0x000000000000183e      0x3fc out/Print.o
 
-.debug_line     0x0000000000000000     0x38b1
+.debug_line     0x0000000000000000     0x38d9
  *(.debug_line)
  .debug_line    0x0000000000000000       0x6f out/lpc1114.o
  .debug_line    0x000000000000006f      0x446 out/wiring_digital.o
  .debug_line    0x00000000000004b5      0x1f9 out/printf.o
  .debug_line    0x00000000000006ae      0x4a3 out/wiring.o
- .debug_line    0x0000000000000b51      0x42c out/sketch.o
- .debug_line    0x0000000000000f7d      0xb1b out/WString.o
- .debug_line    0x0000000000001a98      0x533 out/HardwareSerial.o
- .debug_line    0x0000000000001fcb      0x3d6 out/main.o
- .debug_line    0x00000000000023a1      0x56e out/Wire.o
- .debug_line    0x000000000000290f      0x347 out/new.o
- .debug_line    0x0000000000002c56      0x5b2 out/Stream.o
- .debug_line    0x0000000000003208      0x6a9 out/Print.o
+ .debug_line    0x0000000000000b51      0x42e out/sketch.o
+ .debug_line    0x0000000000000f7f      0xb41 out/WString.o
+ .debug_line    0x0000000000001ac0      0x533 out/HardwareSerial.o
+ .debug_line    0x0000000000001ff3      0x3d6 out/main.o
+ .debug_line    0x00000000000023c9      0x56e out/Wire.o
+ .debug_line    0x0000000000002937      0x347 out/new.o
+ .debug_line    0x0000000000002c7e      0x5b2 out/Stream.o
+ .debug_line    0x0000000000003230      0x6a9 out/Print.o
 
-.debug_frame    0x0000000000000000     0x2290
+.debug_frame    0x0000000000000000     0x22ac
  *(.debug_frame)
  .debug_frame   0x0000000000000000       0x3c out/lpc1114.o
  .debug_frame   0x000000000000003c       0x4c out/wiring_digital.o
  .debug_frame   0x0000000000000088       0xf4 out/printf.o
  .debug_frame   0x000000000000017c       0x8c out/wiring.o
  .debug_frame   0x0000000000000208       0x68 out/sketch.o
- .debug_frame   0x0000000000000270      0x818 out/WString.o
- .debug_frame   0x0000000000000a88      0x104 out/HardwareSerial.o
- .debug_frame   0x0000000000000b8c       0x2c out/main.o
- .debug_frame   0x0000000000000bb8      0x160 out/Wire.o
- .debug_frame   0x0000000000000d18       0xb0 out/new.o
- .debug_frame   0x0000000000000dc8      0x22c out/Stream.o
- .debug_frame   0x0000000000000ff4      0x34c out/Print.o
- .debug_frame   0x0000000000001340       0x38 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__atexit.o)
- .debug_frame   0x0000000000001378       0x28 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atof.o)
- .debug_frame   0x00000000000013a0       0x40 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atol.o)
- .debug_frame   0x00000000000013e0       0x28 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-exit.o)
- .debug_frame   0x0000000000001408       0x34 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-fini.o)
- .debug_frame   0x000000000000143c       0x30 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-init.o)
- .debug_frame   0x000000000000146c       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-isspace.o)
- .debug_frame   0x000000000000148c       0x40 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-malloc.o)
- .debug_frame   0x00000000000014cc       0x3c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mallocr.o)
- .debug_frame   0x0000000000001508       0x34 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memcpy.o)
- .debug_frame   0x000000000000153c       0x38 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memmove.o)
- .debug_frame   0x0000000000001574       0x30 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memset.o)
- .debug_frame   0x00000000000015a4       0x30 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mlock.o)
- .debug_frame   0x00000000000015d4       0x28 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-realloc.o)
- .debug_frame   0x00000000000015fc       0x3c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-reallocr.o)
- .debug_frame   0x0000000000001638       0x2c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-s_fpclassify.o)
- .debug_frame   0x0000000000001664       0x2c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-sbrkr.o)
- .debug_frame   0x0000000000001690       0x30 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strchr.o)
- .debug_frame   0x00000000000016c0       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strcmp.o)
- .debug_frame   0x00000000000016e0       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strcpy.o)
- .debug_frame   0x0000000000001700       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strlen.o)
- .debug_frame   0x0000000000001720       0x30 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strncmp.o)
- .debug_frame   0x0000000000001750       0x38 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strncpy.o)
- .debug_frame   0x0000000000001788       0x2c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strrchr.o)
- .debug_frame   0x00000000000017b4       0x94 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strstr.o)
- .debug_frame   0x0000000000001848       0x70 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strtod.o)
- .debug_frame   0x00000000000018b8       0x58 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strtol.o)
- .debug_frame   0x0000000000001910       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-tolower.o)
- .debug_frame   0x0000000000001930       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-toupper.o)
- .debug_frame   0x0000000000001950       0x54 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
- .debug_frame   0x00000000000019a4       0x28 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atexit.o)
- .debug_frame   0x00000000000019cc       0x54 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-freer.o)
- .debug_frame   0x0000000000001a20       0x80 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-gdtoa-gethex.o)
- .debug_frame   0x0000000000001aa0       0x3c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-gdtoa-hexnan.o)
- .debug_frame   0x0000000000001adc       0xa4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-locale.o)
- .debug_frame   0x0000000000001b80       0x34 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memchr.o)
- .debug_frame   0x0000000000001bb4       0x30 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memcmp.o)
- .debug_frame   0x0000000000001be4      0x26c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mprec.o)
- .debug_frame   0x0000000000001e50       0x70 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-reent.o)
- .debug_frame   0x0000000000001ec0       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-sf_nan.o)
- .debug_frame   0x0000000000001ee0       0x28 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-callocr.o)
- .debug_frame   0x0000000000001f08       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(sbrk.o)
- .debug_frame   0x0000000000001f28       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(_exit.o)
- .debug_frame   0x0000000000001f48       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_udivsi3.o)
- .debug_frame   0x0000000000001f68       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_divsi3.o)
- .debug_frame   0x0000000000001f88       0x2c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_fixunsdfsi.o)
- .debug_frame   0x0000000000001fb4       0x3c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(mulsf3.o)
- .debug_frame   0x0000000000001ff0       0x2c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(floatsisf.o)
- .debug_frame   0x000000000000201c       0x3c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(adddf3.o)
- .debug_frame   0x0000000000002058       0x3c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(divdf3.o)
- .debug_frame   0x0000000000002094       0x34 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(eqdf2.o)
- .debug_frame   0x00000000000020c8       0x38 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(gedf2.o)
- .debug_frame   0x0000000000002100       0x38 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(ledf2.o)
- .debug_frame   0x0000000000002138       0x3c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(muldf3.o)
- .debug_frame   0x0000000000002174       0x38 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(subdf3.o)
- .debug_frame   0x00000000000021ac       0x2c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(fixdfsi.o)
- .debug_frame   0x00000000000021d8       0x30 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(floatsidf.o)
- .debug_frame   0x0000000000002208       0x2c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(floatunsidf.o)
- .debug_frame   0x0000000000002234       0x2c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(extendsfdf2.o)
- .debug_frame   0x0000000000002260       0x30 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(truncdfsf2.o)
+ .debug_frame   0x0000000000000270      0x834 out/WString.o
+ .debug_frame   0x0000000000000aa4      0x104 out/HardwareSerial.o
+ .debug_frame   0x0000000000000ba8       0x2c out/main.o
+ .debug_frame   0x0000000000000bd4      0x160 out/Wire.o
+ .debug_frame   0x0000000000000d34       0xb0 out/new.o
+ .debug_frame   0x0000000000000de4      0x22c out/Stream.o
+ .debug_frame   0x0000000000001010      0x34c out/Print.o
+ .debug_frame   0x000000000000135c       0x38 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__atexit.o)
+ .debug_frame   0x0000000000001394       0x28 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atof.o)
+ .debug_frame   0x00000000000013bc       0x40 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atol.o)
+ .debug_frame   0x00000000000013fc       0x28 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-exit.o)
+ .debug_frame   0x0000000000001424       0x34 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-fini.o)
+ .debug_frame   0x0000000000001458       0x30 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-init.o)
+ .debug_frame   0x0000000000001488       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-isspace.o)
+ .debug_frame   0x00000000000014a8       0x40 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-malloc.o)
+ .debug_frame   0x00000000000014e8       0x3c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mallocr.o)
+ .debug_frame   0x0000000000001524       0x34 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memcpy.o)
+ .debug_frame   0x0000000000001558       0x38 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memmove.o)
+ .debug_frame   0x0000000000001590       0x30 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memset.o)
+ .debug_frame   0x00000000000015c0       0x30 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mlock.o)
+ .debug_frame   0x00000000000015f0       0x28 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-realloc.o)
+ .debug_frame   0x0000000000001618       0x3c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-reallocr.o)
+ .debug_frame   0x0000000000001654       0x2c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-s_fpclassify.o)
+ .debug_frame   0x0000000000001680       0x2c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-sbrkr.o)
+ .debug_frame   0x00000000000016ac       0x30 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strchr.o)
+ .debug_frame   0x00000000000016dc       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strcmp.o)
+ .debug_frame   0x00000000000016fc       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strcpy.o)
+ .debug_frame   0x000000000000171c       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strlen.o)
+ .debug_frame   0x000000000000173c       0x30 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strncmp.o)
+ .debug_frame   0x000000000000176c       0x38 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strncpy.o)
+ .debug_frame   0x00000000000017a4       0x2c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strrchr.o)
+ .debug_frame   0x00000000000017d0       0x94 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strstr.o)
+ .debug_frame   0x0000000000001864       0x70 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strtod.o)
+ .debug_frame   0x00000000000018d4       0x58 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strtol.o)
+ .debug_frame   0x000000000000192c       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-tolower.o)
+ .debug_frame   0x000000000000194c       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-toupper.o)
+ .debug_frame   0x000000000000196c       0x54 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x00000000000019c0       0x28 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atexit.o)
+ .debug_frame   0x00000000000019e8       0x54 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-freer.o)
+ .debug_frame   0x0000000000001a3c       0x80 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-gdtoa-gethex.o)
+ .debug_frame   0x0000000000001abc       0x3c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-gdtoa-hexnan.o)
+ .debug_frame   0x0000000000001af8       0xa4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-locale.o)
+ .debug_frame   0x0000000000001b9c       0x34 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memchr.o)
+ .debug_frame   0x0000000000001bd0       0x30 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memcmp.o)
+ .debug_frame   0x0000000000001c00      0x26c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mprec.o)
+ .debug_frame   0x0000000000001e6c       0x70 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-reent.o)
+ .debug_frame   0x0000000000001edc       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-sf_nan.o)
+ .debug_frame   0x0000000000001efc       0x28 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-callocr.o)
+ .debug_frame   0x0000000000001f24       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(sbrk.o)
+ .debug_frame   0x0000000000001f44       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(_exit.o)
+ .debug_frame   0x0000000000001f64       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_udivsi3.o)
+ .debug_frame   0x0000000000001f84       0x20 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_divsi3.o)
+ .debug_frame   0x0000000000001fa4       0x2c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_fixunsdfsi.o)
+ .debug_frame   0x0000000000001fd0       0x3c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(mulsf3.o)
+ .debug_frame   0x000000000000200c       0x2c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(floatsisf.o)
+ .debug_frame   0x0000000000002038       0x3c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(adddf3.o)
+ .debug_frame   0x0000000000002074       0x3c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(divdf3.o)
+ .debug_frame   0x00000000000020b0       0x34 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(eqdf2.o)
+ .debug_frame   0x00000000000020e4       0x38 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(gedf2.o)
+ .debug_frame   0x000000000000211c       0x38 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(ledf2.o)
+ .debug_frame   0x0000000000002154       0x3c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(muldf3.o)
+ .debug_frame   0x0000000000002190       0x38 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(subdf3.o)
+ .debug_frame   0x00000000000021c8       0x2c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(fixdfsi.o)
+ .debug_frame   0x00000000000021f4       0x30 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(floatsidf.o)
+ .debug_frame   0x0000000000002224       0x2c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(floatunsidf.o)
+ .debug_frame   0x0000000000002250       0x2c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(extendsfdf2.o)
+ .debug_frame   0x000000000000227c       0x30 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(truncdfsf2.o)
 
-.debug_str      0x0000000000000000     0x98af
+.debug_str      0x0000000000000000     0x9875
  *(.debug_str)
  .debug_str     0x0000000000000000     0x2299 out/lpc1114.o
  .debug_str     0x0000000000002299     0x4e9c out/wiring_digital.o
@@ -2034,37 +2037,37 @@ LOAD /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/
                                        0x247d (size before relaxing)
  .debug_str     0x0000000000007200      0x19a out/wiring.o
                                        0x723f (size before relaxing)
- .debug_str     0x000000000000739a      0x390 out/sketch.o
-                                       0x747d (size before relaxing)
- .debug_str     0x000000000000772a      0xb57 out/WString.o
-                                       0x4de6 (size before relaxing)
- .debug_str     0x0000000000008281      0x4c8 out/HardwareSerial.o
+ .debug_str     0x000000000000739a      0x38b out/sketch.o
+                                       0x7478 (size before relaxing)
+ .debug_str     0x0000000000007725      0xb35 out/WString.o
+                                       0x4dc4 (size before relaxing)
+ .debug_str     0x000000000000825a      0x4c8 out/HardwareSerial.o
                                        0x7e00 (size before relaxing)
- .debug_str     0x0000000000008749        0x9 out/main.o
+ .debug_str     0x0000000000008722        0x9 out/main.o
                                        0x70c9 (size before relaxing)
- .debug_str     0x0000000000008752      0x3b3 out/Wire.o
+ .debug_str     0x000000000000872b      0x3b3 out/Wire.o
                                        0x764d (size before relaxing)
- .debug_str     0x0000000000008b05       0xab out/new.o
+ .debug_str     0x0000000000008ade       0xab out/new.o
                                        0x402d (size before relaxing)
- .debug_str     0x0000000000008bb0       0x8b out/Stream.o
+ .debug_str     0x0000000000008b89       0x8b out/Stream.o
                                        0x7be4 (size before relaxing)
- .debug_str     0x0000000000008c3b      0xc74 out/Print.o
+ .debug_str     0x0000000000008c14      0xc61 out/Print.o
                                        0x85ac (size before relaxing)
 
-.debug_loc      0x0000000000000000     0x53b3
+.debug_loc      0x0000000000000000     0x555a
  *(.debug_loc)
  .debug_loc     0x0000000000000000       0x33 out/lpc1114.o
  .debug_loc     0x0000000000000033      0x1b9 out/wiring_digital.o
  .debug_loc     0x00000000000001ec      0x6d7 out/printf.o
  .debug_loc     0x00000000000008c3      0x171 out/wiring.o
  .debug_loc     0x0000000000000a34       0x60 out/sketch.o
- .debug_loc     0x0000000000000a94     0x23f7 out/WString.o
- .debug_loc     0x0000000000002e8b      0x22e out/HardwareSerial.o
- .debug_loc     0x00000000000030b9       0x20 out/main.o
- .debug_loc     0x00000000000030d9      0x4a6 out/Wire.o
- .debug_loc     0x000000000000357f      0x125 out/new.o
- .debug_loc     0x00000000000036a4      0x997 out/Stream.o
- .debug_loc     0x000000000000403b     0x1378 out/Print.o
+ .debug_loc     0x0000000000000a94     0x259e out/WString.o
+ .debug_loc     0x0000000000003032      0x22e out/HardwareSerial.o
+ .debug_loc     0x0000000000003260       0x20 out/main.o
+ .debug_loc     0x0000000000003280      0x4a6 out/Wire.o
+ .debug_loc     0x0000000000003726      0x125 out/new.o
+ .debug_loc     0x000000000000384b      0x997 out/Stream.o
+ .debug_loc     0x00000000000041e2     0x1378 out/Print.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -2256,7 +2259,7 @@ LOAD /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/
 
 /DISCARD/
  *(.note.GNU-stack)
-                0x0000000000001680                PROVIDE (__text_size, (__text_end - __text_start))
+                0x00000000000016a0                PROVIDE (__text_size, (__text_end - __text_start))
                 0x0000000000000000                PROVIDE (__exidx_size, (__exidx_end - __exidx_start))
                 0x000000000000083c                PROVIDE (__data_size, (__data_end - __data_start))
                 0x00000000000002e4                PROVIDE (__bss_size, (__bss_end - __bss_start))
@@ -2264,21 +2267,21 @@ LOAD /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/
                 0x00000000000000d8                PROVIDE (__heap_size, (__heap_end - __heap_start))
 OUTPUT(out/project.elf elf32-littlearm)
 
-.debug_ranges   0x0000000000000000      0xae8
+.debug_ranges   0x0000000000000000      0xaf0
  .debug_ranges  0x0000000000000000       0x18 out/lpc1114.o
  .debug_ranges  0x0000000000000018       0x20 out/wiring_digital.o
  .debug_ranges  0x0000000000000038       0x58 out/printf.o
  .debug_ranges  0x0000000000000090       0x68 out/wiring.o
  .debug_ranges  0x00000000000000f8       0x20 out/sketch.o
- .debug_ranges  0x0000000000000118      0x498 out/WString.o
- .debug_ranges  0x00000000000005b0       0x80 out/HardwareSerial.o
- .debug_ranges  0x0000000000000630       0x10 out/main.o
- .debug_ranges  0x0000000000000640       0xd0 out/Wire.o
- .debug_ranges  0x0000000000000710       0x40 out/new.o
- .debug_ranges  0x0000000000000750      0x138 out/Stream.o
- .debug_ranges  0x0000000000000888      0x260 out/Print.o
+ .debug_ranges  0x0000000000000118      0x4a0 out/WString.o
+ .debug_ranges  0x00000000000005b8       0x80 out/HardwareSerial.o
+ .debug_ranges  0x0000000000000638       0x10 out/main.o
+ .debug_ranges  0x0000000000000648       0xd0 out/Wire.o
+ .debug_ranges  0x0000000000000718       0x40 out/new.o
+ .debug_ranges  0x0000000000000758      0x138 out/Stream.o
+ .debug_ranges  0x0000000000000890      0x260 out/Print.o
 
-.debug_macro    0x0000000000000000     0x3373
+.debug_macro    0x0000000000000000     0x3367
  .debug_macro   0x0000000000000000       0x11 out/lpc1114.o
  .debug_macro   0x0000000000000011      0x7f6 out/lpc1114.o
  .debug_macro   0x0000000000000807      0x1ee out/wiring_digital.o
@@ -2319,23 +2322,23 @@ OUTPUT(out/project.elf elf32-littlearm)
  .debug_macro   0x0000000000001c43       0x29 out/printf.o
  .debug_macro   0x0000000000001c6c       0x58 out/printf.o
  .debug_macro   0x0000000000001cc4      0x1f7 out/wiring.o
- .debug_macro   0x0000000000001ebb      0x212 out/sketch.o
- .debug_macro   0x00000000000020cd       0x10 out/sketch.o
- .debug_macro   0x00000000000020dd      0x125 out/WString.o
- .debug_macro   0x0000000000002202      0x100 out/WString.o
- .debug_macro   0x0000000000002302       0x29 out/WString.o
- .debug_macro   0x000000000000232b       0x12 out/WString.o
- .debug_macro   0x000000000000233d      0x20c out/HardwareSerial.o
- .debug_macro   0x0000000000002549       0x16 out/HardwareSerial.o
- .debug_macro   0x000000000000255f      0x214 out/HardwareSerial.o
- .debug_macro   0x0000000000002773      0x1db out/main.o
- .debug_macro   0x000000000000294e      0x2be out/Wire.o
- .debug_macro   0x0000000000002c0c       0x12 out/Wire.o
- .debug_macro   0x0000000000002c1e       0xd1 out/new.o
- .debug_macro   0x0000000000002cef      0x1e1 out/Stream.o
- .debug_macro   0x0000000000002ed0       0xf5 out/Stream.o
- .debug_macro   0x0000000000002fc5      0x1e2 out/Print.o
- .debug_macro   0x00000000000031a7      0x1cc out/Print.o
+ .debug_macro   0x0000000000001ebb      0x20c out/sketch.o
+ .debug_macro   0x00000000000020c7       0x10 out/sketch.o
+ .debug_macro   0x00000000000020d7      0x11f out/WString.o
+ .debug_macro   0x00000000000021f6      0x100 out/WString.o
+ .debug_macro   0x00000000000022f6       0x29 out/WString.o
+ .debug_macro   0x000000000000231f       0x12 out/WString.o
+ .debug_macro   0x0000000000002331      0x20c out/HardwareSerial.o
+ .debug_macro   0x000000000000253d       0x16 out/HardwareSerial.o
+ .debug_macro   0x0000000000002553      0x214 out/HardwareSerial.o
+ .debug_macro   0x0000000000002767      0x1db out/main.o
+ .debug_macro   0x0000000000002942      0x2be out/Wire.o
+ .debug_macro   0x0000000000002c00       0x12 out/Wire.o
+ .debug_macro   0x0000000000002c12       0xd1 out/new.o
+ .debug_macro   0x0000000000002ce3      0x1e1 out/Stream.o
+ .debug_macro   0x0000000000002ec4       0xf5 out/Stream.o
+ .debug_macro   0x0000000000002fb9      0x1e2 out/Print.o
+ .debug_macro   0x000000000000319b      0x1cc out/Print.o
 
 .comment        0x0000000000000000       0x70
  .comment       0x0000000000000000       0x70 out/lpc1114.o
@@ -2387,6 +2390,7 @@ Print::print(char const*)                         out/Print.o
 Print::print(char)                                out/Print.o
 Print::print(double, int)                         out/Print.o
 Print::print(int, int)                            out/Print.o
+                                                  out/sketch.o
 Print::print(long, int)                           out/Print.o
 Print::print(unsigned char, int)                  out/Print.o
                                                   out/sketch.o
@@ -2832,6 +2836,7 @@ init()                                            out/wiring.o
 init_printf(void*, void (*)(void*, char))         out/printf.o
 isspace                                           /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-isspace.o)
                                                   out/WString.o
+itoa(int, char*, int)                             out/WString.o
 localeconv                                        /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-locale.o)
 loop()                                            out/sketch.o
                                                   out/main.o

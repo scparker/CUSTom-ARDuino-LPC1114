@@ -22,7 +22,18 @@
 #include "WString.h"
 #include "printf.h"
 
-#define itoa(value, buf, base)  tfp_sprintf(buf, "%i", value)
+void  itoa(int value, char buf[], int base)
+{
+  if(base==10)
+    tfp_sprintf(buf, "%i", value);		
+  else if(base==16)
+    tfp_sprintf(buf, "%x", value);		
+  else if(base==2)
+    tfp_sprintf(buf, "%b", value);		
+  else if(base==8)
+    tfp_sprintf(buf, "%o", value);		
+}								      
+
 #define ltoa(value, buf, base)  tfp_sprintf(buf, "%l", value)
 #define utoa(value, buf, base)  tfp_sprintf(buf, "%u", value)
 #define ultoa(value, buf, base)  tfp_sprintf(buf, "%ul", value)

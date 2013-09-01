@@ -70,7 +70,7 @@ void loop()
 	  Wire.beginTransmission(MPU6050_ADDRESS);
 	  Wire.requestFrom(MPU6050_ACCEL_XOUT_H,2);
 	  Wire.endTransmission();
-	  Serial.print("MPU6050 X axis: 0x");
+	  Serial.print("MPU6050 X axis: ");
 	  Serial.println((int16_t)((Wire.read()) + (Wire.read()<<8)), HEX);
 	  break;
 	default:
