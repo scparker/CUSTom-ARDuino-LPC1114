@@ -91,7 +91,7 @@ Archive member included because of file (symbol)
 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(_exit.o)
                               /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-exit.o) (_exit)
 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_thumb1_case_uqi.o)
-                              out/HardwareSerial.o (__gnu_thumb1_case_uqi)
+                              out/sketch.o (__gnu_thumb1_case_uqi)
 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_udivsi3.o)
                               out/printf.o (__aeabi_uidiv)
 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_divsi3.o)
@@ -748,8 +748,6 @@ Discarded input sections
                 0x0000000000000000       0x20 out/Wire.o
  .text._ZN7TwoWire15endTransmissionEh
                 0x0000000000000000        0xa out/Wire.o
- .text._ZN7TwoWire5writeEh
-                0x0000000000000000       0x1c out/Wire.o
  .bss.I2CMode   0x0000000000000000        0x4 out/Wire.o
  .bss.I2CSlaveState
                 0x0000000000000000        0x4 out/Wire.o
@@ -972,8 +970,6 @@ Discarded input sections
                 0x0000000000000000       0x10 out/Print.o
  .text._ZN5Print7printlnERK6String
                 0x0000000000000000       0x14 out/Print.o
- .text._ZN5Print7printlnEc
-                0x0000000000000000       0x14 out/Print.o
  .text._ZN5Print7printlnERK9Printable
                 0x0000000000000000       0x14 out/Print.o
  .text._ZN5Print7printlnEmi
@@ -984,14 +980,10 @@ Discarded input sections
                 0x0000000000000000       0x14 out/Print.o
  .text._ZN5Print7printlnEhi
                 0x0000000000000000       0x14 out/Print.o
- .text._ZN5Print5printEli
-                0x0000000000000000       0x3c out/Print.o
  .text._ZN5Print7printlnEli
                 0x0000000000000000       0x14 out/Print.o
  .text._ZN5Print5printEii
                 0x0000000000000000        0x8 out/Print.o
- .text._ZN5Print7printlnEii
-                0x0000000000000000       0x14 out/Print.o
  .text._ZN5Print10printFloatEdh
                 0x0000000000000000      0x170 out/Print.o
  .text._ZN5Print5printEdi
@@ -1437,7 +1429,7 @@ LOAD /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/
                 [0x0000000000001000]                PROVIDE (__ram_size, __ram_size)
                 [0x0000000010001000]                PROVIDE (__ram_end, __ram_end)
 
-.text           0x0000000000000000     0x1510
+.text           0x0000000000000000     0x1680
                 0x0000000000000000                . = ALIGN (0x4)
                 0x0000000000000000                __text_start = .
                 [0x0000000000000000]                PROVIDE (__text_start, __text_start)
@@ -1464,240 +1456,252 @@ LOAD /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/
                 0x0000000000000234       0xc4 out/wiring.o
                 0x0000000000000234                init()
  .text._Z8mainmenuv
-                0x00000000000002f8       0x48 out/sketch.o
+                0x00000000000002f8       0x60 out/sketch.o
                 0x00000000000002f8                mainmenu()
  .text._Z5setupv
-                0x0000000000000340       0x28 out/sketch.o
-                0x0000000000000340                setup()
+                0x0000000000000358       0x48 out/sketch.o
+                0x0000000000000358                setup()
  .text._Z4loopv
-                0x0000000000000368       0xa0 out/sketch.o
-                0x0000000000000368                loop()
+                0x00000000000003a0      0x120 out/sketch.o
+                0x00000000000003a0                loop()
  .text._ZN14HardwareSerial9availableEv
-                0x0000000000000408       0x18 out/HardwareSerial.o
-                0x0000000000000408                HardwareSerial::available()
+                0x00000000000004c0       0x18 out/HardwareSerial.o
+                0x00000000000004c0                HardwareSerial::available()
  .text._ZN14HardwareSerial4peekEv
-                0x0000000000000420       0x24 out/HardwareSerial.o
-                0x0000000000000420                HardwareSerial::peek()
+                0x00000000000004d8       0x24 out/HardwareSerial.o
+                0x00000000000004d8                HardwareSerial::peek()
  .text._ZN14HardwareSerial4readEv
-                0x0000000000000444       0x2c out/HardwareSerial.o
-                0x0000000000000444                HardwareSerial::read()
+                0x00000000000004fc       0x2c out/HardwareSerial.o
+                0x00000000000004fc                HardwareSerial::read()
  .text._ZN14HardwareSerial5flushEv
-                0x0000000000000470        0x2 out/HardwareSerial.o
-                0x0000000000000470                HardwareSerial::flush()
- *fill*         0x0000000000000472        0x2 00
+                0x0000000000000528        0x2 out/HardwareSerial.o
+                0x0000000000000528                HardwareSerial::flush()
+ *fill*         0x000000000000052a        0x2 00
  .text._ZN14HardwareSerial5writeEh
-                0x0000000000000474       0x64 out/HardwareSerial.o
-                0x0000000000000474                HardwareSerial::write(unsigned char)
+                0x000000000000052c       0x64 out/HardwareSerial.o
+                0x000000000000052c                HardwareSerial::write(unsigned char)
  .text._Z15UART_IRQHandlerv
-                0x00000000000004d8       0xcc out/HardwareSerial.o
-                0x00000000000004d8                UART_IRQHandler()
+                0x0000000000000590       0xcc out/HardwareSerial.o
+                0x0000000000000590                UART_IRQHandler()
  .text._ZN14HardwareSerialC2Ev
-                0x00000000000005a4       0x18 out/HardwareSerial.o
-                0x00000000000005a4                HardwareSerial::HardwareSerial()
-                0x00000000000005a4                HardwareSerial::HardwareSerial()
+                0x000000000000065c       0x18 out/HardwareSerial.o
+                0x000000000000065c                HardwareSerial::HardwareSerial()
+                0x000000000000065c                HardwareSerial::HardwareSerial()
  .text._ZN14HardwareSerial5beginEm
-                0x00000000000005bc       0xb0 out/HardwareSerial.o
-                0x00000000000005bc                HardwareSerial::begin(unsigned long)
+                0x0000000000000674       0xb0 out/HardwareSerial.o
+                0x0000000000000674                HardwareSerial::begin(unsigned long)
  .text.startup._GLOBAL__sub_I_uart_rx_buffer
-                0x000000000000066c       0x10 out/HardwareSerial.o
+                0x0000000000000724       0x10 out/HardwareSerial.o
  .text.startup.main
-                0x000000000000067c       0x10 out/main.o
-                0x000000000000067c                main
+                0x0000000000000734       0x10 out/main.o
+                0x0000000000000734                main
  .text._Z14I2C_IRQHandlerv
-                0x000000000000068c      0x14c out/Wire.o
-                0x000000000000068c                I2C_IRQHandler()
+                0x0000000000000744      0x14c out/Wire.o
+                0x0000000000000744                I2C_IRQHandler()
  .text._Z7I2CInitm
-                0x00000000000007d8       0x9c out/Wire.o
-                0x00000000000007d8                I2CInit(unsigned long)
+                0x0000000000000890       0x9c out/Wire.o
+                0x0000000000000890                I2CInit(unsigned long)
  .text._Z9I2CEnginev
-                0x0000000000000874       0x58 out/Wire.o
-                0x0000000000000874                I2CEngine()
+                0x000000000000092c       0x58 out/Wire.o
+                0x000000000000092c                I2CEngine()
  .text._ZN7TwoWire5beginEv
-                0x00000000000008cc        0xa out/Wire.o
-                0x00000000000008cc                TwoWire::begin()
- *fill*         0x00000000000008d6        0x2 00
+                0x0000000000000984        0xa out/Wire.o
+                0x0000000000000984                TwoWire::begin()
+ *fill*         0x000000000000098e        0x2 00
  .text._ZN7TwoWire11requestFromEhhh
-                0x00000000000008d8       0x28 out/Wire.o
-                0x00000000000008d8                TwoWire::requestFrom(unsigned char, unsigned char, unsigned char)
+                0x0000000000000990       0x28 out/Wire.o
+                0x0000000000000990                TwoWire::requestFrom(unsigned char, unsigned char, unsigned char)
  .text._ZN7TwoWire11requestFromEii
-                0x0000000000000900        0xe out/Wire.o
-                0x0000000000000900                TwoWire::requestFrom(int, int)
- *fill*         0x000000000000090e        0x2 00
+                0x00000000000009b8        0xe out/Wire.o
+                0x00000000000009b8                TwoWire::requestFrom(int, int)
+ *fill*         0x00000000000009c6        0x2 00
  .text._ZN7TwoWire17beginTransmissionEh
-                0x0000000000000910       0x20 out/Wire.o
-                0x0000000000000910                TwoWire::beginTransmission(unsigned char)
+                0x00000000000009c8       0x20 out/Wire.o
+                0x00000000000009c8                TwoWire::beginTransmission(unsigned char)
  .text._ZN7TwoWire15endTransmissionEv
-                0x0000000000000930        0xa out/Wire.o
-                0x0000000000000930                TwoWire::endTransmission()
- *fill*         0x000000000000093a        0x2 00
+                0x00000000000009e8        0xa out/Wire.o
+                0x00000000000009e8                TwoWire::endTransmission()
+ *fill*         0x00000000000009f2        0x2 00
+ .text._ZN7TwoWire5writeEh
+                0x00000000000009f4       0x1c out/Wire.o
+                0x00000000000009f4                TwoWire::write(unsigned char)
  .text._ZN7TwoWire4readEv
-                0x000000000000093c       0x1c out/Wire.o
-                0x000000000000093c                TwoWire::read()
+                0x0000000000000a10       0x1c out/Wire.o
+                0x0000000000000a10                TwoWire::read()
  .text._ZN5Print5writeEPKhj
-                0x0000000000000958       0x22 out/Print.o
-                0x0000000000000958                Print::write(unsigned char const*, unsigned int)
+                0x0000000000000a2c       0x22 out/Print.o
+                0x0000000000000a2c                Print::write(unsigned char const*, unsigned int)
  .text._ZN5Print5writeEPKc
-                0x000000000000097a       0x1c out/Print.o
-                0x000000000000097a                Print::write(char const*)
+                0x0000000000000a4e       0x1c out/Print.o
+                0x0000000000000a4e                Print::write(char const*)
  .text._ZN5Print5printEPKc
-                0x0000000000000996        0x8 out/Print.o
-                0x0000000000000996                Print::print(char const*)
+                0x0000000000000a6a        0x8 out/Print.o
+                0x0000000000000a6a                Print::print(char const*)
  .text._ZN5Print5printEc
-                0x000000000000099e        0xa out/Print.o
-                0x000000000000099e                Print::print(char)
+                0x0000000000000a72        0xa out/Print.o
+                0x0000000000000a72                Print::print(char)
  .text._ZN5Print7printlnEv
-                0x00000000000009a8       0x18 out/Print.o
-                0x00000000000009a8                Print::println()
+                0x0000000000000a7c       0x18 out/Print.o
+                0x0000000000000a7c                Print::println()
  .text._ZN5Print7printlnEPKc
-                0x00000000000009c0       0x14 out/Print.o
-                0x00000000000009c0                Print::println(char const*)
+                0x0000000000000a94       0x14 out/Print.o
+                0x0000000000000a94                Print::println(char const*)
+ .text._ZN5Print7printlnEc
+                0x0000000000000aa8       0x14 out/Print.o
+                0x0000000000000aa8                Print::println(char)
  .text._ZN5Print11printNumberEmh
-                0x00000000000009d4       0x46 out/Print.o
-                0x00000000000009d4                Print::printNumber(unsigned long, unsigned char)
+                0x0000000000000abc       0x46 out/Print.o
+                0x0000000000000abc                Print::printNumber(unsigned long, unsigned char)
  .text._ZN5Print5printEmi
-                0x0000000000000a1a       0x18 out/Print.o
-                0x0000000000000a1a                Print::print(unsigned long, int)
+                0x0000000000000b02       0x18 out/Print.o
+                0x0000000000000b02                Print::print(unsigned long, int)
  .text._ZN5Print5printEhi
-                0x0000000000000a32        0x8 out/Print.o
-                0x0000000000000a32                Print::print(unsigned char, int)
- *fill*         0x0000000000000a3a        0x2 00
+                0x0000000000000b1a        0x8 out/Print.o
+                0x0000000000000b1a                Print::print(unsigned char, int)
+ .text._ZN5Print5printEli
+                0x0000000000000b22       0x3c out/Print.o
+                0x0000000000000b22                Print::print(long, int)
+ .text._ZN5Print7printlnEii
+                0x0000000000000b5e       0x14 out/Print.o
+                0x0000000000000b5e                Print::println(int, int)
+ *fill*         0x0000000000000b72        0x2 00
  .text.__register_exitproc
-                0x0000000000000a3c       0xc4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__atexit.o)
-                0x0000000000000a3c                __register_exitproc
+                0x0000000000000b74       0xc4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__atexit.o)
+                0x0000000000000b74                __register_exitproc
  .text.__libc_fini_array
-                0x0000000000000b00       0x60 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-fini.o)
-                0x0000000000000b00                __libc_fini_array
- .text.malloc   0x0000000000000b60       0x14 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-malloc.o)
-                0x0000000000000b60                malloc
+                0x0000000000000c38       0x60 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-fini.o)
+                0x0000000000000c38                __libc_fini_array
+ .text.malloc   0x0000000000000c98       0x14 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-malloc.o)
+                0x0000000000000c98                malloc
  .text._malloc_r
-                0x0000000000000b74      0x514 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mallocr.o)
-                0x0000000000000b74                _malloc_r
+                0x0000000000000cac      0x514 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mallocr.o)
+                0x0000000000000cac                _malloc_r
  .text.__malloc_lock
-                0x0000000000001088        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mlock.o)
-                0x0000000000001088                __malloc_lock
+                0x00000000000011c0        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mlock.o)
+                0x00000000000011c0                __malloc_lock
  .text.__malloc_unlock
-                0x000000000000108c        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mlock.o)
-                0x000000000000108c                __malloc_unlock
- .text._sbrk_r  0x0000000000001090       0x24 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-sbrkr.o)
-                0x0000000000001090                _sbrk_r
- .text.strlen   0x00000000000010b4       0x10 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strlen.o)
-                0x00000000000010b4                strlen
+                0x00000000000011c4        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mlock.o)
+                0x00000000000011c4                __malloc_unlock
+ .text._sbrk_r  0x00000000000011c8       0x24 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-sbrkr.o)
+                0x00000000000011c8                _sbrk_r
+ .text.strlen   0x00000000000011ec       0x10 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strlen.o)
+                0x00000000000011ec                strlen
  .text.startup.register_fini
-                0x00000000000010c4       0x18 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
- .text.atexit   0x00000000000010dc       0x10 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atexit.o)
-                0x00000000000010dc                atexit
+                0x00000000000011fc       0x18 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
+ .text.atexit   0x0000000000001214       0x10 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atexit.o)
+                0x0000000000001214                atexit
  .text._malloc_trim_r
-                0x00000000000010ec       0xa0 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-freer.o)
-                0x00000000000010ec                _malloc_trim_r
- .text._free_r  0x000000000000118c      0x190 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-freer.o)
-                0x000000000000118c                _free_r
- .text._sbrk    0x000000000000131c       0x34 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(sbrk.o)
-                0x000000000000131c                _sbrk
- .text          0x0000000000001350       0x14 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_thumb1_case_uqi.o)
-                0x0000000000001350                __gnu_thumb1_case_uqi
- .text          0x0000000000001364       0x9c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_udivsi3.o)
-                0x0000000000001364                __udivsi3
-                0x0000000000001364                __aeabi_uidiv
-                0x00000000000013ec                __aeabi_uidivmod
- .text          0x0000000000001400        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_dvmd_tls.o)
-                0x0000000000001400                __aeabi_ldiv0
-                0x0000000000001400                __aeabi_idiv0
-                0x0000000000001404                . = ALIGN (0x4)
+                0x0000000000001224       0xa0 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-freer.o)
+                0x0000000000001224                _malloc_trim_r
+ .text._free_r  0x00000000000012c4      0x190 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-freer.o)
+                0x00000000000012c4                _free_r
+ .text._sbrk    0x0000000000001454       0x34 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(sbrk.o)
+                0x0000000000001454                _sbrk
+ .text          0x0000000000001488       0x14 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_thumb1_case_uqi.o)
+                0x0000000000001488                __gnu_thumb1_case_uqi
+ .text          0x000000000000149c       0x9c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_udivsi3.o)
+                0x000000000000149c                __udivsi3
+                0x000000000000149c                __aeabi_uidiv
+                0x0000000000001524                __aeabi_uidivmod
+ .text          0x0000000000001538        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_dvmd_tls.o)
+                0x0000000000001538                __aeabi_ldiv0
+                0x0000000000001538                __aeabi_idiv0
+                0x000000000000153c                . = ALIGN (0x4)
  *(.glue_7t .glue_7)
  .glue_7        0x0000000000000000        0x0 linker stubs
  .glue_7t       0x0000000000000000        0x0 linker stubs
-                0x0000000000001404                . = ALIGN (0x4)
+                0x000000000000153c                . = ALIGN (0x4)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata._ZL18port_to_output_PGM
-                0x0000000000001404       0x14 out/wiring_digital.o
+                0x000000000000153c       0x14 out/wiring_digital.o
  .rodata._ZL27digital_pin_to_bit_mask_PGM
-                0x0000000000001418       0x28 out/wiring_digital.o
+                0x0000000000001550       0x28 out/wiring_digital.o
  .rodata._ZL23digital_pin_to_port_PGM
-                0x0000000000001440       0x14 out/wiring_digital.o
+                0x0000000000001578       0x14 out/wiring_digital.o
  .rodata._ZL16port_to_mode_PGM
-                0x0000000000001454       0x14 out/wiring_digital.o
+                0x000000000000158c       0x14 out/wiring_digital.o
  .rodata.str1.1
-                0x0000000000001468       0x53 out/sketch.o
-                                         0x73 (size before relaxing)
- *fill*         0x00000000000014bb        0x5 00
+                0x00000000000015a0       0x8e out/sketch.o
+                                         0xba (size before relaxing)
+ *fill*         0x000000000000162e        0x2 00
  .rodata._ZTV14HardwareSerial
-                0x00000000000014c0       0x20 out/HardwareSerial.o
-                0x00000000000014c0                vtable for HardwareSerial
+                0x0000000000001630       0x20 out/HardwareSerial.o
+                0x0000000000001630                vtable for HardwareSerial
  .rodata.str1.4
-                0x00000000000014e0        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
+                0x0000000000001650        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
  .rodata._global_impure_ptr
-                0x00000000000014e4        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
-                0x00000000000014e4                _global_impure_ptr
-                0x00000000000014e8                . = ALIGN (0x4)
+                0x0000000000001654        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
+                0x0000000000001654                _global_impure_ptr
+                0x0000000000001658                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00000000000014e8                . = ALIGN (0x4)
+                0x0000000000001658                . = ALIGN (0x4)
  *(.gcc_except_table)
-                0x00000000000014e8                . = ALIGN (0x4)
+                0x0000000000001658                . = ALIGN (0x4)
  *(.eh_frame_hdr)
-                0x00000000000014e8                . = ALIGN (0x4)
+                0x0000000000001658                . = ALIGN (0x4)
  *(.eh_frame)
- .eh_frame      0x00000000000014e8        0x0 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
-                0x00000000000014e8                . = ALIGN (0x4)
+ .eh_frame      0x0000000000001658        0x0 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
+                0x0000000000001658                . = ALIGN (0x4)
  *(.init)
- .init          0x00000000000014e8        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crti.o
-                0x00000000000014e8                _init
- .init          0x00000000000014ec        0x8 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtn.o
-                0x00000000000014f4                . = ALIGN (0x4)
-                0x00000000000014f4                __preinit_array_start = .
+ .init          0x0000000000001658        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crti.o
+                0x0000000000001658                _init
+ .init          0x000000000000165c        0x8 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtn.o
+                0x0000000000001664                . = ALIGN (0x4)
+                0x0000000000001664                __preinit_array_start = .
  *(.preinit_array)
-                0x00000000000014f4                . = ALIGN (0x4)
-                0x00000000000014f4                __preinit_array_end = .
-                0x00000000000014f4                __init_array_start = .
+                0x0000000000001664                . = ALIGN (0x4)
+                0x0000000000001664                __preinit_array_end = .
+                0x0000000000001664                __init_array_start = .
  *(SORT(.init_array.*))
  .init_array.00000
-                0x00000000000014f4        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
-                0x00000000000014f8                . = ALIGN (0x4)
+                0x0000000000001664        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
+                0x0000000000001668                . = ALIGN (0x4)
  *(.init_array)
- .init_array    0x00000000000014f8        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
- .init_array    0x00000000000014fc        0x4 out/HardwareSerial.o
-                0x0000000000001500                . = ALIGN (0x4)
-                0x0000000000001500                __init_array_end = .
+ .init_array    0x0000000000001668        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
+ .init_array    0x000000000000166c        0x4 out/HardwareSerial.o
+                0x0000000000001670                . = ALIGN (0x4)
+                0x0000000000001670                __init_array_end = .
  *(.fini)
- .fini          0x0000000000001500        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crti.o
-                0x0000000000001500                _fini
- .fini          0x0000000000001504        0x8 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtn.o
-                0x000000000000150c                . = ALIGN (0x4)
-                0x000000000000150c                __fini_array_start = .
+ .fini          0x0000000000001670        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crti.o
+                0x0000000000001670                _fini
+ .fini          0x0000000000001674        0x8 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtn.o
+                0x000000000000167c                . = ALIGN (0x4)
+                0x000000000000167c                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x000000000000150c        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
-                0x0000000000001510                . = ALIGN (0x4)
+ .fini_array    0x000000000000167c        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
+                0x0000000000001680                . = ALIGN (0x4)
  *(SORT(.fini_array.*))
-                0x0000000000001510                . = ALIGN (0x4)
-                0x0000000000001510                __fini_array_end = .
-                0x0000000000001510                . = ALIGN (0x4)
-                0x0000000000001510                __text_end = .
-                [0x0000000000001510]                PROVIDE (__text_end, __text_end)
+                0x0000000000001680                . = ALIGN (0x4)
+                0x0000000000001680                __fini_array_end = .
+                0x0000000000001680                . = ALIGN (0x4)
+                0x0000000000001680                __text_end = .
+                [0x0000000000001680]                PROVIDE (__text_end, __text_end)
 
-.vfp11_veneer   0x0000000000001510        0x0
+.vfp11_veneer   0x0000000000001680        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x0000000000001510        0x0
+.v4_bx          0x0000000000001680        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x0000000000001510        0x0
+.iplt           0x0000000000001680        0x0
  .iplt          0x0000000000000000        0x0 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
 
-.rel.dyn        0x0000000000001510        0x0
+.rel.dyn        0x0000000000001680        0x0
  .rel.iplt      0x0000000000000000        0x0 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
-                0x0000000000001510                . = ALIGN (0x4)
-                0x0000000000001510                __exidx_start = .
-                [0x0000000000001510]                PROVIDE (__exidx_start, __exidx_start)
+                0x0000000000001680                . = ALIGN (0x4)
+                0x0000000000001680                __exidx_start = .
+                [0x0000000000001680]                PROVIDE (__exidx_start, __exidx_start)
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0000000000001510                . = ALIGN (0x4)
-                0x0000000000001510                __exidx_end = .
-                [0x0000000000001510]                PROVIDE (__exidx_end, __exidx_end)
+                0x0000000000001680                . = ALIGN (0x4)
+                0x0000000000001680                __exidx_end = .
+                [0x0000000000001680]                PROVIDE (__exidx_end, __exidx_end)
 
-.data           0x0000000010000000      0x83c load address 0x0000000000001510
+.data           0x0000000010000000      0x83c load address 0x0000000000001680
                 0x0000000010000000                . = ALIGN (0x4)
-                0x0000000000001510                __data_init_start = LOADADDR (.data)
-                [0x0000000000001510]                PROVIDE (__data_init_start, __data_init_start)
+                0x0000000000001680                __data_init_start = LOADADDR (.data)
+                [0x0000000000001680]                PROVIDE (__data_init_start, __data_init_start)
                 0x0000000010000000                __data_start = .
                 [0x0000000010000000]                PROVIDE (__data_start, __data_start)
                 0x0000000010000000                . = ALIGN (0x4)
@@ -1720,132 +1724,136 @@ LOAD /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/
                 0x000000001000083c                __data_end = .
                 [0x000000001000083c]                PROVIDE (__data_end, __data_end)
 
-.jcr            0x000000001000083c        0x0 load address 0x0000000000001d4c
+.jcr            0x000000001000083c        0x0 load address 0x0000000000001ebc
  .jcr           0x000000001000083c        0x0 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
 
-.igot.plt       0x000000001000083c        0x0 load address 0x0000000000001d4c
+.igot.plt       0x000000001000083c        0x0 load address 0x0000000000001ebc
  .igot.plt      0x0000000000000000        0x0 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
 
-.bss            0x000000001000083c      0x2dc
-                0x000000001000083c                . = ALIGN (0x4)
-                0x000000001000083c                __bss_start = .
-                [0x000000001000083c]                PROVIDE (__bss_start, __bss_start)
-                0x000000001000083c                . = ALIGN (0x4)
+.bss            0x0000000010000840      0x2e4
+                0x0000000010000840                . = ALIGN (0x4)
+                0x0000000010000840                __bss_start = .
+                [0x0000000010000840]                PROVIDE (__bss_start, __bss_start)
+                0x0000000010000840                . = ALIGN (0x4)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x000000001000083c       0x1c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
+ .bss           0x0000000010000840       0x1c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/crtbegin.o
  .bss.timer0_overflow_count
-                0x0000000010000858        0x4 out/wiring.o
-                0x0000000010000858                timer0_overflow_count
+                0x000000001000085c        0x4 out/wiring.o
+                0x000000001000085c                timer0_overflow_count
  .bss._ZL12timer0_fract
-                0x000000001000085c        0x1 out/wiring.o
- *fill*         0x000000001000085d        0x3 00
+                0x0000000010000860        0x1 out/wiring.o
+ *fill*         0x0000000010000861        0x3 00
  .bss.timer0_millis
-                0x0000000010000860        0x4 out/wiring.o
-                0x0000000010000860                timer0_millis
- .bss.ch        0x0000000010000864        0x1 out/sketch.o
-                0x0000000010000864                ch
+                0x0000000010000864        0x4 out/wiring.o
+                0x0000000010000864                timer0_millis
+ .bss.foo_double
+                0x0000000010000868        0x8 out/sketch.o
+                0x0000000010000868                foo_double
+ .bss.ch        0x0000000010000870        0x1 out/sketch.o
+                0x0000000010000870                ch
  .bss.uart_rx_buffer
-                0x0000000010000865       0x40 out/HardwareSerial.o
-                0x0000000010000865                uart_rx_buffer
+                0x0000000010000871       0x40 out/HardwareSerial.o
+                0x0000000010000871                uart_rx_buffer
  .bss._ZZ15UART_IRQHandlervE4temp
-                0x00000000100008a5        0x1 out/HardwareSerial.o
+                0x00000000100008b1        0x1 out/HardwareSerial.o
  .bss.uart_tx_insert_idx
-                0x00000000100008a6        0x1 out/HardwareSerial.o
-                0x00000000100008a6                uart_tx_insert_idx
- *fill*         0x00000000100008a7        0x1 00
- .bss.Serial    0x00000000100008a8       0x10 out/HardwareSerial.o
-                0x00000000100008a8                Serial
+                0x00000000100008b2        0x1 out/HardwareSerial.o
+                0x00000000100008b2                uart_tx_insert_idx
+ *fill*         0x00000000100008b3        0x1 00
+ .bss.Serial    0x00000000100008b4       0x10 out/HardwareSerial.o
+                0x00000000100008b4                Serial
  .bss.uart_rx_extract_idx
-                0x00000000100008b8        0x1 out/HardwareSerial.o
-                0x00000000100008b8                uart_rx_extract_idx
+                0x00000000100008c4        0x1 out/HardwareSerial.o
+                0x00000000100008c4                uart_rx_extract_idx
  .bss.uart_tx_running
-                0x00000000100008b9        0x1 out/HardwareSerial.o
-                0x00000000100008b9                uart_tx_running
+                0x00000000100008c5        0x1 out/HardwareSerial.o
+                0x00000000100008c5                uart_tx_running
  .bss.uart_rx_insert_idx
-                0x00000000100008ba        0x1 out/HardwareSerial.o
-                0x00000000100008ba                uart_rx_insert_idx
+                0x00000000100008c6        0x1 out/HardwareSerial.o
+                0x00000000100008c6                uart_rx_insert_idx
  .bss._ZZ15UART_IRQHandlervE3iid
-                0x00000000100008bb        0x1 out/HardwareSerial.o
+                0x00000000100008c7        0x1 out/HardwareSerial.o
  .bss.uart_tx_extract_idx
-                0x00000000100008bc        0x1 out/HardwareSerial.o
-                0x00000000100008bc                uart_tx_extract_idx
+                0x00000000100008c8        0x1 out/HardwareSerial.o
+                0x00000000100008c8                uart_tx_extract_idx
  .bss.uart_tx_buffer
-                0x00000000100008bd      0x100 out/HardwareSerial.o
-                0x00000000100008bd                uart_tx_buffer
+                0x00000000100008c9      0x100 out/HardwareSerial.o
+                0x00000000100008c9                uart_tx_buffer
  .bss.I2CMasterBuffer
-                0x00000000100009bd       0x80 out/Wire.o
-                0x00000000100009bd                I2CMasterBuffer
- *fill*         0x0000000010000a3d        0x3 00
+                0x00000000100009c9       0x80 out/Wire.o
+                0x00000000100009c9                I2CMasterBuffer
+ *fill*         0x0000000010000a49        0x3 00
  .bss.I2CReadLength
-                0x0000000010000a40        0x4 out/Wire.o
-                0x0000000010000a40                I2CReadLength
+                0x0000000010000a4c        0x4 out/Wire.o
+                0x0000000010000a4c                I2CReadLength
  .bss.I2CWriteLength
-                0x0000000010000a44        0x4 out/Wire.o
-                0x0000000010000a44                I2CWriteLength
- .bss.RdIndex   0x0000000010000a48        0x4 out/Wire.o
-                0x0000000010000a48                RdIndex
- .bss.Wire      0x0000000010000a4c        0x1 out/Wire.o
-                0x0000000010000a4c                Wire
- *fill*         0x0000000010000a4d        0x3 00
- .bss.I2CMasterState
                 0x0000000010000a50        0x4 out/Wire.o
-                0x0000000010000a50                I2CMasterState
- .bss.WrIndex   0x0000000010000a54        0x4 out/Wire.o
-                0x0000000010000a54                WrIndex
- .bss.timeout   0x0000000010000a58        0x4 out/Wire.o
-                0x0000000010000a58                timeout
+                0x0000000010000a50                I2CWriteLength
+ .bss.RdIndex   0x0000000010000a54        0x4 out/Wire.o
+                0x0000000010000a54                RdIndex
+ .bss.Wire      0x0000000010000a58        0x1 out/Wire.o
+                0x0000000010000a58                Wire
+ *fill*         0x0000000010000a59        0x3 00
+ .bss.I2CMasterState
+                0x0000000010000a5c        0x4 out/Wire.o
+                0x0000000010000a5c                I2CMasterState
+ .bss.WrIndex   0x0000000010000a60        0x4 out/Wire.o
+                0x0000000010000a60                WrIndex
+ .bss.timeout   0x0000000010000a64        0x4 out/Wire.o
+                0x0000000010000a64                timeout
  .bss.I2CSlaveBuffer
-                0x0000000010000a5c       0x80 out/Wire.o
-                0x0000000010000a5c                I2CSlaveBuffer
+                0x0000000010000a68       0x80 out/Wire.o
+                0x0000000010000a68                I2CSlaveBuffer
  .bss.__malloc_max_total_mem
-                0x0000000010000adc        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mallocr.o)
-                0x0000000010000adc                __malloc_max_total_mem
+                0x0000000010000ae8        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mallocr.o)
+                0x0000000010000ae8                __malloc_max_total_mem
  .bss.__malloc_max_sbrked_mem
-                0x0000000010000ae0        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mallocr.o)
-                0x0000000010000ae0                __malloc_max_sbrked_mem
+                0x0000000010000aec        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mallocr.o)
+                0x0000000010000aec                __malloc_max_sbrked_mem
  .bss.__malloc_top_pad
-                0x0000000010000ae4        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mallocr.o)
-                0x0000000010000ae4                __malloc_top_pad
+                0x0000000010000af0        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mallocr.o)
+                0x0000000010000af0                __malloc_top_pad
  .bss.__malloc_current_mallinfo
-                0x0000000010000ae8       0x28 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mallocr.o)
-                0x0000000010000ae8                __malloc_current_mallinfo
+                0x0000000010000af4       0x28 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-mallocr.o)
+                0x0000000010000af4                __malloc_current_mallinfo
  .bss.heap_end.4231
-                0x0000000010000b10        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(sbrk.o)
-                0x0000000010000b14                . = ALIGN (0x4)
+                0x0000000010000b1c        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(sbrk.o)
+                0x0000000010000b20                . = ALIGN (0x4)
  *(COMMON)
- COMMON         0x0000000010000b14        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-reent.o)
-                0x0000000010000b14                errno
-                0x0000000010000b18                . = ALIGN (0x4)
-                0x0000000010000b18                __bss_end = .
-                [0x0000000010000b18]                PROVIDE (__bss_end, __bss_end)
-                0x0000000010000b18                end = __bss_end
+ COMMON         0x0000000010000b20        0x4 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-reent.o)
+                0x0000000010000b20                errno
+                0x0000000010000b24                . = ALIGN (0x4)
+                0x0000000010000b24                __bss_end = .
+                [0x0000000010000b24]                PROVIDE (__bss_end, __bss_end)
+                0x0000000010000b24                end = __bss_end
 
-.stack          0x0000000010000b18      0x400
-                0x0000000010000b18                . = ALIGN (0x8)
-                0x0000000010000b18                __stack_start = .
-                [0x0000000010000b18]                PROVIDE (__stack_start, __stack_start)
-                0x0000000010000b18                . = ALIGN (0x8)
-                0x0000000010000b18                __main_stack_start = .
-                [0x0000000010000b18]                PROVIDE (__main_stack_start, __main_stack_start)
-                0x0000000010000f18                . = (. + __main_stack_size)
- *fill*         0x0000000010000b18      0x400 00
-                0x0000000010000f18                . = ALIGN (0x8)
-                0x0000000010000f18                __main_stack_end = .
-                [0x0000000010000f18]                PROVIDE (__main_stack_end, __main_stack_end)
-                0x0000000010000f18                . = ALIGN (0x8)
-                0x0000000010000f18                __process_stack_start = .
-                [0x0000000010000f18]                PROVIDE (__process_stack_start, __process_stack_start)
-                0x0000000010000f18                . = (. + __process_stack_size)
-                0x0000000010000f18                . = ALIGN (0x8)
-                0x0000000010000f18                __process_stack_end = .
-                [0x0000000010000f18]                PROVIDE (__process_stack_end, __process_stack_end)
-                0x0000000010000f18                . = ALIGN (0x8)
-                0x0000000010000f18                __stack_end = .
-                [0x0000000010000f18]                PROVIDE (__stack_end, __stack_end)
-                0x0000000010000f18                . = ALIGN (0x4)
-                0x0000000010000f18                __heap_start = .
-                [0x0000000010000f18]                PROVIDE (__heap_start, __heap_start)
-                0x0000000010000f18                . = ALIGN (0x4)
+.stack          0x0000000010000b24      0x404
+                0x0000000010000b28                . = ALIGN (0x8)
+ *fill*         0x0000000010000b24        0x4 00
+                0x0000000010000b28                __stack_start = .
+                [0x0000000010000b28]                PROVIDE (__stack_start, __stack_start)
+                0x0000000010000b28                . = ALIGN (0x8)
+                0x0000000010000b28                __main_stack_start = .
+                [0x0000000010000b28]                PROVIDE (__main_stack_start, __main_stack_start)
+                0x0000000010000f28                . = (. + __main_stack_size)
+ *fill*         0x0000000010000b28      0x400 00
+                0x0000000010000f28                . = ALIGN (0x8)
+                0x0000000010000f28                __main_stack_end = .
+                [0x0000000010000f28]                PROVIDE (__main_stack_end, __main_stack_end)
+                0x0000000010000f28                . = ALIGN (0x8)
+                0x0000000010000f28                __process_stack_start = .
+                [0x0000000010000f28]                PROVIDE (__process_stack_start, __process_stack_start)
+                0x0000000010000f28                . = (. + __process_stack_size)
+                0x0000000010000f28                . = ALIGN (0x8)
+                0x0000000010000f28                __process_stack_end = .
+                [0x0000000010000f28]                PROVIDE (__process_stack_end, __process_stack_end)
+                0x0000000010000f28                . = ALIGN (0x8)
+                0x0000000010000f28                __stack_end = .
+                [0x0000000010000f28]                PROVIDE (__stack_end, __stack_end)
+                0x0000000010000f28                . = ALIGN (0x4)
+                0x0000000010000f28                __heap_start = .
+                [0x0000000010000f28]                PROVIDE (__heap_start, __heap_start)
+                0x0000000010000f28                . = ALIGN (0x4)
                 0x0000000010001000                __heap_end = __ram_end
                 [0x0000000010001000]                PROVIDE (__heap_end, __heap_end)
 
@@ -1897,50 +1905,50 @@ LOAD /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0xa39e
+.debug_info     0x0000000000000000     0xa565
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x147 out/lpc1114.o
  .debug_info    0x0000000000000147      0x398 out/wiring_digital.o
  .debug_info    0x00000000000004df      0x610 out/printf.o
  .debug_info    0x0000000000000aef      0x28c out/wiring.o
- .debug_info    0x0000000000000d7b      0x6ab out/sketch.o
- .debug_info    0x0000000000001426     0x3290 out/WString.o
- .debug_info    0x00000000000046b6     0x163b out/HardwareSerial.o
- .debug_info    0x0000000000005cf1       0xf7 out/main.o
- .debug_info    0x0000000000005de8      0x82f out/Wire.o
- .debug_info    0x0000000000006617      0x234 out/new.o
- .debug_info    0x000000000000684b     0x1940 out/Stream.o
- .debug_info    0x000000000000818b     0x2213 out/Print.o
+ .debug_info    0x0000000000000d7b      0x872 out/sketch.o
+ .debug_info    0x00000000000015ed     0x3290 out/WString.o
+ .debug_info    0x000000000000487d     0x163b out/HardwareSerial.o
+ .debug_info    0x0000000000005eb8       0xf7 out/main.o
+ .debug_info    0x0000000000005faf      0x82f out/Wire.o
+ .debug_info    0x00000000000067de      0x234 out/new.o
+ .debug_info    0x0000000000006a12     0x1940 out/Stream.o
+ .debug_info    0x0000000000008352     0x2213 out/Print.o
 
-.debug_abbrev   0x0000000000000000     0x1be9
+.debug_abbrev   0x0000000000000000     0x1bfa
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000       0xf6 out/lpc1114.o
  .debug_abbrev  0x00000000000000f6      0x171 out/wiring_digital.o
  .debug_abbrev  0x0000000000000267      0x28e out/printf.o
  .debug_abbrev  0x00000000000004f5      0x10d out/wiring.o
- .debug_abbrev  0x0000000000000602      0x1b8 out/sketch.o
- .debug_abbrev  0x00000000000007ba      0x430 out/WString.o
- .debug_abbrev  0x0000000000000bea      0x3dc out/HardwareSerial.o
- .debug_abbrev  0x0000000000000fc6       0x66 out/main.o
- .debug_abbrev  0x000000000000102c      0x291 out/Wire.o
- .debug_abbrev  0x00000000000012bd      0x12c out/new.o
- .debug_abbrev  0x00000000000013e9      0x404 out/Stream.o
- .debug_abbrev  0x00000000000017ed      0x3fc out/Print.o
+ .debug_abbrev  0x0000000000000602      0x1c9 out/sketch.o
+ .debug_abbrev  0x00000000000007cb      0x430 out/WString.o
+ .debug_abbrev  0x0000000000000bfb      0x3dc out/HardwareSerial.o
+ .debug_abbrev  0x0000000000000fd7       0x66 out/main.o
+ .debug_abbrev  0x000000000000103d      0x291 out/Wire.o
+ .debug_abbrev  0x00000000000012ce      0x12c out/new.o
+ .debug_abbrev  0x00000000000013fa      0x404 out/Stream.o
+ .debug_abbrev  0x00000000000017fe      0x3fc out/Print.o
 
-.debug_line     0x0000000000000000     0x389e
+.debug_line     0x0000000000000000     0x38b1
  *(.debug_line)
  .debug_line    0x0000000000000000       0x6f out/lpc1114.o
  .debug_line    0x000000000000006f      0x446 out/wiring_digital.o
  .debug_line    0x00000000000004b5      0x1f9 out/printf.o
  .debug_line    0x00000000000006ae      0x4a3 out/wiring.o
- .debug_line    0x0000000000000b51      0x419 out/sketch.o
- .debug_line    0x0000000000000f6a      0xb1b out/WString.o
- .debug_line    0x0000000000001a85      0x533 out/HardwareSerial.o
- .debug_line    0x0000000000001fb8      0x3d6 out/main.o
- .debug_line    0x000000000000238e      0x56e out/Wire.o
- .debug_line    0x00000000000028fc      0x347 out/new.o
- .debug_line    0x0000000000002c43      0x5b2 out/Stream.o
- .debug_line    0x00000000000031f5      0x6a9 out/Print.o
+ .debug_line    0x0000000000000b51      0x42c out/sketch.o
+ .debug_line    0x0000000000000f7d      0xb1b out/WString.o
+ .debug_line    0x0000000000001a98      0x533 out/HardwareSerial.o
+ .debug_line    0x0000000000001fcb      0x3d6 out/main.o
+ .debug_line    0x00000000000023a1      0x56e out/Wire.o
+ .debug_line    0x000000000000290f      0x347 out/new.o
+ .debug_line    0x0000000000002c56      0x5b2 out/Stream.o
+ .debug_line    0x0000000000003208      0x6a9 out/Print.o
 
 .debug_frame    0x0000000000000000     0x2290
  *(.debug_frame)
@@ -2017,7 +2025,7 @@ LOAD /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/
  .debug_frame   0x0000000000002234       0x2c /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(extendsfdf2.o)
  .debug_frame   0x0000000000002260       0x30 /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(truncdfsf2.o)
 
-.debug_str      0x0000000000000000     0x9851
+.debug_str      0x0000000000000000     0x98af
  *(.debug_str)
  .debug_str     0x0000000000000000     0x2299 out/lpc1114.o
  .debug_str     0x0000000000002299     0x4e9c out/wiring_digital.o
@@ -2026,21 +2034,21 @@ LOAD /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/
                                        0x247d (size before relaxing)
  .debug_str     0x0000000000007200      0x19a out/wiring.o
                                        0x723f (size before relaxing)
- .debug_str     0x000000000000739a      0x31b out/sketch.o
-                                       0x7400 (size before relaxing)
- .debug_str     0x00000000000076b5      0xb57 out/WString.o
+ .debug_str     0x000000000000739a      0x390 out/sketch.o
+                                       0x747d (size before relaxing)
+ .debug_str     0x000000000000772a      0xb57 out/WString.o
                                        0x4de6 (size before relaxing)
- .debug_str     0x000000000000820c      0x4c8 out/HardwareSerial.o
+ .debug_str     0x0000000000008281      0x4c8 out/HardwareSerial.o
                                        0x7e00 (size before relaxing)
- .debug_str     0x00000000000086d4        0x9 out/main.o
+ .debug_str     0x0000000000008749        0x9 out/main.o
                                        0x70c9 (size before relaxing)
- .debug_str     0x00000000000086dd      0x3b3 out/Wire.o
+ .debug_str     0x0000000000008752      0x3b3 out/Wire.o
                                        0x764d (size before relaxing)
- .debug_str     0x0000000000008a90       0xab out/new.o
+ .debug_str     0x0000000000008b05       0xab out/new.o
                                        0x402d (size before relaxing)
- .debug_str     0x0000000000008b3b       0x8b out/Stream.o
+ .debug_str     0x0000000000008bb0       0x8b out/Stream.o
                                        0x7be4 (size before relaxing)
- .debug_str     0x0000000000008bc6      0xc8b out/Print.o
+ .debug_str     0x0000000000008c3b      0xc74 out/Print.o
                                        0x85ac (size before relaxing)
 
 .debug_loc      0x0000000000000000     0x53b3
@@ -2248,12 +2256,12 @@ LOAD /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/
 
 /DISCARD/
  *(.note.GNU-stack)
-                0x0000000000001510                PROVIDE (__text_size, (__text_end - __text_start))
+                0x0000000000001680                PROVIDE (__text_size, (__text_end - __text_start))
                 0x0000000000000000                PROVIDE (__exidx_size, (__exidx_end - __exidx_start))
                 0x000000000000083c                PROVIDE (__data_size, (__data_end - __data_start))
-                0x00000000000002dc                PROVIDE (__bss_size, (__bss_end - __bss_start))
+                0x00000000000002e4                PROVIDE (__bss_size, (__bss_end - __bss_start))
                 0x0000000000000400                PROVIDE (__stack_size, (__stack_end - __stack_start))
-                0x00000000000000e8                PROVIDE (__heap_size, (__heap_end - __heap_start))
+                0x00000000000000d8                PROVIDE (__heap_size, (__heap_end - __heap_start))
 OUTPUT(out/project.elf elf32-littlearm)
 
 .debug_ranges   0x0000000000000000      0xae8
@@ -2270,7 +2278,7 @@ OUTPUT(out/project.elf elf32-littlearm)
  .debug_ranges  0x0000000000000750      0x138 out/Stream.o
  .debug_ranges  0x0000000000000888      0x260 out/Print.o
 
-.debug_macro    0x0000000000000000     0x3361
+.debug_macro    0x0000000000000000     0x3373
  .debug_macro   0x0000000000000000       0x11 out/lpc1114.o
  .debug_macro   0x0000000000000011      0x7f6 out/lpc1114.o
  .debug_macro   0x0000000000000807      0x1ee out/wiring_digital.o
@@ -2311,23 +2319,23 @@ OUTPUT(out/project.elf elf32-littlearm)
  .debug_macro   0x0000000000001c43       0x29 out/printf.o
  .debug_macro   0x0000000000001c6c       0x58 out/printf.o
  .debug_macro   0x0000000000001cc4      0x1f7 out/wiring.o
- .debug_macro   0x0000000000001ebb      0x200 out/sketch.o
- .debug_macro   0x00000000000020bb       0x10 out/sketch.o
- .debug_macro   0x00000000000020cb      0x125 out/WString.o
- .debug_macro   0x00000000000021f0      0x100 out/WString.o
- .debug_macro   0x00000000000022f0       0x29 out/WString.o
- .debug_macro   0x0000000000002319       0x12 out/WString.o
- .debug_macro   0x000000000000232b      0x20c out/HardwareSerial.o
- .debug_macro   0x0000000000002537       0x16 out/HardwareSerial.o
- .debug_macro   0x000000000000254d      0x214 out/HardwareSerial.o
- .debug_macro   0x0000000000002761      0x1db out/main.o
- .debug_macro   0x000000000000293c      0x2be out/Wire.o
- .debug_macro   0x0000000000002bfa       0x12 out/Wire.o
- .debug_macro   0x0000000000002c0c       0xd1 out/new.o
- .debug_macro   0x0000000000002cdd      0x1e1 out/Stream.o
- .debug_macro   0x0000000000002ebe       0xf5 out/Stream.o
- .debug_macro   0x0000000000002fb3      0x1e2 out/Print.o
- .debug_macro   0x0000000000003195      0x1cc out/Print.o
+ .debug_macro   0x0000000000001ebb      0x212 out/sketch.o
+ .debug_macro   0x00000000000020cd       0x10 out/sketch.o
+ .debug_macro   0x00000000000020dd      0x125 out/WString.o
+ .debug_macro   0x0000000000002202      0x100 out/WString.o
+ .debug_macro   0x0000000000002302       0x29 out/WString.o
+ .debug_macro   0x000000000000232b       0x12 out/WString.o
+ .debug_macro   0x000000000000233d      0x20c out/HardwareSerial.o
+ .debug_macro   0x0000000000002549       0x16 out/HardwareSerial.o
+ .debug_macro   0x000000000000255f      0x214 out/HardwareSerial.o
+ .debug_macro   0x0000000000002773      0x1db out/main.o
+ .debug_macro   0x000000000000294e      0x2be out/Wire.o
+ .debug_macro   0x0000000000002c0c       0x12 out/Wire.o
+ .debug_macro   0x0000000000002c1e       0xd1 out/new.o
+ .debug_macro   0x0000000000002cef      0x1e1 out/Stream.o
+ .debug_macro   0x0000000000002ed0       0xf5 out/Stream.o
+ .debug_macro   0x0000000000002fc5      0x1e2 out/Print.o
+ .debug_macro   0x00000000000031a7      0x1cc out/Print.o
 
 .comment        0x0000000000000000       0x70
  .comment       0x0000000000000000       0x70 out/lpc1114.o
@@ -2377,7 +2385,6 @@ Print::print(String const&)                       out/Print.o
 Print::print(char const*)                         out/Print.o
                                                   out/sketch.o
 Print::print(char)                                out/Print.o
-                                                  out/sketch.o
 Print::print(double, int)                         out/Print.o
 Print::print(int, int)                            out/Print.o
 Print::print(long, int)                           out/Print.o
@@ -2393,8 +2400,10 @@ Print::println(String const&)                     out/Print.o
 Print::println(char const*)                       out/Print.o
                                                   out/sketch.o
 Print::println(char)                              out/Print.o
+                                                  out/sketch.o
 Print::println(double, int)                       out/Print.o
 Print::println(int, int)                          out/Print.o
+                                                  out/sketch.o
 Print::println(long, int)                         out/Print.o
 Print::println(unsigned char, int)                out/Print.o
 Print::println(unsigned int, int)                 out/Print.o
@@ -2514,6 +2523,7 @@ TwoWire::requestFrom(int, int, int)               out/Wire.o
 TwoWire::requestFrom(unsigned char, unsigned char) out/Wire.o
 TwoWire::requestFrom(unsigned char, unsigned char, unsigned char) out/Wire.o
 TwoWire::write(unsigned char)                     out/Wire.o
+                                                  out/sketch.o
 UART_IRQHandler()                                 out/HardwareSerial.o
                                                   out/lpc1114.o
 Wire                                              out/Wire.o
@@ -2652,6 +2662,7 @@ __gethex                                          /Users/stevenparker/toolchains
                                                   /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strtod.o)
 __gnu_thumb1_case_uqi                             /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(_thumb1_case_uqi.o)
                                                   out/HardwareSerial.o
+                                                  out/sketch.o
 __gtdf2                                           /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/armv6-m/libgcc.a(gedf2.o)
 __hexdig                                          /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-gdtoa-hexnan.o)
                                                   /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-gdtoa-gethex.o)
@@ -2810,6 +2821,7 @@ errno                                             /Users/stevenparker/toolchains
                                                   /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-sbrkr.o)
 exit                                              /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-exit.o)
                                                   /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+foo_double                                        out/sketch.o
 free                                              /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-malloc.o)
                                                   /Users/stevenparker/toolchains/gcc-arm-none-eabi-4_7-2013q2/bin/../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
                                                   out/new.o

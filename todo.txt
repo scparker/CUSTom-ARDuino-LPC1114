@@ -1,5 +1,6 @@
+expand Print to include HEX, BIN, and OCT
+expand String routines to include double
 i2c driver port
 spi driver port
 stickers for lpc1114
-expand Print to include HEX, BIN, and OCT
 wiring_analog port

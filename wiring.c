@@ -60,6 +60,7 @@ void TIMER0_OVF_vect()
   timer0_millis = m;
   timer0_overflow_count++;
 
+  //  Clear the interrupt flag
   TMR16B0IR     = 1;
 }
 
@@ -90,6 +91,7 @@ unsigned long micros() {
 
   interrupts();
 
+  //  there's a typecasting issue here with t.  
   return (m*1000) + (0xffff && t);
 }
 
@@ -120,7 +122,8 @@ void delayMicroseconds(unsigned int us)
 void init()
 {
   uint32_t i;
-  
+
+  //  run the PLL at 48 mhz using the 12 mhz internal resonator as the source
   PDRUNCFG     &= ~(1 << 5);          // Power-up System Osc      
   SYSOSCCTRL    = 0x00000000;
   for (i = 0; i < 200; i++) asm("nop");
@@ -142,11 +145,13 @@ void init()
   SYSAHBCLKCTRL = 0x3FFFF;
 
   //  configure timers
-  TMR16B0PR     = 47;
-  TMR16B0MCR    = 3;
-  TMR16B0MR0    = 1000;
-  ISER          = 0x10000;             // Enable timer0 interrupt
-  TMR16B0TCR    = 0x1;
+  //  the concept here is to run the TMR16B0 at 1 Mhz (tick per microsecond) 
+  //  and run the ISR ever millisecond.
+  TMR16B0PR     = 47;                  // divide the 48 Mhz clock by 48
+  TMR16B0MCR    = 3;                   // reset and interrupt on match
+  TMR16B0MR0    = 1000;                // matching on 1000
+  ISER          = 0x10000;             // enable timer0 interrupt
+  TMR16B0TCR    = 0x1;                 // enable timer
 
 }
 
