@@ -85,6 +85,7 @@ volatile uint8_t I2CMasterBuffer[I2C_BUFSIZE];
 volatile uint8_t I2CSlaveBuffer[I2C_BUFSIZE];
 volatile uint32_t I2CCount = 0;
 volatile uint32_t I2CReadLength;
+volatile uint32_t I2CReadIndex;
 volatile uint32_t I2CWriteLength;
 
 volatile uint32_t RdIndex = 0;
@@ -304,6 +305,7 @@ void I2C_IRQHandler(void)
  uint8_t TwoWire::requestFrom(uint8_t address, uint8_t quantity, uint8_t sendStop)
  {
    I2CReadLength = quantity;
+   I2CReadIndex = 0;
    I2CMasterBuffer[1] = address;
    I2CMasterBuffer[2] = I2CMasterBuffer[0] | RD_BIT;
    I2CWriteLength += 1;
@@ -371,14 +373,32 @@ size_t TwoWire::write(uint8_t data)
 }
 
 // must be called in:
+// slave tx event callback
+// or after beginTransmission(address)
+size_t TwoWire::write(uint8_t *data, size_t quantity)
+{
+  if(1){
+    // in master transmitter mode
+    for(size_t i = 0; i < quantity; ++i){
+      write(data[i]);
+    }
+  }else{
+    // in slave send mode
+    // reply to master
+    //twi_transmit(data, quantity);
+  }
+  return quantity;
+}
+
+// must be called in:
 // slave rx event callback
 // or after requestFrom(address, numBytes)
 uint8_t TwoWire::read(void)
 {
   int value = -1;
   
-  value = I2CSlaveBuffer[I2CReadLength-1];
-  I2CReadLength--;
+  if(I2CReadIndex<I2CReadLength)
+    value = I2CSlaveBuffer[I2CReadIndex++];
 
   return value;
 }
