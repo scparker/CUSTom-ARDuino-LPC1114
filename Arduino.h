@@ -1,3 +1,4 @@
+#include "Wire.h"
 #include <stdint.h>
 #include "lpc.h"
 #include "HardwareSerial.h"
