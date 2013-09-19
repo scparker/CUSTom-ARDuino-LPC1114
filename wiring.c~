@@ -147,25 +147,12 @@ void init()
   //  configure timers
   //  the concept here is to run the TMR16B0 at 1 Mhz (tick per microsecond) 
   //  and run the ISR ever millisecond.
-
-  //  Timer 16B0
   TMR16B0PR     = 47;                  // divide the 48 Mhz clock by 48
   TMR16B0MCR    = 3;                   // reset and interrupt on match
   TMR16B0MR0    = 1000;                // matching on 1000
   ISER          = 0x10000;             // enable timer0 interrupt
   TMR16B0TCR    = 0x1;                 // enable timer
 
-  //  Timer 16B1
-  TMR16B1PR     = 47;                  // divide the 48 Mhz clock by 48
-  TMR16B1TCR    = 0x1;                 // enable timer
-
-  //  Timer 32B0
-  TMR32B0PR     = 47;                  // divide the 48 Mhz clock by 48
-  TMR32B0TCR    = 0x1;                 // enable timer
-
-  //  Timer 32B1
-  TMR32B1PR     = 47;                  // divide the 48 Mhz clock by 48
-  TMR32B1TCR    = 0x1;                 // enable timer
 }
 
 

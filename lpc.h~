@@ -38,49 +38,20 @@
 #define PDRUNCFG      MMIO(0x40048238)
 
 //  GPIO Registers
-#define GPIO0DIR  MMIO(0x50008000)
+#define GPIO0DIR MMIO(0x50008000)
 #define GPIO0DATA MMIO(0x50003FFC)
-#define GPIO1DIR  MMIO(0x50018000)
+#define GPIO1DIR MMIO(0x50018000)
 #define GPIO1DATA MMIO(0x50013FFC)
 
-////////////////////////////////////////////////////////////////////////////////
 //  Timer Registers
-////////////////////////////////////////////////////////////////////////////////
-
-//  Timer 16B0
 #define TMR16B0IR  MMIO(0x4000C000)
+#define  MR0INT    0
+
 #define TMR16B0TCR MMIO(0x4000C004)
 #define TMR16B0TC  MMIO(0x4000C008)
 #define TMR16B0PR  MMIO(0x4000C00C)
 #define TMR16B0MCR MMIO(0x4000C014)
 #define TMR16B0MR0 MMIO(0x4000C018)
-
-//  Timer 16B1
-#define TMR16B1IR  MMIO(0x40010000)
-#define TMR16B1TCR MMIO(0x40010004)
-#define TMR16B1TC  MMIO(0x40010008)
-#define TMR16B1PR  MMIO(0x4001000C)
-#define TMR16B1MCR MMIO(0x40010014)
-#define TMR16B1MR0 MMIO(0x40010018)
-
-//  Timer 32B0
-#define TMR32B0IR  MMIO(0x40014000)
-#define TMR32B0TCR MMIO(0x40014004)
-#define TMR32B0TC  MMIO(0x40014008)
-#define TMR32B0PR  MMIO(0x4001400C)
-#define TMR32B0MCR MMIO(0x40014014)
-#define TMR32B0MR0 MMIO(0x40014018)
-
-//  Timer 32B1
-#define TMR32B1IR  MMIO(0x40018000)
-#define TMR32B1TCR MMIO(0x40018004)
-#define TMR32B1TC  MMIO(0x40018008)
-#define TMR32B1PR  MMIO(0x4001800C)
-#define TMR32B1MCR MMIO(0x40018014)
-#define TMR32B1MR0 MMIO(0x40018018)
-
-//  Timer bit definitions
-#define MR0INT     0
 
 //  SYS Tick Variables
 #define SYST_CSR MMIO(0xE000E010)
