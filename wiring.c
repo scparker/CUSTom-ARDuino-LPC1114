@@ -86,13 +86,15 @@ unsigned long micros() {
   t = TMR16B0TC;
 
   // if there is a pending overflow - increment by 1
-  if (TMR16B0IR & _BV(MR0INT))
+  if ((TMR16B0IR & _BV(MR0INT)) && (t<999))
+    {
       m++;
+    }
 
   interrupts();
 
   //  there's a typecasting issue here with t.  
-  return (m*1000) + (0xffff & t);
+  return (m*1000) + t;
 }
 
 void delay(unsigned long ms)
